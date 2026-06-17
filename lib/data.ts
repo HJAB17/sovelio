@@ -1,4 +1,4 @@
-export type Category = 'email' | 'bureautique' | 'ia' | 'drive' | 'cloud' | 'securite' | 'navigateur' | 'os';
+export type Category = 'email' | 'bureautique' | 'ia' | 'drive' | 'cloud' | 'securite' | 'navigateur' | 'os' | 'visioconference' | 'moteurs-recherche' | 'vpn' | 'gestion-projet' | 'identite' | 'analytique' | 'materiel';
 
 export type Solution = {
   id: string;
@@ -26,6 +26,13 @@ export const categories: { id: Category; name: string; icon: string }[] = [
   { id: 'securite', name: 'Sécurité', icon: 'ShieldCheckIcon' },
   { id: 'navigateur', name: 'Navigateur', icon: 'GlobeAltIcon' },
   { id: 'os', name: "Système d'exploitation", icon: 'ComputerDesktopIcon' },
+  { id: 'visioconference', name: 'Visioconférence & Communication', icon: 'VideoCameraIcon' },
+  { id: 'moteurs-recherche', name: 'Moteurs de recherche', icon: 'MagnifyingGlassIcon' },
+  { id: 'vpn', name: 'VPN & Réseau privé', icon: 'LockClosedIcon' },
+  { id: 'gestion-projet', name: 'Gestion de projet & DevOps', icon: 'ClipboardDocumentListIcon' },
+  { id: 'identite', name: 'Identité & Authentification', icon: 'FingerPrintIcon' },
+  { id: 'analytique', name: 'Analytique web', icon: 'ChartBarIcon' },
+  { id: 'materiel', name: 'Matériel souverain', icon: 'CpuChipIcon' },
 ];
 
 export const solutions: Solution[] = [
@@ -922,6 +929,454 @@ export const solutions: Solution[] = [
       certifications: []
     },
     websiteUrl: 'https://www.whonix.org'
+  },
+
+  // ============================================
+  // VISIOCONFERENCE - Visioconférence & Communication
+  // ============================================
+  {
+    id: 'jitsi',
+    name: 'Jitsi Meet',
+    category: 'visioconference',
+    country: 'EU',
+    logoUrl: '/logos/jitsi.svg',
+    description: 'Solution open source de visioconférence, déployable on-premise ou sur instances EU, chiffrement E2E, sans compte requis',
+    labels: ['Open Source', 'On-Premise', 'No Account Required'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'On-premise ou instances EU (France, Allemagne, Suisse…)',
+      jurisdiction: 'Variable selon hébergeur (UE disponible)',
+      certifications: ['Open Source', 'RGPD-compatible']
+    },
+    websiteUrl: 'https://jitsi.org'
+  },
+  {
+    id: 'bigbluebutton',
+    name: 'BigBlueButton',
+    category: 'visioconference',
+    country: 'EU',
+    logoUrl: '/logos/bigbluebutton.svg',
+    description: 'Plateforme open source de webinaire/classe virtuelle, déployable sur infra souveraine, très adoptée dans l\'éducation publique européenne',
+    labels: ['Open Source', 'Education', 'On-Premise'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'On-premise (serveurs EU)',
+      jurisdiction: 'Variable selon hébergeur (UE possible)',
+      certifications: ['Open Source', 'RGPD-compatible']
+    },
+    websiteUrl: 'https://bigbluebutton.org'
+  },
+  {
+    id: 'tchap',
+    name: 'Tchap',
+    category: 'visioconference',
+    country: 'FR',
+    logoUrl: '/logos/tchap.svg',
+    description: 'Messagerie instantanée chiffrée de l\'État français (DINUM), basée sur Matrix/Element, pour agents publics et secteur public élargi',
+    labels: ['État Français', 'Matrix Protocol', 'Secteur public'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: '100% France (DINUM)',
+      jurisdiction: 'France (UE)',
+      certifications: ['ANSSI', 'RGPD']
+    },
+    websiteUrl: 'https://www.tchap.gouv.fr'
+  },
+  {
+    id: 'olvid',
+    name: 'Olvid',
+    category: 'visioconference',
+    country: 'FR',
+    logoUrl: '/logos/olvid.svg',
+    description: 'Messagerie souveraine certifiée CSPN par l\'ANSSI, chiffrement E2E sans serveur central de gestion des identités, recommandée officiellement par le gouvernement',
+    labels: ['CSPN ANSSI', 'Zero Trust', 'End-to-End Encryption'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'France (option on-premise entreprise)',
+      jurisdiction: 'France (UE)',
+      certifications: ['CSPN ANSSI', 'RGPD']
+    },
+    websiteUrl: 'https://olvid.io'
+  },
+  {
+    id: 'element',
+    name: 'Element (Matrix)',
+    category: 'visioconference',
+    country: 'EU',
+    logoUrl: '/logos/element.svg',
+    description: 'Messagerie fédérée décentralisée basée sur le protocole Matrix, utilisée par plusieurs gouvernements européens, hébergeable sur infra souveraine UE',
+    labels: ['Matrix Protocol', 'Federated', 'On-Premise'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'On-premise ou serveurs UE',
+      jurisdiction: 'Royaume-Uni / UE selon déploiement',
+      certifications: ['Open Source', 'RGPD-compatible']
+    },
+    websiteUrl: 'https://element.io'
+  },
+
+  // ============================================
+  // SECURITE - Gestion des mots de passe
+  // ============================================
+  {
+    id: 'passbolt',
+    name: 'Passbolt',
+    category: 'securite',
+    country: 'EU',
+    logoUrl: '/logos/passbolt.svg',
+    description: 'Gestionnaire de mots de passe open source orienté équipes, basé au Luxembourg, zero-knowledge, auto-hébergeable, API ouverte',
+    labels: ['Open Source', 'Team Password Manager', 'Zero Knowledge'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'Luxembourg ou on-premise',
+      jurisdiction: 'Luxembourg (UE)',
+      certifications: ['RGPD', 'ISO 27001 (en cours)', 'Open Source']
+    },
+    websiteUrl: 'https://www.passbolt.com'
+  },
+  {
+    id: 'padloc',
+    name: 'Padloc',
+    category: 'securite',
+    country: 'EU',
+    logoUrl: '/logos/padloc.svg',
+    description: 'Gestionnaire de mots de passe open source allemand, chiffrement E2E zero-knowledge, interface moderne, auto-hébergeable',
+    labels: ['Open Source', 'Zero Knowledge', 'End-to-End Encryption'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'Allemagne ou on-premise',
+      jurisdiction: 'Allemagne (UE)',
+      certifications: ['RGPD', 'Open Source']
+    },
+    websiteUrl: 'https://padloc.app'
+  },
+  {
+    id: 'keepassxc',
+    name: 'KeePassXC',
+    category: 'securite',
+    country: 'EU',
+    logoUrl: '/logos/keepassxc.svg',
+    description: 'Fork communautaire de KeePass, 100% local, aucun serveur tiers, chiffrement AES-256, référence open source européenne, multiplateforme',
+    labels: ['Open Source', '100% Local', 'No Cloud'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: '100% local (aucun serveur)',
+      jurisdiction: 'Communautaire Europe',
+      certifications: ['Open Source', 'Audit sécurité indépendant']
+    },
+    websiteUrl: 'https://keepassxc.org'
+  },
+
+  // ============================================
+  // MOTEURS-RECHERCHE - Moteurs de recherche
+  // ============================================
+  {
+    id: 'qwant',
+    name: 'Qwant',
+    category: 'moteurs-recherche',
+    country: 'FR',
+    logoUrl: '/logos/qwant.svg',
+    description: 'Moteur de recherche français sans tracking, index propre partiel, hébergé en France/UE, financement sans publicité ciblée comportementale',
+    labels: ['No Tracking', 'French Tech', 'No Behavioral Ads'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: '100% France',
+      jurisdiction: 'France (UE)',
+      certifications: ['RGPD', 'Label French Tech']
+    },
+    websiteUrl: 'https://www.qwant.com'
+  },
+  {
+    id: 'ecosia',
+    name: 'Ecosia',
+    category: 'moteurs-recherche',
+    country: 'EU',
+    logoUrl: '/logos/ecosia.svg',
+    description: 'Moteur de recherche allemand non-lucratif, sans tracking exhaustif, revenus réinvestis en reforestation, serveurs en Allemagne',
+    labels: ['Non-Profit', 'Green Search', 'GDPR Compliant'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'Allemagne (UE)',
+      jurisdiction: 'Allemagne (UE)',
+      certifications: ['RGPD', 'B Corp', 'modèle non-lucratif']
+    },
+    websiteUrl: 'https://www.ecosia.org'
+  },
+  {
+    id: 'startpage',
+    name: 'Startpage',
+    category: 'moteurs-recherche',
+    country: 'EU',
+    logoUrl: '/logos/startpage.svg',
+    description: 'Moteur de recherche néerlandais, proxy anonymisant sur Google, aucune collecte de données personnelles, juridiction UE',
+    labels: ['Anonymous Search', 'No Data Collection', 'Google Proxy'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'Pays-Bas (UE)',
+      jurisdiction: 'Pays-Bas (UE)',
+      certifications: ['RGPD', 'European Privacy Seal']
+    },
+    websiteUrl: 'https://www.startpage.com'
+  },
+  {
+    id: 'brave-search',
+    name: 'Brave Search',
+    category: 'moteurs-recherche',
+    country: 'EU',
+    logoUrl: '/logos/brave-search.svg',
+    description: 'Moteur de recherche à index indépendant (partiellement hébergé en UE), sans tracking, sans profil publicitaire, API ouverte',
+    labels: ['Independent Index', 'No Tracking', 'Open API'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'Europe (UE partiel)',
+      jurisdiction: 'USA (siège) / Données EU',
+      certifications: ['RGPD-compatible']
+    },
+    websiteUrl: 'https://search.brave.com'
+  },
+
+  // ============================================
+  // VPN - VPN & Réseau privé
+  // ============================================
+  {
+    id: 'mullvad-vpn',
+    name: 'Mullvad VPN',
+    category: 'vpn',
+    country: 'EU',
+    logoUrl: '/logos/mullvad-vpn.svg',
+    description: 'VPN suédois sans logs, sans compte nominatif, paiement en cash ou crypto possible, infrastructure propre, parmi les plus audités d\'Europe',
+    labels: ['No Logs', 'No Account Required', 'Audited'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'Suède + serveurs propres EU',
+      jurisdiction: 'Suède (UE)',
+      certifications: ['RGPD', 'Audit indépendant Cure53']
+    },
+    websiteUrl: 'https://mullvad.net'
+  },
+  {
+    id: 'protonvpn',
+    name: 'ProtonVPN',
+    category: 'vpn',
+    country: 'EU',
+    logoUrl: '/logos/protonvpn.svg',
+    description: 'VPN suisse open source, sans logs audité, hors CLOUD Act, infrastructure propre, intégré à l\'écosystème Proton',
+    labels: ['Open Source', 'Swiss Privacy', 'No Logs Audited'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'Suisse + serveurs EU',
+      jurisdiction: 'Suisse (hors CLOUD Act)',
+      certifications: ['Swiss Privacy Laws', 'Audit Cure53']
+    },
+    websiteUrl: 'https://protonvpn.com'
+  },
+  {
+    id: 'ivpn',
+    name: 'IVPN',
+    category: 'vpn',
+    country: 'EU',
+    logoUrl: '/logos/ivpn.svg',
+    description: 'VPN maltais (UE), strict no-logs vérifié par audit, open source, sans abonnement nominatif, axé confidentialité maximale',
+    labels: ['No Logs Verified', 'Open Source', 'EU Jurisdiction'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'Malte (UE) + serveurs EU',
+      jurisdiction: 'Malte (UE)',
+      certifications: ['RGPD', 'Audit indépendant']
+    },
+    websiteUrl: 'https://www.ivpn.net'
+  },
+
+  // ============================================
+  // GESTION-PROJET - Gestion de projet & DevOps
+  // ============================================
+  {
+    id: 'taiga',
+    name: 'Taiga',
+    category: 'gestion-projet',
+    country: 'EU',
+    logoUrl: '/logos/taiga.svg',
+    description: 'Plateforme agile open source espagnole (Scrum, Kanban), alternative souveraine à Jira, auto-hébergeable sur infra UE',
+    labels: ['Open Source', 'Agile', 'On-Premise'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'Espagne ou on-premise',
+      jurisdiction: 'Espagne (UE)',
+      certifications: ['RGPD', 'Open Source']
+    },
+    websiteUrl: 'https://taiga.io'
+  },
+  {
+    id: 'plane',
+    name: 'Plane',
+    category: 'gestion-projet',
+    country: 'EU',
+    logoUrl: '/logos/plane.svg',
+    description: 'Alternative open source à Jira/Linear, déployable en self-hosted sur infra souveraine, gestion d\'issues, sprints, roadmaps',
+    labels: ['Open Source', 'Self-Hosted', 'Jira Alternative'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'On-premise ou cloud EU',
+      jurisdiction: 'UE selon déploiement',
+      certifications: ['Open Source', 'RGPD-compatible']
+    },
+    websiteUrl: 'https://plane.so'
+  },
+  {
+    id: 'forgejo',
+    name: 'Forgejo',
+    category: 'gestion-projet',
+    country: 'EU',
+    logoUrl: '/logos/forgejo.svg',
+    description: 'Forge logicielle open source (git, CI/CD, issues), fork de Gitea, gouvernance communautaire, déployable sur infra souveraine',
+    labels: ['Open Source', 'Git Forge', 'GitHub Alternative'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'On-premise ou UE',
+      jurisdiction: 'Communautaire UE',
+      certifications: ['Open Source', 'RGPD-compatible']
+    },
+    websiteUrl: 'https://forgejo.org'
+  },
+  {
+    id: 'codeberg',
+    name: 'Codeberg',
+    category: 'gestion-projet',
+    country: 'EU',
+    logoUrl: '/logos/codeberg.svg',
+    description: 'Instance Forgejo hébergée par une association allemande à but non lucratif, 100% UE, alternative souveraine à GitHub/GitLab.com',
+    labels: ['Non-Profit', 'German Hosting', 'GitHub Alternative'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: '100% Allemagne',
+      jurisdiction: 'Allemagne (UE)',
+      certifications: ['RGPD', 'Open Source']
+    },
+    websiteUrl: 'https://codeberg.org'
+  },
+
+  // ============================================
+  // IDENTITE - Identité & Authentification
+  // ============================================
+  {
+    id: 'franceconnect',
+    name: 'FranceConnect',
+    category: 'identite',
+    country: 'FR',
+    logoUrl: '/logos/franceconnect.svg',
+    description: 'Identité numérique souveraine de l\'État français, fédération d\'identité pour les services publics et partenaires agréés',
+    labels: ['État Français', 'SSO', 'Secteur public'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: '100% France (DINUM)',
+      jurisdiction: 'France (UE)',
+      certifications: ['ANSSI', 'RGPD', 'eIDAS']
+    },
+    websiteUrl: 'https://franceconnect.gouv.fr'
+  },
+  {
+    id: 'keycloak',
+    name: 'Keycloak',
+    category: 'identite',
+    country: 'EU',
+    logoUrl: '/logos/keycloak.svg',
+    description: 'Solution IAM open source (SSO, SAML, OIDC), auto-hébergeable sur infra souveraine, standard de facto dans les SI publics européens',
+    labels: ['Open Source', 'SSO', 'IAM'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'On-premise ou cloud EU',
+      jurisdiction: 'Variable selon déploiement (UE possible)',
+      certifications: ['Open Source', 'RGPD-compatible']
+    },
+    websiteUrl: 'https://www.keycloak.org'
+  },
+  {
+    id: 'authentic2',
+    name: 'Authentic2 (Entr\'ouvert)',
+    category: 'identite',
+    country: 'FR',
+    logoUrl: '/logos/authentic2.svg',
+    description: 'Serveur SSO/SAML/OIDC open source français, utilisé par des collectivités et administrations, déployable on-premise',
+    labels: ['Open Source', 'SSO', 'Secteur public FR'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'On-premise (France)',
+      jurisdiction: 'France (UE)',
+      certifications: ['RGPD', 'Open Source']
+    },
+    websiteUrl: 'https://dev.entrouvert.org/projects/authentic'
+  },
+
+  // ============================================
+  // ANALYTIQUE - Analytique web
+  // ============================================
+  {
+    id: 'matomo',
+    name: 'Matomo',
+    category: 'analytique',
+    country: 'EU',
+    logoUrl: '/logos/matomo.svg',
+    description: 'Analytics open source auto-hébergeable, recommandé par la CNIL, sans cookies par défaut possible, utilisé par de nombreuses administrations françaises',
+    labels: ['Open Source', 'CNIL Approved', 'No Cloud Act'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'On-premise ou cloud EU',
+      jurisdiction: 'France/Allemagne (UE)',
+      certifications: ['RGPD', 'Recommandation CNIL', 'ISO 27001']
+    },
+    websiteUrl: 'https://matomo.org'
+  },
+  {
+    id: 'plausible',
+    name: 'Plausible',
+    category: 'analytique',
+    country: 'EU',
+    logoUrl: '/logos/plausible.svg',
+    description: 'Analytics léger sans cookies, hébergé en Allemagne/UE, RGPD natif, script ultra-léger (< 1 Ko), open source',
+    labels: ['No Cookies', 'GDPR Native', 'Lightweight'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'Allemagne/UE (Hetzner)',
+      jurisdiction: 'UE (Estonie)',
+      certifications: ['RGPD', 'Open Source']
+    },
+    websiteUrl: 'https://plausible.io'
+  },
+
+  // ============================================
+  // MATERIEL - Matériel souverain
+  // ============================================
+  {
+    id: 'tuxedo-computers',
+    name: 'TUXEDO Computers',
+    category: 'materiel',
+    country: 'EU',
+    logoUrl: '/logos/tuxedo-computers.svg',
+    description: 'PC portables et fixes assemblés individuellement en Allemagne, livrés avec Linux préinstallé (TUXEDO OS), 100% compatibles Linux',
+    labels: ['Linux Hardware', 'Made in Germany', 'Custom Build'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'Fabrication Allemagne',
+      jurisdiction: 'Allemagne (UE)',
+      certifications: ['RGPD', 'assemblage UE']
+    },
+    websiteUrl: 'https://www.tuxedocomputers.com'
+  },
+  {
+    id: 'framework',
+    name: 'Framework Laptop',
+    category: 'materiel',
+    country: 'EU',
+    logoUrl: '/logos/framework.svg',
+    description: 'PC modulaire et réparable, distribué en Europe, compatible Linux nativement, conçu pour la durabilité et l\'indépendance matérielle',
+    labels: ['Modular', 'Repairable', 'Linux Compatible'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'Distribution EU',
+      jurisdiction: 'USA (siège) / Ventes EU',
+      certifications: ['RGPD-compatible']
+    },
+    websiteUrl: 'https://frame.work'
   }
 ];
 
