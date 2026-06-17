@@ -11,6 +11,12 @@ import {
   ShieldCheckIcon,
   GlobeAltIcon,
   ComputerDesktopIcon,
+  VideoCameraIcon,
+  MagnifyingGlassIcon,
+  LockClosedIcon,
+  ClipboardDocumentListIcon,
+  FingerPrintIcon,
+  ChartBarIcon,
 } from '@heroicons/react/24/outline';
 import { Solution, Category } from '@/lib/data';
 
@@ -27,6 +33,13 @@ const categoryConfig: Record<Category, { icon: React.ElementType; label: string;
   securite: { icon: ShieldCheckIcon, label: 'Cybersécurité', color: 'text-red-600 dark:text-red-400', bgColor: 'bg-red-50 dark:bg-red-900/30' },
   navigateur: { icon: GlobeAltIcon, label: 'Navigateur web', color: 'text-cyan-600 dark:text-cyan-400', bgColor: 'bg-cyan-50 dark:bg-cyan-900/30' },
   os: { icon: ComputerDesktopIcon, label: "Système d'exploitation", color: 'text-yellow-600 dark:text-yellow-400', bgColor: 'bg-yellow-50 dark:bg-yellow-900/30' },
+  visioconference: { icon: VideoCameraIcon, label: 'Visioconférence & Communication', color: 'text-pink-600 dark:text-pink-400', bgColor: 'bg-pink-50 dark:bg-pink-900/30' },
+  'moteurs-recherche': { icon: MagnifyingGlassIcon, label: 'Moteurs de recherche', color: 'text-emerald-600 dark:text-emerald-400', bgColor: 'bg-emerald-50 dark:bg-emerald-900/30' },
+  vpn: { icon: LockClosedIcon, label: 'VPN & Réseau privé', color: 'text-violet-600 dark:text-violet-400', bgColor: 'bg-violet-50 dark:bg-violet-900/30' },
+  'gestion-projet': { icon: ClipboardDocumentListIcon, label: 'Gestion de projet & DevOps', color: 'text-amber-600 dark:text-amber-400', bgColor: 'bg-amber-50 dark:bg-amber-900/30' },
+  identite: { icon: FingerPrintIcon, label: 'Identité & Authentification', color: 'text-teal-600 dark:text-teal-400', bgColor: 'bg-teal-50 dark:bg-teal-900/30' },
+  analytique: { icon: ChartBarIcon, label: 'Analytique web', color: 'text-lime-600 dark:text-lime-400', bgColor: 'bg-lime-50 dark:bg-lime-900/30' },
+  materiel: { icon: CpuChipIcon, label: 'Matériel souverain', color: 'text-stone-600 dark:text-stone-400', bgColor: 'bg-stone-50 dark:bg-stone-900/30' },
 };
 
 export default function SolutionCard({ solution }: SolutionCardProps) {

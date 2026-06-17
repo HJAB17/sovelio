@@ -9,6 +9,12 @@ import {
   ShieldCheckIcon,
   GlobeAltIcon,
   ComputerDesktopIcon,
+  VideoCameraIcon,
+  MagnifyingGlassIcon,
+  LockClosedIcon,
+  ClipboardDocumentListIcon,
+  FingerPrintIcon,
+  ChartBarIcon,
 } from '@heroicons/react/24/outline';
 import { categories } from '@/lib/data';
 
@@ -36,6 +42,18 @@ export default function CategoryNav({ activeCategory, onCategorySelect }: Catego
         return <GlobeAltIcon className="h-6 w-6" />;
       case 'ComputerDesktopIcon':
         return <ComputerDesktopIcon className="h-6 w-6" />;
+      case 'VideoCameraIcon':
+        return <VideoCameraIcon className="h-6 w-6" />;
+      case 'MagnifyingGlassIcon':
+        return <MagnifyingGlassIcon className="h-6 w-6" />;
+      case 'LockClosedIcon':
+        return <LockClosedIcon className="h-6 w-6" />;
+      case 'ClipboardDocumentListIcon':
+        return <ClipboardDocumentListIcon className="h-6 w-6" />;
+      case 'FingerPrintIcon':
+        return <FingerPrintIcon className="h-6 w-6" />;
+      case 'ChartBarIcon':
+        return <ChartBarIcon className="h-6 w-6" />;
       default:
         return <EnvelopeIcon className="h-6 w-6" />;
     }
@@ -76,9 +94,16 @@ export default function CategoryNav({ activeCategory, onCategorySelect }: Catego
                    {category.id === 'ia' && 'Mistral AI, LightOn, Aleph Alpha...'}
                    {category.id === 'drive' && 'Leviia, kDrive, Shadow Drive...'}
                    {category.id === 'cloud' && 'OVHcloud, Scaleway, IONOS...'}
-                   {category.id === 'securite' && 'Tehtris, Pradeo...'}
+                    {category.id === 'securite' && 'Tehtris, Passbolt, KeePassXC...'}
                     {category.id === 'navigateur' && 'Vivaldi, Mullvad, LibreWolf...'}
                     {category.id === 'os' && 'EU OS, openSUSE, Linux Mint...'}
+                    {category.id === 'visioconference' && 'Jitsi, Tchap, Olvid...'}
+                    {category.id === 'moteurs-recherche' && 'Qwant, Ecosia, Startpage...'}
+                    {category.id === 'vpn' && 'Mullvad, ProtonVPN, IVPN...'}
+                    {category.id === 'gestion-projet' && 'Taiga, Plane, Forgejo...'}
+                    {category.id === 'identite' && 'FranceConnect, Keycloak...'}
+                    {category.id === 'analytique' && 'Matomo, Plausible...'}
+                    {category.id === 'materiel' && 'TUXEDO, Framework...'}
                 </div>
               </button>
             ))}
