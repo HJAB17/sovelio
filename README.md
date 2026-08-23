@@ -92,7 +92,7 @@ npm run dev
 
 ## 🚀 Déploiement sur GitHub Pages
 
-Le site est déployé automatiquement sur **https://hjab17.github.io/sovelio/** à chaque push sur `main`.
+Le site est déployé automatiquement sur **https://sovelio.eu** (domaine personnalisé configuré sur GitHub Pages) à chaque push sur `main`.
 
 ### Configuration requise (une seule fois)
 1. Aller dans **Settings → Pages** du repository
