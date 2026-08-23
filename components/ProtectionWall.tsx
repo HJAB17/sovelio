@@ -20,7 +20,7 @@ export default function ProtectionWall() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* RGPD Card */}
-          <div className={`rounded-2xl p-6 transition-all duration-300 ${activeTab === 'rgpd' ? 'bg-green-50 dark:bg-green-900/30 border-2 border-green-200 dark:border-green-800 shadow-lg' : 'bg-white dark:bg-slate-800 border border-gray-200 dark:border-gray-700 shadow-subtle'}`}>
+          <div className={`rounded-2xl p-6 transition-all duration-300 ${activeTab === 'rgpd' ? 'bg-[color-mix(in_srgb,var(--emerald)_10%,transparent)] border-2 border-[color-mix(in_srgb,var(--emerald)_35%,transparent)] shadow-lg glass-strong' : 'glass-card'}`}>
             <div className="flex items-center gap-3 mb-6">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-green-100 dark:bg-green-900/50">
                 <ShieldExclamationIcon className="h-6 w-6 text-green-600 dark:text-green-400" />
@@ -82,7 +82,7 @@ export default function ProtectionWall() {
           </div>
 
           {/* CLOUD Act Card */}
-          <div className={`rounded-2xl p-6 transition-all duration-300 ${activeTab === 'cloudact' ? 'bg-red-50 dark:bg-red-900/30 border-2 border-red-200 dark:border-red-800 shadow-lg' : 'bg-white dark:bg-slate-800 border border-gray-200 dark:border-gray-700 shadow-subtle'}`}>
+          <div className={`rounded-2xl p-6 transition-all duration-300 ${activeTab === 'cloudact' ? 'bg-[color-mix(in_srgb,var(--red-alert)_8%,transparent)] border-2 border-[color-mix(in_srgb,var(--red-alert)_35%,transparent)] shadow-lg glass-strong' : 'glass-card'}`}>
             <div className="flex items-center gap-3 mb-6">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-red-100 dark:bg-red-900/50">
                 <ScaleIcon className="h-6 w-6 text-red-600 dark:text-red-400" />
@@ -145,7 +145,7 @@ export default function ProtectionWall() {
         </div>
 
         {/* Comparison table */}
-        <div className="mt-12 bg-white dark:bg-slate-800 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-subtle p-6">
+        <div className="mt-12 glass-card rounded-2xl p-6">
           <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6 text-center">Comparaison directe</h3>
           <div className="overflow-x-auto">
             <table className="w-full">
@@ -181,7 +181,7 @@ export default function ProtectionWall() {
             </table>
           </div>
           
-          <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-900/30 rounded-xl border border-blue-200 dark:border-blue-800">
+          <div className="mt-6 p-4 rounded-xl border border-[color-mix(in_srgb,var(--cobalt)_25%,transparent)] bg-[color-mix(in_srgb,var(--cobalt)_8%,transparent)]">
             <div className="flex items-start gap-3">
               <LockClosedIcon className="h-5 w-5 text-blue-600 dark:text-blue-400 mt-0.5" />
               <div>

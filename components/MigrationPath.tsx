@@ -24,7 +24,7 @@ export default function MigrationPath() {
           {migrationPaths.map((path) => (
             <div 
               key={path.id} 
-              className={`rounded-2xl border p-6 transition-all duration-300 hover:shadow-card bg-white dark:bg-slate-800 border-gray-200 dark:border-gray-700`}
+              className={`glass-card gradient-border-glow rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--glass-shadow-hover)]`}
             >
               <div className="flex items-center gap-3 mb-4">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-white dark:bg-slate-700 shadow-sm">
@@ -95,7 +95,11 @@ export default function MigrationPath() {
         </div>
 
         {/* IA Souveraine Section */}
-        <div className="mt-12 bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/30 dark:to-blue-900/30 rounded-2xl border border-purple-200 dark:border-purple-800 p-4 sm:p-8">
+        <div className="mt-12 glass-strong rounded-2xl p-4 sm:p-8 relative overflow-hidden">
+          {/* Halo décoratif */}
+          <div aria-hidden="true" className="absolute -top-24 -right-24 w-72 h-72 rounded-full blur-[80px] pointer-events-none"
+            style={{ background: 'radial-gradient(circle, rgba(139,92,246,0.25) 0%, transparent 70%)' }}
+          />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-center">
             <div>
               <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300 rounded-full text-xs sm:text-sm font-medium mb-4">
@@ -131,9 +135,9 @@ export default function MigrationPath() {
               </div>
             </div>
             
-            <div className="grid grid-cols-2 gap-3 sm:gap-4">
-              <div className="bg-white dark:bg-slate-800 rounded-xl p-3 sm:p-4 shadow-sm border border-gray-200 dark:border-gray-700">
-                <div className="text-base sm:text-lg font-bold text-purple-600 dark:text-purple-400 mb-1 sm:mb-2">Mistral AI</div>
+              <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                <div className="glass-card rounded-xl p-3 sm:p-4">
+                  <div className="text-base sm:text-lg font-bold text-purple-600 dark:text-purple-400 mb-1 sm:mb-2">Mistral AI</div>
                 <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mb-2 sm:mb-3 hidden sm:block">Leader français de l'IA générative</p>
                 <div className="flex items-center gap-2">
                   <span className="px-2 py-1 bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-400 rounded-full text-xs font-medium">🇫🇷 FR</span>
@@ -141,7 +145,7 @@ export default function MigrationPath() {
                 </div>
               </div>
               
-              <div className="bg-white dark:bg-slate-800 rounded-xl p-3 sm:p-4 shadow-sm border border-gray-200 dark:border-gray-700">
+              <div className="glass-card rounded-xl p-3 sm:p-4">
                 <div className="text-base sm:text-lg font-bold text-blue-600 dark:text-blue-400 mb-1 sm:mb-2">Aleph Alpha</div>
                 <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mb-2 sm:mb-3 hidden sm:block">IA souveraine allemande</p>
                 <div className="flex items-center gap-2">
@@ -150,7 +154,7 @@ export default function MigrationPath() {
                 </div>
               </div>
               
-              <div className="bg-white dark:bg-slate-800 rounded-xl p-3 sm:p-4 shadow-sm border border-gray-200 dark:border-gray-700">
+              <div className="glass-card rounded-xl p-3 sm:p-4">
                 <div className="text-base sm:text-lg font-bold text-green-600 dark:text-green-400 mb-1 sm:mb-2">LightOn</div>
                 <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mb-2 sm:mb-3 hidden sm:block">IA on-premise</p>
                 <div className="flex items-center gap-2">
@@ -159,7 +163,7 @@ export default function MigrationPath() {
                 </div>
               </div>
               
-              <div className="bg-white dark:bg-slate-800 rounded-xl p-3 sm:p-4 shadow-sm border border-gray-200 dark:border-gray-700">
+              <div className="glass-card rounded-xl p-3 sm:p-4">
                 <div className="text-base sm:text-lg font-bold text-orange-600 dark:text-orange-400 mb-1 sm:mb-2">Le Chat</div>
                 <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mb-2 sm:mb-3 hidden sm:block">Plateforme Mistral</p>
                 <div className="flex items-center gap-2">

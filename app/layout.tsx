@@ -30,13 +30,47 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className={`${inter.className} min-h-screen bg-gradient-to-br from-[#003399] via-[#0047AB] to-[#4A90D9] dark:from-[#1A2744] dark:via-[#0D1B33] dark:to-[#1E293B] transition-colors duration-500`}>
-        {/* Effet de lumière spot */}
-        <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-          <div className="absolute -top-20 -left-20 w-[500px] h-[500px] bg-white/10 dark:bg-[#FFD54F]/5 rounded-full blur-[100px]"></div>
-          <div className="absolute top-1/3 right-0 w-[400px] h-[400px] bg-[#FFCC00]/10 dark:bg-[#5B9BD5]/5 rounded-full blur-[80px]"></div>
-          <div className="absolute bottom-0 left-1/3 w-[300px] h-[300px] bg-[#FFCC00]/10 dark:bg-[#FFD54F]/5 rounded-full blur-[60px]"></div>
+      <body className={`${inter.className} min-h-screen transition-colors duration-500`}>
+        {/* Mesh Gradient animé — voiles cobalt / violet / émeraude */}
+        <div className="mesh-gradient" aria-hidden="true">
+          {/* Voile cobalt principal (haut gauche) */}
+          <div
+            className="mesh-blob w-[620px] h-[620px] -top-40 -left-40"
+            style={{
+              background:
+                "radial-gradient(circle, rgba(37,99,235,0.28) 0%, transparent 70%)",
+              animationDelay: "0s",
+            }}
+          />
+          {/* Voile violet tech (droite) */}
+          <div
+            className="mesh-blob w-[520px] h-[520px] top-1/4 -right-32"
+            style={{
+              background:
+                "radial-gradient(circle, rgba(139,92,246,0.22) 0%, transparent 70%)",
+              animationDelay: "-8s",
+            }}
+          />
+          {/* Voile émeraude souveraineté (bas centre) */}
+          <div
+            className="mesh-blob w-[480px] h-[480px] bottom-[-120px] left-1/3"
+            style={{
+              background:
+                "radial-gradient(circle, rgba(16,185,129,0.18) 0%, transparent 70%)",
+              animationDelay: "-16s",
+            }}
+          />
+          {/* Halo lumineux discret (centre haut) */}
+          <div
+            className="mesh-blob w-[380px] h-[380px] top-10 left-1/2"
+            style={{
+              background:
+                "radial-gradient(circle, rgba(96,165,250,0.14) 0%, transparent 70%)",
+              animationDelay: "-12s",
+            }}
+          />
         </div>
+
         <div className="relative z-10">
           <ThemeProvider>
             {children}

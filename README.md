@@ -10,79 +10,77 @@
 
 ## ✨ Fonctionnalités
 
-### 🏛️ Architecture du site
-- **Interface "Apple-esque"** : Design minimaliste avec coins arrondis, typographie épurée, couleurs Blanc pur, Gris perle, Bleu de France
-- **Header interactif** : Toggle pour filtrer "France Uniquement" / "Europe Globale"
-- **Section Hero** : Message d'accroche fort avec statistiques clés
-- **Navigation par catégories** : 6 grandes tuiles interactives avec icônes modernes
+### 🎨 Interface « Glassmorphism & Gradients »
+- **Mesh Gradient animé** : arrière-plan vivant composé de voiles de dégradés floutés (bleu cobalt, violet tech, vert émeraude « souveraineté ») qui dérivent lentement
+- **Cartes en verre dépoli** : effet glassmorphism (`backdrop-filter: blur`, bordures semi-transparentes lumineuses) pour un rendu spatial moderne
+- **Palette « Souveraineté & Confiance »** :
+  - Bleu cobalt `#2563EB` (primaire)
+  - Émeraude `#10B981` (validation / souveraineté)
+  - Violet subtil `#8B5CF6` (innovation / IA)
+  - Indigo nuit `#0B1120` en mode sombre
+- **Badges néon discrets** pour les labels de confiance (SecNumCloud, Open Source, RGPD…)
+- **Mode sombre / clair natif** avec transitions douces sur toutes les couleurs et ombres
 
-### 📊 Composants Solution
-Pour chaque solution, la fiche complète comprend :
-- **Nom et logo** de la solution avec drapeau 🇫🇷 ou 🇪🇺
-- **Labels** : SecNumCloud, France Cybersecurity, etc.
-- **Catégorie visuelle** : Icône colorée représentant la catégorie (Email, Bureautique, IA, Drive, Cloud, Sécurité)
- - **Badge de Souveraineté** : "Souveraineté garantie — Aucun lien avec les USA"
- - **Score de Souveraineté (Indice S)** : Calculé sur 3 piliers (hébergement, juridiction, qualité logicielle)
- - **Mention Juridiction** : "Hors juridiction US — Protection maximale contre le CLOUD Act"
+### ⌨️ Command Palette (façon Raycast / Spotlight)
+- Recherche instantanée ouverte via **Ctrl+K** / **Cmd+K** ou le bouton du header
+- Filtre temps réel sur le nom, la description, les labels, les certifications et l'hébergement
+- **Surbrillance des mots-clés** dans les résultats
+- Navigation clavier complète : `↑` `↓` pour naviguer, `Entrée` pour ouvrir, `Échap` pour fermer
+- Sélection = scroll fluide vers la carte correspondante
+
+### 🔍 Filtres interactifs dynamiques
+- **Chips multi-sélection** par catégorie avec compteurs dynamiques mis à jour en direct
+- **Filtres « Confiance »** : SecNumCloud, Open Source, RGPD/GDPR, Chiffrement E2E, Hors CLOUD Act
+- Compteur animé (« 80 solutions trouvées » → « 12 solutions trouvées ») avec transition numérique fluide
+- **Animations FLIP** : les cartes apparaissent, disparaissent et se réorganisent sans saccade lors du filtrage
+
+### 💫 Micro-interactions & feedback visuel
+- **Effet spotlight** : halo lumineux suivant le curseur sur chaque carte
+- **Lévitation au survol** + bordure en dégradé lumineux (cobalt → violet → émeraude)
+- **Feedback de pression** (`active:scale`) sur tous les éléments cliquables
+- **Boutons magnétiques** : le bouton d'action attire légèrement le curseur et son fond s'illumine
+- **Infobulles élégantes** au survol des badges de conformité expliquant pourquoi la solution est souveraine
+- **Typographie animée** : titre en dégradé textuel animé + mot rotatif en fondu (« européenne / souveraine / ouverte »)
+- Support `prefers-reduced-motion` pour l'accessibilité
 
 ### 🛡️ Sections Éducatives
-- **"Le Mur de Protection"** : Comparaison interactive RGPD vs CLOUD Act
-- **Dictionnaire simplifié** : Explication des termes clés
-- **Cas d'étude** : Nicolas Guillou et les risques géopolitiques
-
-### 🚀 Parcours de Migration
-- **Pack Google Workspace** : Mailo + Wimi + Leviia + Mistral AI
-- **Pack Microsoft 365** : BlueMind + Nextcloud + OnlyOffice + Aleph Alpha
-- **Pack Cloud US** : OVHcloud + 3DS Outscale + IONOS + Nextcloud
-- **Zoom IA Souveraine 2026** : Focus sur Mistral AI, LightOn, Aleph Alpha
+- **« Le Mur de Protection »** : comparaison interactive RGPD vs CLOUD Act
+- **Parcours de Migration** : packs pré-configurés (Google Workspace, Microsoft 365, Cloud US)
+- **Zoom IA Souveraine 2026** : Mistral AI, LightOn, Aleph Alpha, Le Chat
 
 ## 🏗️ Structure Technique
 
 ```
 sovelio/
-├── app/                    # Next.js App Router
-│   ├── layout.tsx         # Layout principal avec metadata
-│   ├── page.tsx           # Page d'accueil avec tous les composants
-│   └── globals.css        # Design system et styles Tailwind
-├── components/            # Composants React réutilisables
-│   ├── Header.tsx         # Header avec toggle de filtrage
-│   ├── CategoryNav.tsx    # Navigation par catégories avec icônes
-│   ├── SolutionCard.tsx   # Fiche solution complète
-│   ├── ProtectionWall.tsx # Section éducative RGPD vs CLOUD Act
-│   └── MigrationPath.tsx  # Parcours de migration pré-configurés
+├── app/
+│   ├── layout.tsx           # Layout + mesh gradient animé + ThemeProvider
+│   ├── page.tsx             # Page d'accueil : filtres, grille FLIP, command palette
+│   └── globals.css          # Design system : palette, glassmorphism, animations
+├── components/
+│   ├── Header.tsx           # Header sticky + hero + déclencheur Ctrl+K
+│   ├── CategoryNav.tsx      # Chips de filtres multi-sélection avec compteurs
+│   ├── SolutionCard.tsx     # Carte solution glassmorphism + tooltips conformité
+│   ├── CommandPalette.tsx   # Recherche rapide façon Raycast (Ctrl+K)
+│   ├── SpotlightCard.tsx    # Carte réutilisable avec halo suivant le curseur
+│   ├── MagneticButton.tsx   # Bouton magnétique réutilisable
+│   ├── AnimatedWord.tsx     # Mot rotatif animé en fondu
+│   ├── ProtectionWall.tsx   # Section éducative RGPD vs CLOUD Act
+│   ├── MigrationPath.tsx    # Parcours de migration pré-configurés
+│   ├── ThemeContext.tsx     # Gestion du thème clair/sombre
+│   └── ThemeToggle.tsx      # Bouton de bascule du thème
 ├── lib/
-│   └── data.ts           # Données structurées des 25+ solutions
-└── public/               # Assets statiques
-    └── logos/            # Logos des solutions
+│   └── data.ts              # Données structurées et typées des solutions
+├── .github/
+│   └── workflows/
+│       └── deploy.yml       # CI/CD : build + déploiement GitHub Pages
+└── public/                  # Assets statiques
 ```
-
-## 🎨 Design System
-
-### Couleurs
-- **Blanc pur** : `#FFFFFF`
-- **Gris perle** : `#F5F5F7`
-- **Bleu de France** : `#0055A4` (accent principal)
-- **Vert de validation** : `#34C759` (badges, succès)
-- **Rouge alerte** : `#FF3B30` (risques, CLOUD Act)
-
-### Typographie
-- **Police principale** : Inter (Google Fonts) - moderne et lisible
-- **Hiérarchie** :
-  - Titres : `text-4xl` à `text-6xl` (responsive)
-  - Sous-titres : `text-xl` à `text-3xl`
-  - Corps : `text-base` à `text-lg`
-
-### Composants UI
-- **Coins arrondis** : `rounded-2xl`, `rounded-xl`, `rounded-lg`
-- **Ombres** : `shadow-subtle`, `shadow-card` (variables CSS)
-- **Transitions** : `transition-all duration-300`
-- **Effets** : `backdrop-blur-md`, `gradient-to-br`
 
 ## 📦 Installation et Démarrage
 
 ```bash
 # Cloner le projet
-git clone <repository-url>
+git clone https://github.com/HJAB17/sovelio.git
 cd sovelio
 
 # Installer les dépendances
@@ -94,35 +92,51 @@ npm run dev
 
 ## 🚀 Déploiement sur GitHub Pages
 
-Ce projet est configuré pour un déploiement automatique sur GitHub Pages.
+Le site est déployé automatiquement sur **https://hjab17.github.io/sovelio/** à chaque push sur `main`.
 
-### Déploiement automatique (recommandé)
+### Configuration requise (une seule fois)
+1. Aller dans **Settings → Pages** du repository
+2. **Source** : sélectionner **« GitHub Actions »**
 
-1. **Créer le repository** `sovelio` sur GitHub
-2. **Pousser le code** :
+### Déploiement automatique
+À chaque push sur `main`, le workflow `.github/workflows/deploy.yml` :
+1. Installe les dépendances (`npm ci`)
+2. Compile le site statique (`npm run build` → dossier `out/`)
+3. Déploie le résultat sur GitHub Pages
+
+Suivre l'avancement dans l'onglet **Actions** du repository (~1-2 min).
+
+### Déclenchement manuel
+Onglet **Actions** → *Deploy to GitHub Pages* → **Run workflow**.
+
+### Pousser le code avec un Personal Access Token
+Si git demande une authentification HTTPS :
+
+1. Créer un token sur https://github.com/settings/tokens (*Generate new token (classic)*, scope **`repo`**)
+2. Configurer le remote :
    ```bash
-   git remote add origin https://github.com/<votre-username>/sovelio.git
-   git branch -M main
-   git push -u origin main
+   git remote set-url origin https://<VOTRE_TOKEN>@github.com/HJAB17/sovelio.git
    ```
-3. **Activer GitHub Pages** :
-   - Aller dans `Settings > Pages`
-   - Source : `GitHub Actions`
-4. **Le déploiement est automatique** à chaque push sur `main` !
+3. Pousser :
+   ```bash
+   git add .
+   git commit -m "Votre message"
+   git push origin main
+   ```
+
+> ⚠️ **Sécurité** : ne jamais commiter un token dans le code. Révoquez et régénérez vos tokens régulièrement sur https://github.com/settings/tokens.
 
 ### Build local
-
 ```bash
-# Générer le site statique
+# Générer le site statique dans out/
 npm run build
-
-# Le dossier out/ contient le site prêt à être déployé
 ```
 
 ## 📱 Responsive Design
 - **Mobile-first** avec breakpoints Tailwind
-- **Navigation catégories** : Scroll horizontal sur mobile
-- **Grille adaptative** : 1 → 2 → 3 colonnes selon l'écran
+- **Command palette** accessible au clavier sur tous les écrans
+- **Grille adaptative** : 1 → 2 colonnes selon l'écran
+- Chips de filtres repliées intelligemment sur mobile
 
 ## 🏆 Solutions Incluses
 
@@ -140,30 +154,8 @@ npm run build
 - **IA** : Aleph Alpha (DE), Euria (CH - Infomaniak), Lumo (CH - Proton)
 - **Drive** : kDrive (Infomaniak - CH)
 - **Cloud** : IONOS (DE), Hetzner (DE), Exoscale (CH), Aruba Cloud (IT), UpCloud (FI), Open Telekom Cloud (DE)
-
-## 🎯 Objectifs Atteints
-
-### ✅ Exigences Fonctionnelles Complètes
-- [x] Design "Apple-esque" avec couleurs spécifiées
-- [x] Header avec toggle France/Europe
-- [x] Section Hero avec slogan
-- [x] Navigation par 6 catégories avec icônes
-- [x] Fiche solution complète avec carte catégorie visuelle
- - [x] Badge "Souveraineté garantie"
-- [x] Score de Souveraineté (Indice S)
-- [x] Section "Mur de Protection" RGPD vs CLOUD Act
-- [x] Parcours de migration pré-configurés
-- [x] Focus IA Souveraine 2026
-
-### ✅ Exigences Techniques
-- [x] Next.js 16 (App Router) avec TypeScript
-- [x] Tailwind CSS pour le styling
-- [x] Heroicons pour les icônes
-- [x] Export statique pour GitHub Pages
-- [x] Filtrage et état React
-- [x] Design responsive mobile/desktop
-- [x] Données structurées et typées
-- [x] CI/CD avec GitHub Actions
+- **Navigateurs** : Vivaldi, Mullvad Browser, LibreWolf, Ecosia Browser…
+- **OS** : EU OS, openSUSE, Linux Mint, Zorin OS, NixOS, Qubes OS…
 
 ## 📄 Licence
 

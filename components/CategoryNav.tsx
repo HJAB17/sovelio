@@ -1,10 +1,10 @@
 'use client';
 
-import { 
-  EnvelopeIcon, 
-  DocumentTextIcon, 
-  CpuChipIcon, 
-  CloudArrowUpIcon, 
+import {
+  EnvelopeIcon,
+  DocumentTextIcon,
+  CpuChipIcon,
+  CloudArrowUpIcon,
   ServerStackIcon,
   ShieldCheckIcon,
   GlobeAltIcon,
@@ -16,105 +16,149 @@ import {
   FingerPrintIcon,
   ChartBarIcon,
 } from '@heroicons/react/24/outline';
-import { categories } from '@/lib/data';
+import { categories, Category } from '@/lib/data';
+
+/** Filtres par labels de confiance (multi-sélection) */
+export const certFilters: { id: string; label: string; test: (certs: string[], labels: string[]) => boolean }[] = [
+  {
+    id: 'secnumcloud',
+    label: 'SecNumCloud',
+    test: (certs) => certs.some((c) => c.toLowerCase().includes('secnumcloud')),
+  },
+  {
+    id: 'opensource',
+    label: 'Open Source',
+    test: (certs, labels) =>
+      [...certs, ...labels].some((c) => c.toLowerCase().includes('open source')),
+  },
+  {
+    id: 'rgpd',
+    label: 'RGPD / GDPR',
+    test: (certs, labels) =>
+      [...certs, ...labels].some((c) => c.toLowerCase().includes('rgpd') || c.toLowerCase().includes('gdpr')),
+  },
+  {
+    id: 'e2e',
+    label: 'Chiffrement E2E',
+    test: (certs, labels) =>
+      [...certs, ...labels].some((c) => c.toLowerCase().includes('end-to-end') || c.toLowerCase().includes('encryption')),
+  },
+  {
+    id: 'nocloudact',
+    label: 'Hors CLOUD Act',
+    test: (certs, labels) =>
+      [...certs, ...labels].some(
+        (c) => c.toLowerCase().includes('cloud act') || c.toLowerCase().includes('outside us jurisdiction')
+      ),
+  },
+];
+
+const iconMap: Record<string, React.ElementType> = {
+  EnvelopeIcon,
+  DocumentTextIcon,
+  CpuChipIcon,
+  CloudArrowUpIcon,
+  ServerStackIcon,
+  ShieldCheckIcon,
+  GlobeAltIcon,
+  ComputerDesktopIcon,
+  VideoCameraIcon,
+  MagnifyingGlassIcon,
+  LockClosedIcon,
+  ClipboardDocumentListIcon,
+  FingerPrintIcon,
+  ChartBarIcon,
+};
 
 interface CategoryNavProps {
-  activeCategory?: string;
-  onCategorySelect?: (categoryId: string) => void;
+  /** Catégories actives (multi-sélection) */
+  activeCategories: Category[];
+  onToggleCategory: (categoryId: Category) => void;
+  /** Labels de confiance actifs */
+  activeCerts: string[];
+  onToggleCert: (certId: string) => void;
+  /** Nombre de solutions par catégorie (selon les autres filtres actifs) */
+  categoryCounts: Record<string, number>;
 }
 
-export default function CategoryNav({ activeCategory, onCategorySelect }: CategoryNavProps) {
-  const getIcon = (iconName: string) => {
-    switch (iconName) {
-      case 'EnvelopeIcon':
-        return <EnvelopeIcon className="h-6 w-6" />;
-      case 'DocumentTextIcon':
-        return <DocumentTextIcon className="h-6 w-6" />;
-      case 'CpuChipIcon':
-        return <CpuChipIcon className="h-6 w-6" />;
-      case 'CloudArrowUpIcon':
-        return <CloudArrowUpIcon className="h-6 w-6" />;
-      case 'ServerStackIcon':
-        return <ServerStackIcon className="h-6 w-6" />;
-      case 'ShieldCheckIcon':
-        return <ShieldCheckIcon className="h-6 w-6" />;
-      case 'GlobeAltIcon':
-        return <GlobeAltIcon className="h-6 w-6" />;
-      case 'ComputerDesktopIcon':
-        return <ComputerDesktopIcon className="h-6 w-6" />;
-      case 'VideoCameraIcon':
-        return <VideoCameraIcon className="h-6 w-6" />;
-      case 'MagnifyingGlassIcon':
-        return <MagnifyingGlassIcon className="h-6 w-6" />;
-      case 'LockClosedIcon':
-        return <LockClosedIcon className="h-6 w-6" />;
-      case 'ClipboardDocumentListIcon':
-        return <ClipboardDocumentListIcon className="h-6 w-6" />;
-      case 'FingerPrintIcon':
-        return <FingerPrintIcon className="h-6 w-6" />;
-      case 'ChartBarIcon':
-        return <ChartBarIcon className="h-6 w-6" />;
-      default:
-        return <EnvelopeIcon className="h-6 w-6" />;
-    }
-  };
-
+export default function CategoryNav({
+  activeCategories,
+  onToggleCategory,
+  activeCerts,
+  onToggleCert,
+  categoryCounts,
+}: CategoryNavProps) {
   return (
-    <section className="py-8 bg-transparent dark:bg-transparent transition-colors duration-300">
+    <section className="py-8 transition-colors duration-300">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
-            Naviguer par Catégories
-          </h2>
-          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Découvrez les solutions souveraines pour chaque besoin numérique, avec des icônes modernes et une interface intuitive.
-          </p>
-        </div>
-        
-        <div className="flex overflow-x-auto pb-4 -mx-4 px-4 scrollbar-hide">
-          <div className="flex gap-4 mx-auto">
-            {categories.map((category) => (
+        {/* Chips catégories */}
+        <div className="flex flex-wrap justify-center gap-2.5 mb-5">
+          <button
+            onClick={() => onToggleCategory('all' as Category)}
+            className={`filter-chip flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium glass-card ${
+              activeCategories.length === 0
+                ? 'filter-chip-active !bg-[color-mix(in_srgb,var(--cobalt)_16%,transparent)] text-[var(--cobalt)] border-[color-mix(in_srgb,var(--cobalt)_45%,transparent)]'
+                : 'text-gray-600 dark:text-gray-300 hover:text-[var(--cobalt)]'
+            }`}
+          >
+            Toutes
+          </button>
+          {categories.map((category) => {
+            const Icon = iconMap[category.icon] ?? EnvelopeIcon;
+            const isActive = activeCategories.includes(category.id);
+            const count = categoryCounts[category.id] ?? 0;
+            return (
               <button
                 key={category.id}
-                onClick={() => onCategorySelect?.(category.id)}
-                className={`flex flex-col items-center justify-center p-6 rounded-2xl min-w-[140px] transition-all duration-200 ${activeCategory === category.id 
-                  ? 'bg-blue-50 dark:bg-blue-900/30 border-2 border-blue-200 dark:border-blue-700 shadow-sm' 
-                  : 'bg-gray-50 dark:bg-slate-800 border border-gray-100 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-slate-700 hover:border-gray-200 dark:hover:border-gray-600'
+                onClick={() => onToggleCategory(category.id)}
+                title={category.name}
+                className={`filter-chip flex items-center gap-1.5 px-3.5 py-2 rounded-full text-sm font-medium glass-card ${
+                  isActive
+                    ? 'filter-chip-active !bg-[color-mix(in_srgb,var(--cobalt)_16%,transparent)] text-[var(--cobalt)] border-[color-mix(in_srgb,var(--cobalt)_45%,transparent)]'
+                    : 'text-gray-600 dark:text-gray-300 hover:text-[var(--cobalt)]'
                 }`}
               >
-                <div className={`p-3 rounded-xl mb-3 ${activeCategory === category.id ? 'bg-blue-100 dark:bg-blue-800/50' : 'bg-gray-100 dark:bg-gray-700'}`}>
-                  <div className={activeCategory === category.id ? 'text-blue-600 dark:text-blue-400' : 'text-gray-600 dark:text-gray-300'}>
-                    {getIcon(category.icon)}
-                  </div>
-                </div>
-                <h3 className="font-semibold text-gray-900 dark:text-white mb-1">{category.name}</h3>
-                <div className="text-xs text-gray-500 dark:text-gray-400">
-                   {category.id === 'email' && 'Mailo, Proton Mail, Tuta...'}
-                   {category.id === 'bureautique' && 'Wimi, Nextcloud, Whaller...'}
-                   {category.id === 'ia' && 'Mistral AI, LightOn, Aleph Alpha...'}
-                   {category.id === 'drive' && 'Leviia, kDrive, Shadow Drive...'}
-                   {category.id === 'cloud' && 'OVHcloud, Scaleway, IONOS...'}
-                    {category.id === 'securite' && 'Tehtris, Passbolt, KeePassXC...'}
-                    {category.id === 'navigateur' && 'Vivaldi, Mullvad, LibreWolf...'}
-                    {category.id === 'os' && 'EU OS, openSUSE, Linux Mint...'}
-                    {category.id === 'visioconference' && 'Jitsi, Tchap, Olvid...'}
-                    {category.id === 'moteurs-recherche' && 'Qwant, Ecosia, Startpage...'}
-                    {category.id === 'vpn' && 'Mullvad, ProtonVPN, IVPN...'}
-                    {category.id === 'gestion-projet' && 'Taiga, Plane, Forgejo...'}
-                    {category.id === 'identite' && 'FranceConnect, Keycloak...'}
-                    {category.id === 'analytique' && 'Matomo, Plausible...'}
-                    {category.id === 'materiel' && 'TUXEDO, Framework...'}
-                </div>
+                <Icon className="h-4 w-4" />
+                <span className="hidden sm:inline">{category.name}</span>
+                <span className="sm:hidden">{category.name.split(' ')[0]}</span>
+                <span
+                  className={`ml-0.5 px-1.5 py-0.5 rounded-full text-[10px] font-bold ${
+                    isActive
+                      ? 'bg-[var(--cobalt)] text-white'
+                      : 'bg-black/5 dark:bg-white/10 text-gray-500 dark:text-gray-400'
+                  }`}
+                >
+                  {count}
+                </span>
               </button>
-            ))}
-          </div>
+            );
+          })}
         </div>
-        
-        <div className="mt-8 text-center">
-          <p className="text-sm text-gray-500 dark:text-gray-400">
-            <span className="font-medium text-blue-600 dark:text-blue-400">💡 Conseil :</span>{' '}
-            Cliquez sur une catégorie pour filtrer les solutions correspondantes
-          </p>
+
+        {/* Chips labels de confiance */}
+        <div className="flex flex-wrap items-center justify-center gap-2">
+          <span className="text-xs font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500 mr-1">
+            Confiance :
+          </span>
+          {certFilters.map((cert) => {
+            const isActive = activeCerts.includes(cert.id);
+            return (
+              <button
+                key={cert.id}
+                onClick={() => onToggleCert(cert.id)}
+                className={`filter-chip neon-badge ${
+                  isActive ? 'neon-badge-emerald filter-chip-active' : 'neon-badge-violet opacity-70 hover:opacity-100'
+                }`}
+              >
+                {isActive && (
+                  <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                )}
+                {cert.label}
+              </button>
+            );
+          })}
         </div>
       </div>
     </section>
