@@ -28,7 +28,11 @@ export default function RootLayout({
   return (
     <html lang="fr" className="h-full antialiased" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/logos/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/logos/favicon-16x16.png" />
+        <link rel="apple-touch-icon" href="/logos/apple-touch-icon.png" />
+        <link rel="manifest" href="/logos/site.webmanifest" />
       </head>
       <body className={`${inter.className} min-h-screen transition-colors duration-500`}>
         {/* Mesh Gradient animé — voiles cobalt / violet / émeraude */}

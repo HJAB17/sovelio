@@ -53,9 +53,13 @@ export default function Header({ onFilterChange, onOpenPalette }: HeaderProps) {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-4">
             {/* Logo and Title */}
             <div className="flex items-center gap-2 sm:gap-3">
-              <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[#2563EB] via-[#4F46E5] to-[#7C3AED] relative overflow-hidden shadow-lg shadow-blue-500/25">
-                <GlobeEuropeAfricaIcon className="h-5 w-5 sm:h-6 sm:w-6 text-white relative z-10 drop-shadow-lg" />
-              </div>
+              <img
+                src="/logos/android-chrome-192x192.png"
+                alt="Logo SOVelio"
+                width={192}
+                height={192}
+                className="h-10 w-10 sm:h-12 sm:w-12 rounded-2xl shadow-lg shadow-blue-500/25"
+              />
               <div>
                 <h1 className="text-xl sm:text-2xl font-extrabold tracking-tight">
                   <span className="gradient-text">SOVelio</span>
