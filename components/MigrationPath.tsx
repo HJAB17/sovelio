@@ -37,6 +37,21 @@ export default function MigrationPath() {
                   {path.id === 'aws-gcp' && (
                     <div className="text-purple-600 dark:text-purple-400 font-bold">C</div>
                   )}
+                  {path.id === 'atlassian' && (
+                    <div className="text-sky-600 dark:text-sky-400 font-bold">A</div>
+                  )}
+                  {path.id === 'adobe-figma' && (
+                    <div className="text-rose-600 dark:text-rose-400 font-bold">F</div>
+                  )}
+                  {path.id === 'anssi-cyber' && (
+                    <div className="text-red-600 dark:text-red-400 font-bold text-sm">🛡️</div>
+                  )}
+                  {path.id === 'wetransfer' && (
+                    <div className="text-amber-600 dark:text-amber-400 font-bold">W</div>
+                  )}
+                  {!['google-workspace', 'microsoft-365', 'aws-gcp', 'atlassian', 'adobe-figma', 'anssi-cyber', 'wetransfer'].includes(path.id) && (
+                    <div className="text-indigo-600 dark:text-indigo-400 font-bold">{path.name.charAt(0)}</div>
+                  )}
                 </div>
                 <div>
                   <h3 className="font-bold text-gray-900 dark:text-white">{path.name}</h3>

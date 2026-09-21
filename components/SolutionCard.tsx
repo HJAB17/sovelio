@@ -59,7 +59,18 @@ const badgeExplanations: Record<string, string> = {
   'France Cybersecurity': 'Label français reconnaissant les solutions de cybersécurité éprouvées.',
   'ISO 27001': "Norme internationale de management de la sécurité de l'information.",
   'CSPN ANSSI': "Certification de Sécurité de Premier Niveau délivrée par l'ANSSI.",
+  'Qualification ANSSI': "Plus haut niveau de garantie de sécurité délivré par l'ANSSI pour les systèmes sensibles et OIV.",
   'ANSSI': "Reconnaissance de l'Agence Nationale de la Sécurité des Systèmes d'Information.",
+  'BSI BSZ': "Certification de sécurité délivrée par l'agence fédérale allemande de sécurité informatique (BSI).",
+  'eIDAS Qualifié': "Signature électronique qualifiée avec valeur juridique probante dans toute l'Union Européenne.",
+  'eIDAS': "Règlement européen sur l'identification électronique et les services de confiance.",
+  'Zero Knowledge': "Architecture zéro connaissance : le serveur n'a techniquement aucun moyen de déchiffrer vos données.",
+  'openDesk': "Composant officiel du poste de travail souverain de l'administration fédérale allemande.",
+  'FIDO2': "Standard d'authentification forte matérielle résistant aux attaques de phishing.",
+  'B-Corp': "Entreprise certifiée pour ses standards éthiques, sociaux et environnementaux élevés.",
+  'Made in Germany': "Matériel conçu et assemblé en Allemagne sous strict contrôle européen.",
+  'Made in Spain': "Matériel assemblé en Espagne sous réglementation européenne.",
+  'De-Googled': "Système entièrement affranchi des services et traceurs Google.",
   'HDS': 'Hébergement de Données de Santé : certifié pour les données médicales sensibles.',
 };
 

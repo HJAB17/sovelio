@@ -299,6 +299,54 @@ export const solutions: Solution[] = [
     },
     websiteUrl: 'https://whaller.com'
   },
+  {
+    id: 'cryptpad',
+    name: 'CryptPad',
+    category: 'bureautique',
+    country: 'FR',
+    logoUrl: '/logos/cryptpad.svg',
+    description: 'Suite bureautique collaborative chiffrée E2E (Zero-Knowledge), open source, recommandée par la DINUM',
+    labels: ['Open Source', 'Zero Knowledge', 'End-to-End Encryption', 'openDesk'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'France ou auto-hébergé',
+      jurisdiction: 'France (UE)',
+      certifications: ['RGPD', 'Open Source AGPL']
+    },
+    websiteUrl: 'https://cryptpad.fr'
+  },
+  {
+    id: 'xwiki',
+    name: 'XWiki',
+    category: 'bureautique',
+    country: 'FR',
+    logoUrl: '/logos/xwiki.svg',
+    description: 'Wiki d\'entreprise et base de connaissances open source, alternative souveraine à Confluence et Notion',
+    labels: ['Open Source', 'Knowledge Base', 'On-Premise', 'openDesk'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'France ou on-premise',
+      jurisdiction: 'France (UE)',
+      certifications: ['RGPD', 'Open Source LGPL']
+    },
+    websiteUrl: 'https://xwiki.com'
+  },
+  {
+    id: 'baserow',
+    name: 'Baserow',
+    category: 'bureautique',
+    country: 'EU',
+    logoUrl: '/logos/baserow.svg',
+    description: 'Base de données no-code relationnelle et collaborative open source, alternative souveraine à Airtable',
+    labels: ['Open Source', 'No-Code Database', 'Airtable Alternative', 'GDPR Compliant'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'Allemagne (UE) ou on-premise',
+      jurisdiction: 'Pays-Bas (UE)',
+      certifications: ['GDPR', 'Open Source MIT']
+    },
+    websiteUrl: 'https://baserow.io'
+  },
 
   // ============================================
   // IA - Intelligence Artificielle
@@ -399,6 +447,22 @@ export const solutions: Solution[] = [
     },
     websiteUrl: 'https://ia-souveraine.fr'
   },
+  {
+    id: 'albert',
+    name: 'Albert (DINUM)',
+    category: 'ia',
+    country: 'FR',
+    logoUrl: '/logos/albert.svg',
+    description: 'IA souveraine et API ouverte de l\'État français (DINUM), modèles open source hébergés sur SecNumCloud',
+    labels: ['État Français', 'Open Source', 'SecNumCloud', 'API Souveraine'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'France (SecNumCloud Outscale)',
+      jurisdiction: 'France (UE)',
+      certifications: ['SecNumCloud', 'RGPD']
+    },
+    websiteUrl: 'https://albert.etalab.gouv.fr'
+  },
 
   // ============================================
   // DRIVE - Cloud Storage
@@ -450,6 +514,38 @@ export const solutions: Solution[] = [
       certifications: ['Swiss Privacy', 'ISO 27001']
     },
     websiteUrl: 'https://www.infomaniak.com/kdrive'
+  },
+  {
+    id: 'swisstransfer',
+    name: 'SwissTransfer (Infomaniak)',
+    category: 'drive',
+    country: 'EU',
+    logoUrl: '/logos/swisstransfer.svg',
+    description: 'Transfert sécurisé de fichiers volumineux jusqu\'à 50 Go gratuitement, sans pub, hébergé 100% en Suisse',
+    labels: ['Swiss Privacy', 'No Cloud Act', 'Green Energy', '50 Go Gratuit'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: '100% Suisse (Infomaniak)',
+      jurisdiction: 'Suisse (hors CLOUD Act)',
+      certifications: ['Swiss Privacy', 'ISO 27001', 'RGPD']
+    },
+    websiteUrl: 'https://www.swisstransfer.com'
+  },
+  {
+    id: 'tresorit',
+    name: 'Tresorit',
+    category: 'drive',
+    country: 'EU',
+    logoUrl: '/logos/tresorit.svg',
+    description: 'Stockage et partage cloud chiffrés de bout en bout Zero-Knowledge, filiale de La Poste Suisse',
+    labels: ['Zero Knowledge', 'End-to-End Encryption', 'Swiss Privacy', 'ISO 27001'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'Suisse et Union Européenne',
+      jurisdiction: 'Suisse / UE',
+      certifications: ['ISO 27001', 'GDPR', 'Swiss Privacy']
+    },
+    websiteUrl: 'https://tresorit.com'
   },
 
   // ============================================
@@ -647,6 +743,22 @@ export const solutions: Solution[] = [
     },
     websiteUrl: 'https://www.scaleway.com'
   },
+  {
+    id: 'scalingo',
+    name: 'Scalingo',
+    category: 'cloud',
+    country: 'FR',
+    logoUrl: '/logos/scalingo.svg',
+    description: 'PaaS européen souverain, ISO 27001 et HDS, région SecNumCloud sur infrastructure 3DS Outscale',
+    labels: ['PaaS Souverain', 'SecNumCloud', 'ISO 27001', 'HDS'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: '100% France (Outscale SecNumCloud)',
+      jurisdiction: 'France (UE)',
+      certifications: ['ISO 27001', 'HDS', 'SecNumCloud (infra)']
+    },
+    websiteUrl: 'https://scalingo.com'
+  },
 
   // ============================================
   // SECURITE - Cybersécurité
@@ -682,6 +794,54 @@ export const solutions: Solution[] = [
       certifications: ['France Cybersecurity']
     },
     websiteUrl: 'https://www.pradeo.com'
+  },
+  {
+    id: 'harfanglab',
+    name: 'HarfangLab',
+    category: 'securite',
+    country: 'FR',
+    logoUrl: '/logos/harfanglab.svg',
+    description: 'Premier EDR qualifié par l\'ANSSI et certifié CSPN & BSI BSZ, détection et réponse aux menaces avancées',
+    labels: ['Qualification ANSSI', 'CSPN ANSSI', 'BSI BSZ', 'French Cybersecurity'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: '100% France (cloud souverain ou on-premise)',
+      jurisdiction: 'France (UE)',
+      certifications: ['Qualification ANSSI', 'CSPN ANSSI', 'BSI BSZ', 'RGPD']
+    },
+    websiteUrl: 'https://harfanglab.io'
+  },
+  {
+    id: 'crowdsec',
+    name: 'CrowdSec',
+    category: 'securite',
+    country: 'FR',
+    logoUrl: '/logos/crowdsec.svg',
+    description: 'Système collaboratif et open source de prévention des intrusions (IPS), détection d\'attaques en réseau',
+    labels: ['Open Source', 'Crowdsourced Security', 'French Tech', 'Grand Défi Cyber'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'France ou auto-hébergé',
+      jurisdiction: 'France (UE)',
+      certifications: ['Open Source MIT', 'RGPD']
+    },
+    websiteUrl: 'https://crowdsec.net'
+  },
+  {
+    id: 'wallix',
+    name: 'Wallix',
+    category: 'securite',
+    country: 'FR',
+    logoUrl: '/logos/wallix.svg',
+    description: 'Leader européen du PAM (gestion des accès à privilèges), certifié CSPN par l\'ANSSI, sécurisation des accès critiques',
+    labels: ['CSPN ANSSI', 'PAM Leader', 'France Cybersecurity', 'Zero Trust'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'France ou on-premise',
+      jurisdiction: 'France (UE)',
+      certifications: ['CSPN ANSSI', 'France Cybersecurity', 'RGPD']
+    },
+    websiteUrl: 'https://www.wallix.com'
   },
 
   // ============================================
@@ -930,6 +1090,38 @@ export const solutions: Solution[] = [
     },
     websiteUrl: 'https://www.whonix.org'
   },
+  {
+    id: 'eos',
+    name: '/e/OS (Murena)',
+    category: 'os',
+    country: 'FR',
+    logoUrl: '/logos/eos.svg',
+    description: 'Système d\'exploitation mobile open source dégooglisé avec microG, respectueux de la vie privée, fondé par Gaël Duval',
+    labels: ['Open Source', 'De-Googled', 'Mobile Privacy', 'French Tech'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'France / Europe (Murena Cloud)',
+      jurisdiction: 'France (UE)',
+      certifications: ['Open Source', 'RGPD']
+    },
+    websiteUrl: 'https://e.foundation/e-os'
+  },
+  {
+    id: 'debian',
+    name: 'Debian',
+    category: 'os',
+    country: 'EU',
+    logoUrl: '/logos/debian.svg',
+    description: 'Le "système d\'exploitation universel", fondation libre et communautaire de Linux, gouvernance indépendante sans tutelle US',
+    labels: ['Open Source', 'Universal OS', 'Community Governed', 'Free Software'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'Miroirs mondiaux neutres / Europe',
+      jurisdiction: 'Communauté mondiale / UE',
+      certifications: ['Open Source DFSG', '100% Free Software']
+    },
+    websiteUrl: 'https://www.debian.org'
+  },
 
   // ============================================
   // VISIOCONFERENCE - Visioconférence & Communication
@@ -1013,6 +1205,38 @@ export const solutions: Solution[] = [
       certifications: ['Open Source', 'RGPD-compatible']
     },
     websiteUrl: 'https://element.io'
+  },
+  {
+    id: 'tixeo',
+    name: 'Tixeo',
+    category: 'visioconference',
+    country: 'FR',
+    logoUrl: '/logos/tixeo.svg',
+    description: 'Visioconférence sécurisée multipoint qualifiée et certifiée CSPN par l\'ANSSI, véritable chiffrement E2E, zéro CLOUD Act',
+    labels: ['Qualification ANSSI', 'CSPN ANSSI', 'End-to-End Encryption', 'Zero Cloud Act'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'France (SecNumCloud Outscale ou on-premise)',
+      jurisdiction: 'France (UE)',
+      certifications: ['Qualification ANSSI', 'CSPN ANSSI', 'RGPD']
+    },
+    websiteUrl: 'https://www.tixeo.com'
+  },
+  {
+    id: 'kmeet',
+    name: 'kMeet (Infomaniak)',
+    category: 'visioconference',
+    country: 'EU',
+    logoUrl: '/logos/kmeet.svg',
+    description: 'Visioconférence gratuite sans inscription, chiffrée, 100% hébergée en Suisse sur des datacenters écologiques',
+    labels: ['Swiss Privacy', 'Free', 'No Account Required', 'No Cloud Act'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: '100% Suisse (Infomaniak)',
+      jurisdiction: 'Suisse (hors CLOUD Act)',
+      certifications: ['Swiss Privacy', 'ISO 27001', 'RGPD']
+    },
+    websiteUrl: 'https://www.infomaniak.com/kmeet'
   },
 
   // ============================================
@@ -1119,20 +1343,20 @@ export const solutions: Solution[] = [
     websiteUrl: 'https://www.startpage.com'
   },
   {
-    id: 'brave-search',
-    name: 'Brave Search',
+    id: 'swisscows',
+    name: 'Swisscows',
     category: 'moteurs-recherche',
     country: 'EU',
-    logoUrl: '/logos/brave-search.svg',
-    description: 'Moteur de recherche à index indépendant (partiellement hébergé en UE), sans tracking, sans profil publicitaire, API ouverte',
-    labels: ['Independent Index', 'No Tracking', 'Open API'],
+    logoUrl: '/logos/swisscows.svg',
+    description: 'Moteur de recherche suisse axé sur la vie privée, sans tracking, index indépendant, serveurs sécurisés dans les Alpes suisses',
+    labels: ['Swiss Privacy', 'No Tracking', 'No Cloud Act', 'Family Friendly'],
     certifiedNonCloudAct: true,
     souveraineteDetails: {
-      hosting: 'Europe (UE partiel)',
-      jurisdiction: 'USA (siège) / Données EU',
-      certifications: ['RGPD-compatible']
+      hosting: '100% Suisse (datacenters dans les Alpes)',
+      jurisdiction: 'Suisse (hors CLOUD Act)',
+      certifications: ['Swiss Privacy Laws', 'RGPD']
     },
-    websiteUrl: 'https://search.brave.com'
+    websiteUrl: 'https://swisscows.com'
   },
 
   // ============================================
@@ -1254,6 +1478,38 @@ export const solutions: Solution[] = [
     },
     websiteUrl: 'https://codeberg.org'
   },
+  {
+    id: 'openproject',
+    name: 'OpenProject',
+    category: 'gestion-projet',
+    country: 'EU',
+    logoUrl: '/logos/openproject.svg',
+    description: 'Gestion de projet agile & classique open source (Scrum, Kanban, Gantt), alternative à Jira, pilier d\'openDesk',
+    labels: ['Open Source', 'Jira Alternative', 'openDesk', 'German Privacy'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'Allemagne (UE) ou on-premise',
+      jurisdiction: 'Allemagne (UE)',
+      certifications: ['RGPD', 'Open Source GPLv3']
+    },
+    websiteUrl: 'https://www.openproject.org'
+  },
+  {
+    id: 'penpot',
+    name: 'Penpot',
+    category: 'gestion-projet',
+    country: 'EU',
+    logoUrl: '/logos/penpot.svg',
+    description: 'Premier outil open source de design d\'interface et prototypage UI/UX, alternative souveraine directe à Figma',
+    labels: ['Open Source', 'Figma Alternative', 'Web Standards', 'Self-Hosted'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'Espagne (UE) ou on-premise',
+      jurisdiction: 'Espagne (UE)',
+      certifications: ['RGPD', 'Open Source MPL 2.0']
+    },
+    websiteUrl: 'https://penpot.app'
+  },
 
   // ============================================
   // IDENTITE - Identité & Authentification
@@ -1306,6 +1562,38 @@ export const solutions: Solution[] = [
     },
     websiteUrl: 'https://dev.entrouvert.org/projects/authentic'
   },
+  {
+    id: 'yousign',
+    name: 'Yousign',
+    category: 'identite',
+    country: 'FR',
+    logoUrl: '/logos/yousign.svg',
+    description: 'Signature électronique certifiée eIDAS et qualifiée par l\'ANSSI, hébergement 100% en France, alternative à DocuSign',
+    labels: ['eIDAS Qualifié', 'Qualification ANSSI', 'French Hosting', 'Zero Cloud Act'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: '100% France',
+      jurisdiction: 'France (UE)',
+      certifications: ['eIDAS', 'Qualification ANSSI', 'RGPD']
+    },
+    websiteUrl: 'https://yousign.com'
+  },
+  {
+    id: 'proconnect',
+    name: 'ProConnect (DINUM)',
+    category: 'identite',
+    country: 'FR',
+    logoUrl: '/logos/proconnect.svg',
+    description: 'Fédération d\'identité souveraine de l\'État français (ex-AgentConnect) pour les professionnels et agents publics',
+    labels: ['État Français', 'SSO Régalien', 'Secteur public', 'Zero Trust'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: '100% France (DINUM)',
+      jurisdiction: 'France (UE)',
+      certifications: ['ANSSI', 'RGPD', 'eIDAS']
+    },
+    websiteUrl: 'https://proconnect.gouv.fr'
+  },
 
   // ============================================
   // ANALYTIQUE - Analytique web
@@ -1342,6 +1630,38 @@ export const solutions: Solution[] = [
     },
     websiteUrl: 'https://plausible.io'
   },
+  {
+    id: 'simpleanalytics',
+    name: 'Simple Analytics',
+    category: 'analytique',
+    country: 'EU',
+    logoUrl: '/logos/simpleanalytics.svg',
+    description: 'Mesure d\'audience sans cookies, hébergée 100% aux Pays-Bas chez des hébergeurs locaux, zéro dépendance cloud US',
+    labels: ['No Cookies', 'No US Cloud', 'GDPR Native', 'Dutch Hosting'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: '100% Pays-Bas (Worldstream & Leaseweb)',
+      jurisdiction: 'Pays-Bas (UE)',
+      certifications: ['GDPR Compliant', 'Zero US Cloud']
+    },
+    websiteUrl: 'https://simpleanalytics.com'
+  },
+  {
+    id: 'pirsch',
+    name: 'Pirsch Analytics',
+    category: 'analytique',
+    country: 'EU',
+    logoUrl: '/logos/pirsch.svg',
+    description: 'Analytique web légère et conforme RGPD, développée en Allemagne et hébergée 100% sur des serveurs Hetzner',
+    labels: ['No Cookies', 'German Hosting', 'Hetzner', 'GDPR Native'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: '100% Allemagne (Hetzner)',
+      jurisdiction: 'Allemagne (UE)',
+      certifications: ['GDPR', 'Open Core']
+    },
+    websiteUrl: 'https://pirsch.io'
+  },
 
   // ============================================
   // MATERIEL - Matériel souverain
@@ -1363,20 +1683,68 @@ export const solutions: Solution[] = [
     websiteUrl: 'https://www.tuxedocomputers.com'
   },
   {
-    id: 'framework',
-    name: 'Framework Laptop',
+    id: 'fairphone',
+    name: 'Fairphone',
     category: 'materiel',
     country: 'EU',
-    logoUrl: '/logos/framework.svg',
-    description: 'PC modulaire et réparable, distribué en Europe, compatible Linux nativement, conçu pour la durabilité et l\'indépendance matérielle',
-    labels: ['Modular', 'Repairable', 'Linux Compatible'],
+    logoUrl: '/logos/fairphone.svg',
+    description: 'Smartphones modulaires, équitables et réparables, entreprise européenne B-Corp, compatible avec les OS dégooglisés',
+    labels: ['Modular', 'Repairable', 'Ethical Tech', 'B-Corp'],
     certifiedNonCloudAct: true,
     souveraineteDetails: {
-      hosting: 'Distribution EU',
-      jurisdiction: 'USA (siège) / Ventes EU',
-      certifications: ['RGPD-compatible']
+      hosting: 'Pays-Bas (UE)',
+      jurisdiction: 'Pays-Bas (UE)',
+      certifications: ['B-Corp', 'Fairtrade', 'RGPD']
     },
-    websiteUrl: 'https://frame.work'
+    websiteUrl: 'https://www.fairphone.com'
+  },
+  {
+    id: 'murena',
+    name: 'Murena',
+    category: 'materiel',
+    country: 'FR',
+    logoUrl: '/logos/murena.svg',
+    description: 'Smartphones dégooglisés et durcis avec interrupteurs physiques de confidentialité (Murena 2), fondé par Gaël Duval',
+    labels: ['Privacy Hardware', 'French Tech', 'De-Googled', 'Hardware Switches'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'France et Europe',
+      jurisdiction: 'France (UE)',
+      certifications: ['RGPD', 'Open Source']
+    },
+    websiteUrl: 'https://murena.com'
+  },
+  {
+    id: 'nitrokey',
+    name: 'Nitrokey',
+    category: 'materiel',
+    country: 'EU',
+    logoUrl: '/logos/nitrokey.svg',
+    description: 'Clés de sécurité physiques (FIDO2, HSM) et ordinateurs durcis 100% open source matériel et logiciel, fabriqués en Allemagne',
+    labels: ['Made in Germany', 'Open Hardware', 'Open Source', 'FIDO2'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'Fabrication Allemagne',
+      jurisdiction: 'Allemagne (UE)',
+      certifications: ['FIDO2', 'Open Source Hardware', 'RGPD']
+    },
+    websiteUrl: 'https://www.nitrokey.com'
+  },
+  {
+    id: 'slimbook',
+    name: 'Slimbook',
+    category: 'materiel',
+    country: 'EU',
+    logoUrl: '/logos/slimbook.svg',
+    description: 'Ordinateurs portables et stations de travail Linux haute performance, assemblés en Espagne, partenaire officiel de KDE',
+    labels: ['Linux Hardware', 'Made in Spain', 'KDE Partner', 'Custom Build'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'Assemblage Espagne (UE)',
+      jurisdiction: 'Espagne (UE)',
+      certifications: ['RGPD', 'Assemblage UE']
+    },
+    websiteUrl: 'https://slimbook.com'
   }
 ];
 
@@ -1401,5 +1769,33 @@ export const migrationPaths = [
     description: 'Migrez vos infrastructures AWS/GCP vers le cloud européen :',
     solutions: ['ovhcloud', 'outscale', 'ionos', 'scaleway', 'numspot', 'hetzner', 'upcloud', 'exoscale', 'cloudtemple', 'clevercloud'],
     color: 'bg-purple-50 border-purple-200'
+  },
+  {
+    id: 'atlassian',
+    name: 'Pack Quitter Atlassian',
+    description: 'Remplacez Jira, Confluence et Bitbucket par le socle souverain européen :',
+    solutions: ['openproject', 'taiga', 'xwiki', 'forgejo', 'codeberg'],
+    color: 'bg-sky-50 border-sky-200'
+  },
+  {
+    id: 'adobe-figma',
+    name: 'Pack Design & Création',
+    description: 'Alternative souveraine et open source à Figma et aux suites propriétaires de design :',
+    solutions: ['penpot', 'cryptpad', 'onlyoffice'],
+    color: 'bg-rose-50 border-rose-200'
+  },
+  {
+    id: 'anssi-cyber',
+    name: 'Pack Cyber Qualifié ANSSI',
+    description: 'Le bouclier régalien français certifié pour les OIV, administrations et entreprises exigeantes :',
+    solutions: ['harfanglab', 'tixeo', 'tehtris', 'olvid', 'wallix'],
+    color: 'bg-red-50 border-red-200'
+  },
+  {
+    id: 'wetransfer',
+    name: 'Pack Partage & Transfert Lourd',
+    description: 'Envoyez et stockez vos fichiers sans passer par les serveurs américains de WeTransfer ou Dropbox :',
+    solutions: ['swisstransfer', 'leviia', 'kdrive', 'tresorit'],
+    color: 'bg-amber-50 border-amber-200'
   }
 ];
