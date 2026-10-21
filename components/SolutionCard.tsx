@@ -27,21 +27,157 @@ interface SolutionCardProps {
 }
 
 const categoryConfig: Record<Category, { icon: React.ElementType; label: string; color: string; bgColor: string }> = {
-  email: { icon: EnvelopeIcon, label: 'Email & Messagerie', color: 'text-blue-600 dark:text-blue-400', bgColor: 'bg-blue-500/10' },
-  bureautique: { icon: DocumentTextIcon, label: 'Bureautique & Collaboration', color: 'text-green-600 dark:text-green-400', bgColor: 'bg-green-500/10' },
-  ia: { icon: CpuChipIcon, label: 'Intelligence Artificielle', color: 'text-purple-600 dark:text-purple-400', bgColor: 'bg-purple-500/10' },
-  drive: { icon: CloudArrowUpIcon, label: 'Drive & Stockage', color: 'text-orange-600 dark:text-orange-400', bgColor: 'bg-orange-500/10' },
-  cloud: { icon: ServerStackIcon, label: 'Cloud (IaaS/PaaS)', color: 'text-indigo-600 dark:text-indigo-400', bgColor: 'bg-indigo-500/10' },
-  securite: { icon: ShieldCheckIcon, label: 'Cybersécurité', color: 'text-red-600 dark:text-red-400', bgColor: 'bg-red-500/10' },
-  navigateur: { icon: GlobeAltIcon, label: 'Navigateur web', color: 'text-cyan-600 dark:text-cyan-400', bgColor: 'bg-cyan-500/10' },
-  os: { icon: ComputerDesktopIcon, label: "Système d'exploitation", color: 'text-yellow-600 dark:text-yellow-400', bgColor: 'bg-yellow-500/10' },
-  visioconference: { icon: VideoCameraIcon, label: 'Visioconférence & Communication', color: 'text-pink-600 dark:text-pink-400', bgColor: 'bg-pink-500/10' },
-  'moteurs-recherche': { icon: MagnifyingGlassIcon, label: 'Moteurs de recherche', color: 'text-emerald-600 dark:text-emerald-400', bgColor: 'bg-emerald-500/10' },
-  vpn: { icon: LockClosedIcon, label: 'VPN & Réseau privé', color: 'text-violet-600 dark:text-violet-400', bgColor: 'bg-violet-500/10' },
-  'gestion-projet': { icon: ClipboardDocumentListIcon, label: 'Gestion de projet & DevOps', color: 'text-amber-600 dark:text-amber-400', bgColor: 'bg-amber-500/10' },
-  identite: { icon: FingerPrintIcon, label: 'Identité & Authentification', color: 'text-teal-600 dark:text-teal-400', bgColor: 'bg-teal-500/10' },
-  analytique: { icon: ChartBarIcon, label: 'Analytique web', color: 'text-lime-600 dark:text-lime-400', bgColor: 'bg-lime-500/10' },
-  materiel: { icon: CpuChipIcon, label: 'Matériel souverain', color: 'text-stone-600 dark:text-stone-400', bgColor: 'bg-stone-500/10' },
+  email: { icon: EnvelopeIcon, label: 'Email & Messagerie', color: 'text-[#3B49DF] dark:text-[#A5B4FC]', bgColor: 'bg-[#E5E9FF]/70 dark:bg-[#251F42]/80' },
+  bureautique: { icon: DocumentTextIcon, label: 'Bureautique & Collaboration', color: 'text-[#0D9468] dark:text-[#6EE7B7]', bgColor: 'bg-[#CCF5E5]/60 dark:bg-[#143D33]/70' },
+  ia: { icon: CpuChipIcon, label: 'Intelligence Artificielle', color: 'text-[#6D28D9] dark:text-[#C4B5FD]', bgColor: 'bg-[#EDE4FF]/80 dark:bg-[#312254]/80' },
+  drive: { icon: CloudArrowUpIcon, label: 'Drive & Stockage', color: 'text-[#C2410C] dark:text-[#FDBA74]', bgColor: 'bg-[#FFEDD5]/70 dark:bg-[#432018]/70' },
+  cloud: { icon: ServerStackIcon, label: 'Cloud (IaaS/PaaS)', color: 'text-[#4F39E8] dark:text-[#A78BFA]', bgColor: 'bg-[#E8E2FF]/75 dark:bg-[#281E42]/80' },
+  securite: { icon: ShieldCheckIcon, label: 'Cybersécurité', color: 'text-[#BE123C] dark:text-[#FDA4AF]', bgColor: 'bg-[#FFE0E6]/65 dark:bg-[#471A28]/70' },
+  navigateur: { icon: GlobeAltIcon, label: 'Navigateur web', color: 'text-[#0E7490] dark:text-[#67E8F9]', bgColor: 'bg-[#CFFAFE]/60 dark:bg-[#163844]/70' },
+  os: { icon: ComputerDesktopIcon, label: "Système d'exploitation", color: 'text-[#B45309] dark:text-[#FCD34D]', bgColor: 'bg-[#FEF3C7]/75 dark:bg-[#3F2E16]/70' },
+  visioconference: { icon: VideoCameraIcon, label: 'Visioconférence & Communication', color: 'text-[#9D174D] dark:text-[#F9A8D4]', bgColor: 'bg-[#FCE7F3]/70 dark:bg-[#421931]/70' },
+  'moteurs-recherche': { icon: MagnifyingGlassIcon, label: 'Moteurs de recherche', color: 'text-[#047857] dark:text-[#6EE7B7]', bgColor: 'bg-[#D1FAE5]/65 dark:bg-[#143D33]/70' },
+  vpn: { icon: LockClosedIcon, label: 'VPN & Réseau privé', color: 'text-[#5B21B6] dark:text-[#C4B5FD]', bgColor: 'bg-[#EDE9FE]/80 dark:bg-[#312254]/80' },
+  'gestion-projet': { icon: ClipboardDocumentListIcon, label: 'Gestion de projet & DevOps', color: 'text-[#6D28D9] dark:text-[#DDD6FE]', bgColor: 'bg-[#F3E8FF]/75 dark:bg-[#352559]/75' },
+  identite: { icon: FingerPrintIcon, label: 'Identité & Authentification', color: 'text-[#0F766E] dark:text-[#5EEAD4]', bgColor: 'bg-[#CCFBF1]/65 dark:bg-[#133B3A]/70' },
+  analytique: { icon: ChartBarIcon, label: 'Analytique web', color: 'text-[#4338CA] dark:text-[#A5B4FC]', bgColor: 'bg-[#E0E7FF]/75 dark:bg-[#251F42]/80' },
+  materiel: { icon: CpuChipIcon, label: 'Matériel souverain', color: 'text-[#44403C] dark:text-[#D6D3D1]', bgColor: 'bg-[#EAE1D3]/80 dark:bg-[#2B2638]/80' },
+};
+
+/** Note synthétique présentant l'intérêt concret de chaque solution */
+const solutionInterestNotes: Record<string, string> = {
+  // Email
+  mailo: "Alternative complète à Gmail et Outlook réunissant mail, agenda et cloud dans un environnement français qualifié SecNumCloud.",
+  bluemind: "La référence française pour remplacer Microsoft Exchange : compatibilité native avec Outlook, Thunderbird et mobile sans dépendance US.",
+  protonmail: "Référence mondiale de l'email chiffré de bout en bout sous loi suisse pour protéger vos échanges sensibles contre toute surveillance.",
+  tutanota: "Chiffre l'intégralité de la boîte (sujets, messages, contacts et calendrier) avec une protection post-quantique et une énergie 100 % verte.",
+  posteo: "Messagerie écologique et anonyme sans publicité ni collecte de données à l'inscription, financée uniquement par ses utilisateurs.",
+  mailfence: "Suite mail belge chiffrée OpenPGP idéale pour les professionnels : signature numérique, gestion de clés intégrée et agendas partagés.",
+  wire: "Communication d'entreprise chiffrée de bout en bout (chat, audio/vidéo, fichiers) pensée pour les organisations et institutions critiques.",
+  mailinfrance: "Espace collaboratif souverain clé en main (mail, visio, chat, drive) conçu pour les collectivités et PME souhaitant quitter M365.",
+
+  // Bureautique
+  wimi: "Espace de travail tout-en-un qualifié SecNumCloud (projets, documents, visio, chat) taillé pour protéger les données stratégiques.",
+  jamespot: "Digital Workplace française modulable qui remplace SharePoint et Teams avec intranet social et automatisation des processus métiers.",
+  nextcloud: "Pilier open source qui remplace Google Drive, Docs, Calendar et Teams avec un contrôle total en auto-hébergement ou sur cloud européen.",
+  onlyoffice: "Suite bureautique en ligne offrant la meilleure compatibilité avec les formats Microsoft Office (.docx, .xlsx, .pptx) en open source.",
+  talkspirit: "Plateforme française fluide unifiant tchat d'équipe, visioconférence, portail interne et co-édition pour remplacer Teams et Slack.",
+  skuria: "Pack collaboratif français prêt à l'emploi (email, drive, visio) pensé pour une transition simple des TPE/PME hors des géants US.",
+  whaller: "Réseau social d'entreprise et intranet en « sphères » étanches, idéal pour cloisonner et sécuriser les échanges de vos communautés.",
+  cryptpad: "Suite bureautique Zero-Knowledge où tout est chiffré sur votre appareil avant envoi : même l'hébergeur ne peut lire vos documents.",
+  xwiki: "Alternative open source mature à Confluence et Notion pour structurer, versionner et partager la base de connaissances de l'entreprise.",
+  baserow: "Alternative européenne open source à Airtable pour créer des bases de données collaboratives et applications métiers sans coder.",
+
+  // IA
+  mistral: "Champion européen des modèles de langage : des IA de pointe utilisables via Le Chat, par API souveraine ou sur vos propres serveurs.",
+  lighton: "Plateforme d'IA générative (Paradigm) déployable dans votre propre SI ou sur cloud SecNumCloud : vos données internes ne sortent jamais.",
+  alephalpha: "IA souveraine allemande explicable conçue pour le secteur public et les industries critiques, avec traçabilité des sources.",
+  euria: "Assistant IA gratuit et éco-responsable hébergé en Suisse par Infomaniak : vos échanges ne servent jamais à entraîner des modèles tiers.",
+  lumo: "Assistant IA conversationnel conçu par Proton sur des modèles open source en Europe, avec garantie stricte d'aucune journalisation.",
+  iasouveraine: "Portail français donnant accès à plusieurs modèles d'IA open source hébergés exclusivement sur des infrastructures souveraines.",
+  albert: "Le modèle et socle d'IA ouvert développé par l'État français (DINUM) pour moderniser les services publics sur cloud SecNumCloud.",
+
+  // Drive & Stockage
+  oodrive: "Pionnier français du partage de fichiers ultra-sécurisé, des Data Rooms et de la signature qualifiée eIDAS pour les secteurs régaliens.",
+  leviia: "Alternative française directe à Google Drive et OneDrive : stockage rapide, co-édition Office, sauvegarde et option SecNumCloud.",
+  shadowdrive: "Stockage cloud français accessible et intuitif basé sur Nextcloud pour synchroniser et partager vos fichiers à tarif très compétitif.",
+  kdrive: "Alternative suisse complète à Dropbox et Google Drive avec suite bureautique intégrée, propulsée à 100 % par de l'énergie renouvelable.",
+  swisstransfer: "Remplaçant idéal de WeTransfer : envoyez gratuitement jusqu'à 50 Go de fichiers lourds sans publicité, protégés par mot de passe en Suisse.",
+  tresorit: "Coffre-fort cloud chiffré de bout en bout (Zero-Knowledge) pour échanger des dossiers confidentiels avec contrôle granulaire des accès.",
+
+  // Cloud IaaS / PaaS
+  ovhcloud: "Leader européen du cloud (serveurs dédiés, VPS, Kubernetes, IA, SecNumCloud) au rapport performance/prix imbattable face à AWS et Azure.",
+  outscale: "Cloud de Dassault Systèmes entièrement qualifié SecNumCloud, référence pour les charges critiques de la défense, santé et administration.",
+  ionos: "Leader allemand de l'hébergement et du cloud IaaS certifié C5/ISO 27001 pour déployer serveurs, clusters Kubernetes et bases de données.",
+  numspot: "Alliance cloud française (Banque des Territoires, Docaposte, Bouygues, Dassault) bâtie nativement selon le référentiel SecNumCloud.",
+  exoscale: "Cloud européen simple et prévisible né en Suisse : démarrage rapide d'instances, Kubernetes managé et facturation sans frais cachés.",
+  cloudtemple: "Spécialiste français de l'hébergement critique qualifié SecNumCloud et de l'infogérance sans brique soumise au CLOUD Act.",
+  arubacloud: "Acteur majeur du cloud italien disposant de son propre réseau de datacenters écologiques en Europe avec tarification transparente.",
+  hetzner: "Référence allemande plébiscitée par les développeurs pour ses serveurs dédiés et cloud ultra-performants à des coûts très réduits.",
+  upcloud: "Cloud finlandais reconnu pour la vitesse exceptionnelle de son stockage MaxIOPS et sa haute disponibilité sous juridiction nordique.",
+  opentelekomcloud: "Cloud public souverain opéré par Deutsche Telekom en Allemagne pour répondre aux exigences de conformité des institutions européennes.",
+  clevercloud: "PaaS français qui automatise le déploiement, la mise à l'échelle et la maintenance de vos applications web en quelques secondes.",
+  scaleway: "Écosystème cloud natif du groupe Iliad (Kubernetes, Serverless, GPU IA) hébergé dans des datacenters européens sobres en énergie.",
+  scalingo: "Alternative française à Heroku : déployez vos applications et bases de données d'un simple git push avec certifications HDS et SecNumCloud.",
+
+  // Cybersécurité & Mots de passe
+  tehtris: "Pionnier français du XDR qui détecte et neutralise automatiquement en temps réel les cyberattaques, rançongiciels et espionnages.",
+  pradeo: "Spécialiste français de la sécurité des flottes mobiles (smartphones/tablettes) contre les applications malveillantes et le phishing.",
+  harfanglab: "Premier EDR qualifié par l'ANSSI : assure une détection chirurgicale et une réponse souveraine aux menaces sur postes et serveurs.",
+  crowdsec: "Bouclier cyber open source et collaboratif qui bloque les comportements malveillants et partage les IP d'attaquants en temps réel.",
+  wallix: "Leader européen certifié ANSSI de la gestion des accès à privilèges (PAM) pour sécuriser et tracer les connexions aux systèmes critiques.",
+  passbolt: "Gestionnaire de mots de passe open source pensé pour les équipes : partage d'accès chiffré GPG de bout en bout en cloud UE ou on-premise.",
+  padloc: "Gestionnaire de mots de passe open source à l'interface moderne et épurée pour synchroniser coffres personnels et d'équipe en sécurité.",
+  keepassxc: "Coffre-fort de mots de passe 100 % local et hors-ligne : vos identifiants restent dans un fichier chiffré sur votre machine, sans cloud.",
+
+  // Navigateurs
+  vivaldi: "Navigateur européen ultra-personnalisable avec bloqueur de traqueurs, gestion avancée des onglets et client mail/RSS intégré sans pistage.",
+  'mullvad-browser': "Conçu avec le projet Tor pour masquer l'empreinte numérique de votre navigateur (anti-fingerprinting) sans télémétrie ni compte.",
+  'ecosia-browser': "Navigateur éco-responsable qui bloque les publicités intrusives et finance directement des projets de reforestation au quotidien.",
+  librewolf: "Version durcie de Firefox débarrassée de toute télémétrie et collecte de données dès l'installation, avec uBlock Origin préinstallé.",
+  waterfox: "Navigateur rapide dérivé de Firefox alliant suppression de la télémétrie par défaut et excellente compatibilité avec les extensions web.",
+  'gnome-web': "Navigateur libre, épuré et léger de l'environnement Linux GNOME pour une navigation sobre sans compte cloud ni profilage.",
+
+  // Systèmes d'exploitation
+  euos: "Initiative européenne fournissant aux administrations un poste de travail Linux standardisé, immuable et géré de façon centralisée.",
+  opensuse: "Distribution Linux allemande réputée pour sa robustesse industrielle et ses instantanés permettant d'annuler toute mise à jour défaillante.",
+  linuxmint: "La porte d'entrée idéale pour quitter Windows sans perdre ses repères grâce à un bureau familier, stable et prêt à l'emploi.",
+  zorinos: "Système Linux conçu pour faciliter la transition depuis Windows et macOS dans les collectivités, écoles et entreprises.",
+  tuxedoos: "Distribution Linux allemande optimisée pour l'autonomie, les écrans haute définition et les performances des ordinateurs modernes.",
+  nixos: "Système Linux où toute la configuration est décrite dans un fichier unique : déploiements 100 % reproductibles et retours arrière immédiats.",
+  qubesos: "Système de haute sécurité par compartimentation qui isole vos activités (travail, banque, web) dans des machines virtuelles étanches.",
+  tailsos: "Système portable sur clé USB qui ne laisse aucune trace sur l'ordinateur hôte et achemine toutes les connexions via le réseau Tor.",
+  whonix: "Architecture en deux machines virtuelles isolées garantissant qu'aucune application ne puisse révéler votre adresse IP hors de Tor.",
+  eos: "Alternative française à Android et iOS affranchie des pisteurs Google tout en conservant la compatibilité avec vos applications mobiles.",
+  debian: "Socle historique et universel du logiciel libre, reconnu pour sa stabilité légendaire sur serveurs comme sur postes de travail.",
+
+  // Visioconférence & Communication
+  jitsi: "Visioconférence open source instantanée dans le navigateur, sans création de compte ni installation logicielle obligatoire.",
+  bigbluebutton: "Classe virtuelle et webinaire open source avec tableau blanc interactif, salles de sous-groupes et partage de notes en direct.",
+  tchap: "Messagerie instantanée chiffrée de l'État français basée sur le protocole Matrix pour sécuriser les échanges des agents publics.",
+  olvid: "Messagerie certifiée par l'ANSSI fonctionnant sans numéro de téléphone ni annuaire central, éliminant tout risque d'interception serveur.",
+  element: "Client de référence du protocole ouvert Matrix, remplaçant Slack et Teams par une messagerie fédérée et chiffrée adoptée par plusieurs États.",
+  tixeo: "Seule visioconférence qualifiée par l'ANSSI garantissant un vrai chiffrement de bout en bout des flux audio/vidéo en réunion multipoint.",
+  kmeet: "Visioconférence suisse gratuite et sans inscription, chiffrée et propulsée par les datacenters écologiques d'Infomaniak.",
+
+  // Moteurs de recherche
+  qwant: "Moteur de recherche français garantissant la neutralité des résultats : zéro cookie de pistage et aucun profilage de votre historique.",
+  ecosia: "Alternative engagée à Google Search dont les revenus financent la plantation d'arbres dans les zones de biodiversité menacées.",
+  startpage: "La pertinence des résultats Google sans son pistage : agit comme un bouclier néerlandais qui anonymise votre adresse IP et vos requêtes.",
+  swisscows: "Moteur de recherche suisse doté de son propre index indépendant, sans profilage et hébergé dans des datacenters au cœur des Alpes.",
+
+  // VPN
+  'mullvad-vpn': "Étalon-or de l'anonymat VPN : aucun email requis (simple numéro de compte anonyme), tarif fixe et serveurs fonctionnant uniquement sur RAM.",
+  protonvpn: "VPN suisse open source à haute vitesse avec double saut Secure Core, bloqueur de traqueurs NetShield et offre gratuite illimitée.",
+  ivpn: "VPN européen 100 % open source soumis à des audits de sécurité annuels publics, utilisable sans fournir aucune donnée personnelle.",
+
+  // Gestion de projet & DevOps
+  taiga: "Plateforme agile open source claire et visuelle (Scrum, Kanban) pour piloter vos projets sans l'enfermement propriétaire de Jira.",
+  plane: "Alternative moderne et rapide à Jira et Linear pour gérer tickets, sprints, feuilles de route et documentation en auto-hébergement.",
+  forgejo: "Forge logicielle Git légère et communautaire pour héberger code source, revues de code et CI/CD avec une empreinte serveur minimale.",
+  codeberg: "Hébergement Git public géré par une association allemande à but non lucratif, refuge européen idéal pour vos projets hors de GitHub.",
+  openproject: "Solution complète de gestion de projets (Gantt, Agile, budgets) retenue par l'administration allemande pour sa suite souveraine openDesk.",
+  penpot: "Première plateforme open source de design UI/UX et prototypage collaboratif basée sur les standards web, alternative directe à Figma.",
+
+  // Identité & Authentification
+  franceconnect: "Portail d'identification de l'État français donnant accès à plus de 1 400 démarches en ligne sans multiplier les mots de passe.",
+  keycloak: "Référence open source de gestion des identités (SSO, SAML, OIDC, MFA) pour sécuriser et unifier l'accès à toutes vos applications.",
+  authentic2: "Brique française d'authentification unique (SSO) open source largement déployée par les collectivités territoriales et ministères.",
+  yousign: "Alternative française à DocuSign certifiée eIDAS et ANSSI pour signer contrats et documents en quelques clics avec valeur juridique UE.",
+  proconnect: "Fédération d'identité officielle de l'État français vérifiant instantanément l'identité et l'organisation des professionnels et agents.",
+
+  // Analytique web
+  matomo: "Alternative complète à Google Analytics recommandée par la CNIL : tableaux de bord riches, sans bandeau cookies et 100 % propriétaire des données.",
+  plausible: "Mesure d'audience web épurée et ultra-légère (< 1 Ko) pour suivre votre trafic en un coup d'œil sans ralentir le site ni tracer les visiteurs.",
+  simpleanalytics: "Outil néerlandais d'analyse de trafic éthique, sans cookies et hébergé sur une infrastructure physique 100 % indépendante des clouds US.",
+  pirsch: "Solution d'analytique web allemande moderne et rapide, sans cookies, hébergée chez Hetzner et intégrable en quelques minutes.",
+
+  // Matériel souverain
+  'tuxedo-computers': "Ordinateurs portables et PC assemblés sur mesure en Allemagne, livrés avec Linux préinstallé et matériel 100 % compatible dès l'allumage.",
+  fairphone: "Smartphone modulaire et équitable conçu aux Pays-Bas : batterie et pièces remplaçables au tournevis en quelques minutes pour durer des années.",
+  murena: "Smartphones livrés clés en main avec le système dégooglisé /e/OS qui bloque les pisteurs applicatifs et protège votre vie privée.",
+  nitrokey: "Clés USB de sécurité FIDO2 et ordinateurs à firmware sécurisé fabriqués en Allemagne avec des plans 100 % open hardware et open source.",
+  slimbook: "Ultrabooks et mini-PC en aluminium assemblés en Espagne et pensés nativement pour Linux, alliant finesse, autonomie et performance.",
 };
 
 /** Explications des labels/certifications pour les infobulles */
@@ -82,7 +218,7 @@ function getBadgeExplanation(label: string): string | null {
   return null;
 }
 
-/** Badge avec infobulle élégante au survol */
+/** Étiquette papier avec infobulle façon note Canson au survol */
 function SovereignBadge({ label }: { label: string }) {
   const explanation = getBadgeExplanation(label);
   return (
@@ -91,7 +227,7 @@ function SovereignBadge({ label }: { label: string }) {
       {explanation && (
         <span
           role="tooltip"
-          className="pointer-events-none absolute left-1/2 -translate-x-1/2 bottom-full mb-2 z-30 w-56 px-3 py-2 rounded-xl glass-strong text-xs font-normal leading-relaxed text-[var(--foreground)] opacity-0 translate-y-1 group-hover/badge:opacity-100 group-hover/badge:translate-y-0 transition-all duration-200"
+          className="pointer-events-none absolute left-1/2 -translate-x-1/2 bottom-full mb-2.5 z-30 w-60 px-3.5 py-2.5 rounded-xl bg-[var(--paper-card)] border-2 border-[var(--ink-border)] shadow-[4px_4px_0_var(--shadow-accent-color)] text-xs font-medium leading-relaxed text-[var(--ink)] opacity-0 translate-y-1 group-hover/badge:opacity-100 group-hover/badge:translate-y-0 group-hover/badge:-rotate-1 transition-all duration-200"
         >
           {explanation}
         </span>
@@ -103,35 +239,48 @@ function SovereignBadge({ label }: { label: string }) {
 export default function SolutionCard({ solution }: SolutionCardProps) {
   const categoryInfo = categoryConfig[solution.category];
   const CategoryIcon = categoryInfo.icon;
+  const interestNote =
+    solutionInterestNotes[solution.id] ??
+    `Alternative européenne souveraine dans le domaine ${categoryInfo.label.toLowerCase()}, conforme au RGPD et hors juridiction américaine.`;
 
   return (
-    <SpotlightCard id={`solution-${solution.id}`} className="h-full flex flex-col">
-      {/* Header with logo and badges */}
-      <div className="p-4 sm:p-6 border-b border-white/40 dark:border-white/10">
-        <div className="flex items-start gap-3 sm:gap-4">
-          {/* Logo placeholder */}
-          <div className="flex h-12 w-12 sm:h-16 sm:w-16 items-center justify-center rounded-xl bg-gradient-to-br from-[#2563EB]/15 via-[#8B5CF6]/15 to-[#10B981]/15 border border-white/40 dark:border-white/10 flex-shrink-0 shadow-inner">
-            <div className="text-xl sm:text-2xl font-extrabold gradient-text">
+    <SpotlightCard id={`solution-${solution.id}`} className="group/card h-full flex flex-col">
+      {/* En-tête de la fiche Canson avec lavis lavande subtil et filet pointillé */}
+      <div className="p-4 sm:p-6 border-b-2 border-dashed border-[var(--ink-border)]/35 bg-[image:var(--logo-gradient-soft)]/55 rounded-t-[14px]">
+        <div className="flex items-start gap-3.5 sm:gap-4">
+          {/* Timbre initiale inspiré du logo SOVelio */}
+          <div className="flex h-12 w-12 sm:h-15 sm:w-15 items-center justify-center rounded-xl bg-[image:var(--logo-gradient)] border-2 border-[var(--ink-border)] shadow-[3px_3px_0_var(--shadow-ink-color)] flex-shrink-0 -rotate-2 group-hover/card:rotate-2 transition-transform duration-200">
+            <div className="font-editorial text-xl sm:text-2xl font-extrabold text-white">
               {solution.name.charAt(0)}
             </div>
           </div>
 
           <div className="flex-1 min-w-0">
-            <div className="flex flex-wrap items-center gap-2">
-              <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">{solution.name}</h3>
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <h3 className="font-editorial text-lg sm:text-xl font-extrabold text-[var(--ink)] tracking-tight">
+                {solution.name}
+              </h3>
               <span
-                className={`neon-badge ${solution.country === 'FR' ? 'neon-badge-violet' : 'neon-badge-emerald'}`}
-                title={solution.country === 'FR'
-                  ? 'Solution française : juridiction France (UE), pleine application du RGPD.'
-                  : 'Solution européenne : juridiction UE ou équivalente, hors portée du CLOUD Act.'}
+                className={`stamp-badge ${
+                  solution.country === 'FR'
+                    ? 'bg-[var(--violet-pastel)] text-[var(--ink)]'
+                    : 'bg-[var(--emerald-pastel)] text-[var(--ink)]'
+                }`}
+                title={
+                  solution.country === 'FR'
+                    ? 'Solution française : juridiction France (UE), pleine application du RGPD.'
+                    : 'Solution européenne : juridiction UE ou équivalente, hors portée du CLOUD Act.'
+                }
               >
                 {solution.country === 'FR' ? '🇫🇷 Français' : '🇪🇺 Européen'}
               </span>
             </div>
-            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mt-1">{solution.description}</p>
+            <p className="text-sm sm:text-base text-[var(--ink-muted)] mt-1.5 leading-snug font-medium">
+              {solution.description}
+            </p>
 
-            {/* Labels interactifs */}
-            <div className="flex flex-wrap gap-2 mt-3">
+            {/* Étiquettes interactives */}
+            <div className="flex flex-wrap gap-2 mt-3.5">
               {solution.labels.map((label, index) => (
                 <SovereignBadge key={index} label={label} />
               ))}
@@ -140,49 +289,67 @@ export default function SolutionCard({ solution }: SolutionCardProps) {
         </div>
       </div>
 
-      {/* Category and details */}
-      <div className="p-4 sm:p-6 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 flex-1">
-        {/* Category badge */}
-        <div>
-          <h4 className="font-semibold text-gray-900 dark:text-white mb-3">Catégorie</h4>
-          <div className={`flex flex-col items-center justify-center p-3 sm:p-5 rounded-2xl border border-white/40 dark:border-white/10 ${categoryInfo.bgColor} transition-transform duration-300 hover:scale-[1.02]`}>
-            <div className={`p-3 sm:p-4 rounded-xl bg-white/50 dark:bg-white/5 mb-2 sm:mb-3`}>
-              <CategoryIcon className={`h-8 w-8 sm:h-10 sm:w-10 ${categoryInfo.color}`} />
+      {/* Corps de fiche : Encart "Intérêt & Domaine" (à gauche) & Conformité (à droite) */}
+      <div className="p-4 sm:p-6 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 flex-1 bristol-lines rounded-b-[14px]">
+        {/* Cartouche Domaine compact + Note d'intérêt de la solution */}
+        <div className="flex flex-col">
+          <h4 className="text-xs font-extrabold uppercase tracking-wider text-[var(--ink-muted)] mb-2.5">
+            Intérêt & Domaine
+          </h4>
+          <div
+            className={`flex-1 flex flex-col justify-between p-3.5 sm:p-4 rounded-xl border-2 border-[var(--ink-border)] shadow-[3px_3px_0_var(--shadow-ink-color)] ${categoryInfo.bgColor} transition-transform duration-200 group-hover/card:-rotate-[0.6deg]`}
+          >
+            {/* En-tête de catégorie réduit et compact */}
+            <div className="flex items-center gap-2.5 pb-2.5 mb-2.5 border-b border-dashed border-[var(--ink-border)]/35">
+              <div className="p-1.5 rounded-lg bg-[var(--paper-card)] border border-[var(--ink-border)] shadow-[1.5px_1.5px_0_var(--shadow-ink-color)] flex-shrink-0">
+                <CategoryIcon className={`h-4 w-4 stroke-[2.2] ${categoryInfo.color}`} />
+              </div>
+              <span className="font-editorial text-xs sm:text-sm font-extrabold text-[var(--ink)] leading-tight">
+                {categoryInfo.label}
+              </span>
             </div>
-            <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white text-center">{categoryInfo.label}</h3>
+
+            {/* Note éditoriale présentant l'intérêt concret de la solution */}
+            <p className="text-xs sm:text-[13px] leading-relaxed text-[var(--ink)] font-medium my-auto">
+              {interestNote}
+            </p>
           </div>
         </div>
 
-        {/* Souveraineté details */}
-        <div>
-          <h4 className="font-semibold text-gray-900 dark:text-white mb-3">Conformité</h4>
+        {/* Détails de Souveraineté */}
+        <div className="flex flex-col">
+          <h4 className="text-xs font-extrabold uppercase tracking-wider text-[var(--ink-muted)] mb-2.5">
+            Fiche de conformité
+          </h4>
 
-          <div className="space-y-3">
-            <div className="group/host flex items-start gap-3">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[color-mix(in_srgb,var(--cobalt)_12%,transparent)] flex-shrink-0 transition-transform duration-200 group-hover/host:scale-110">
-                <GlobeEuropeAfricaIcon className="h-4 w-4 text-[var(--cobalt)]" />
+          <div className="space-y-3 flex-1 flex flex-col">
+            <div className="group/host flex items-start gap-2.5 p-2 rounded-lg bg-[var(--paper-card)]/90 border border-[var(--ink-border)]/30">
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--violet-pastel)] border border-[var(--ink-border)] flex-shrink-0 transition-transform duration-200 group-hover/host:-rotate-6">
+                <GlobeEuropeAfricaIcon className="h-4 w-4 text-[var(--violet)] stroke-[2.2]" />
               </div>
               <div>
-                <p className="font-medium text-gray-900 dark:text-white text-sm">Hébergement</p>
-                <p className="text-xs text-gray-600 dark:text-gray-400">{solution.souveraineteDetails.hosting}</p>
+                <p className="font-bold text-[var(--ink)] text-xs uppercase tracking-wide">Hébergement</p>
+                <p className="text-xs text-[var(--ink-muted)] font-medium">{solution.souveraineteDetails.hosting}</p>
               </div>
             </div>
 
-            <div className="group/jur flex items-start gap-3">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[color-mix(in_srgb,var(--emerald)_12%,transparent)] flex-shrink-0 transition-transform duration-200 group-hover/jur:scale-110">
-                <ShieldCheckIcon className="h-4 w-4 text-[var(--emerald)]" />
+            <div className="group/jur flex items-start gap-2.5 p-2 rounded-lg bg-[var(--paper-card)]/90 border border-[var(--ink-border)]/30">
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--emerald-pastel)] border border-[var(--ink-border)] flex-shrink-0 transition-transform duration-200 group-hover/jur:rotate-6">
+                <ShieldCheckIcon className="h-4 w-4 text-[var(--emerald)] stroke-[2.2]" />
               </div>
               <div>
-                <p className="font-medium text-gray-900 dark:text-white text-sm">Juridiction</p>
-                <p className="text-xs text-gray-600 dark:text-gray-400">{solution.souveraineteDetails.jurisdiction}</p>
+                <p className="font-bold text-[var(--ink)] text-xs uppercase tracking-wide">Juridiction</p>
+                <p className="text-xs text-[var(--ink-muted)] font-medium">{solution.souveraineteDetails.jurisdiction}</p>
               </div>
             </div>
 
             <div>
-              <p className="font-medium text-gray-900 dark:text-white mb-2 text-sm">Certifications</p>
+              <p className="font-bold text-[var(--ink)] mb-1.5 text-xs uppercase tracking-wide">Certifications</p>
               <div className="flex flex-wrap gap-1.5">
                 {solution.souveraineteDetails.certifications.length === 0 ? (
-                  <span className="text-xs text-gray-400 dark:text-gray-500 italic">Projet communautaire open source</span>
+                  <span className="text-xs text-[var(--ink-muted)] italic font-medium">
+                    Projet communautaire open source
+                  </span>
                 ) : (
                   solution.souveraineteDetails.certifications.map((cert, index) => (
                     <SovereignBadge key={index} label={cert} />
@@ -191,8 +358,8 @@ export default function SolutionCard({ solution }: SolutionCardProps) {
               </div>
             </div>
 
-            {/* Action button magnétique */}
-            <div className="pt-3 border-t border-white/40 dark:border-white/10 mt-auto">
+            {/* Bouton d'action tactile */}
+            <div className="pt-3 border-t-2 border-dashed border-[var(--ink-border)]/30 mt-auto">
               <MagneticButton
                 href={solution.websiteUrl}
                 target="_blank"
@@ -201,7 +368,7 @@ export default function SolutionCard({ solution }: SolutionCardProps) {
                 ariaLabel={`Visiter le site de ${solution.name}`}
               >
                 Visiter le site
-                <ArrowTopRightOnSquareIcon className="h-4 w-4" />
+                <ArrowTopRightOnSquareIcon className="h-4 w-4 stroke-[2.2]" />
               </MagneticButton>
             </div>
           </div>

@@ -9,14 +9,15 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="flex items-center justify-center w-10 h-10 rounded-xl bg-gray-200/80 hover:bg-gray-300/80 dark:bg-white/10 dark:hover:bg-white/30 border border-gray-300/50 dark:border-white/20 backdrop-blur-sm transition-all duration-300 shadow-lg cursor-pointer"
-      aria-label={theme === 'light' ? 'Activer le mode sombre' : 'Activer le mode clair'}
+      className="flex items-center justify-center w-10 h-10 rounded-xl bg-[var(--paper-card)] hover:bg-[var(--paper-lavender)] border-2 border-[var(--ink-border)] shadow-[3px_3px_0_var(--shadow-ink-color)] hover:shadow-[4px_4px_0_var(--shadow-accent-color)] hover:-translate-y-0.5 hover:rotate-3 active:translate-y-0.5 active:shadow-[1px_1px_0_var(--shadow-ink-color)] transition-all duration-200 cursor-pointer"
+      aria-label={theme === 'light' ? 'Activer le mode sombre (Canson Noir)' : 'Activer le mode clair (Canson Ivoire)'}
+      title={theme === 'light' ? 'Passer en mode Canson Noir' : 'Passer en mode Canson Ivoire'}
       type="button"
     >
       {theme === 'light' ? (
-        <MoonIcon className="h-5 w-5 text-[#003399]" />
+        <MoonIcon className="h-5 w-5 text-[var(--violet)]" />
       ) : (
-        <SunIcon className="h-5 w-5 text-yellow-400" />
+        <SunIcon className="h-5 w-5 text-[#FFD84A]" />
       )}
     </button>
   );

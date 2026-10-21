@@ -9,69 +9,81 @@ export default function MigrationPath() {
   };
 
   return (
-    <section className="py-12 bg-gradient-to-br from-blue-50/30 to-white/10 dark:from-slate-900/50 dark:to-slate-800/50 transition-colors duration-300">
+    <section className="py-14 border-t-2 border-dashed border-[var(--ink-border)]/30 transition-colors duration-300">
       <div className="container mx-auto px-4">
         <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
-            Parcours de Migration
+          <span className="inline-block px-3 py-1 mb-3 rounded-md bg-[var(--violet-pastel)] border-2 border-[var(--ink-border)] shadow-[2px_2px_0_var(--shadow-ink-color)] text-xs font-extrabold uppercase tracking-wider text-[var(--ink)] rotate-1">
+            Guides Pratiques
+          </span>
+          <h2 className="font-editorial text-3xl sm:text-4xl font-extrabold text-[var(--ink)] mb-3">
+            Parcours de <span className="canson-highlight">Migration</span>
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="text-[var(--ink-muted)] font-medium max-w-2xl mx-auto">
             Quittez les plateformes américaines en toute confiance avec nos packs de migration pré-configurés.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
           {migrationPaths.map((path) => (
-            <div 
-              key={path.id} 
-              className={`glass-card gradient-border-glow rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--glass-shadow-hover)]`}
+            <div
+              key={path.id}
+              className="group canson-sheet rounded-2xl p-6 flex flex-col"
             >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-white dark:bg-slate-700 shadow-sm">
+              <div className="flex items-center gap-3.5 pb-4 mb-4 border-b-2 border-dashed border-[var(--ink-border)]/35">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[image:var(--logo-gradient)] text-white border-2 border-[var(--ink-border)] shadow-[3px_3px_0_var(--shadow-ink-color)] -rotate-2 group-hover:rotate-2 transition-transform duration-200 flex-shrink-0">
                   {path.id === 'google-workspace' && (
-                    <div className="text-blue-600 dark:text-blue-400 font-bold">G</div>
+                    <div className="font-editorial font-extrabold text-lg">G</div>
                   )}
                   {path.id === 'microsoft-365' && (
-                    <div className="text-green-600 dark:text-green-400 font-bold">M</div>
+                    <div className="font-editorial font-extrabold text-lg">M</div>
                   )}
                   {path.id === 'aws-gcp' && (
-                    <div className="text-purple-600 dark:text-purple-400 font-bold">C</div>
+                    <div className="font-editorial font-extrabold text-lg">C</div>
                   )}
                   {path.id === 'atlassian' && (
-                    <div className="text-sky-600 dark:text-sky-400 font-bold">A</div>
+                    <div className="font-editorial font-extrabold text-lg">A</div>
                   )}
                   {path.id === 'adobe-figma' && (
-                    <div className="text-rose-600 dark:text-rose-400 font-bold">F</div>
+                    <div className="font-editorial font-extrabold text-lg">F</div>
                   )}
                   {path.id === 'anssi-cyber' && (
-                    <div className="text-red-600 dark:text-red-400 font-bold text-sm">🛡️</div>
+                    <div className="font-bold text-sm">🛡️</div>
                   )}
                   {path.id === 'wetransfer' && (
-                    <div className="text-amber-600 dark:text-amber-400 font-bold">W</div>
+                    <div className="font-editorial font-extrabold text-lg">W</div>
                   )}
                   {!['google-workspace', 'microsoft-365', 'aws-gcp', 'atlassian', 'adobe-figma', 'anssi-cyber', 'wetransfer'].includes(path.id) && (
-                    <div className="text-indigo-600 dark:text-indigo-400 font-bold">{path.name.charAt(0)}</div>
+                    <div className="font-editorial font-extrabold text-lg">{path.name.charAt(0)}</div>
                   )}
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-900 dark:text-white">{path.name}</h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">{path.description}</p>
+                  <h3 className="font-editorial font-extrabold text-lg text-[var(--ink)]">{path.name}</h3>
+                  <p className="text-xs sm:text-sm text-[var(--ink-muted)] font-medium">{path.description}</p>
                 </div>
               </div>
 
-              <div className="space-y-3 mb-6">
+              <div className="space-y-3 mb-6 flex-1">
                 {path.solutions.map((solutionId, index) => {
                   const solution = getSolutionById(solutionId);
                   if (!solution) return null;
-                  
+
                   return (
-                    <div key={index} className="flex items-center gap-3">
-                      <CheckCircleIcon className="h-5 w-5 text-green-500 dark:text-green-400 flex-shrink-0" />
-                      <div className="flex-1">
-                        <p className="font-medium text-gray-900 dark:text-white">{solution.name}</p>
-                        <p className="text-xs text-gray-500 dark:text-gray-400">{solution.description.substring(0, 60)}...</p>
+                    <div
+                      key={index}
+                      className="flex items-center gap-3 p-2 rounded-lg bg-[var(--paper-warm)]/60 border border-[var(--ink-border)]/25"
+                    >
+                      <CheckCircleIcon className="h-5 w-5 text-[var(--emerald)] stroke-[2.2] flex-shrink-0" />
+                      <div className="flex-1 min-w-0">
+                        <p className="font-bold text-sm text-[var(--ink)] truncate">{solution.name}</p>
+                        <p className="text-xs text-[var(--ink-muted)] truncate">{solution.description.substring(0, 60)}...</p>
                       </div>
-                      <span className={`px-2 py-1 rounded-full text-xs font-medium ${solution.country === 'FR' ? 'bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-400' : 'bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400'}`}>
+                      <span
+                        className={`px-2 py-0.5 rounded border border-[var(--ink-border)] text-xs font-bold -rotate-2 ${
+                          solution.country === 'FR'
+                            ? 'bg-[var(--violet-pastel)] text-[var(--ink)]'
+                            : 'bg-[var(--emerald-pastel)] text-[var(--ink)]'
+                        }`}
+                      >
                         {solution.country === 'FR' ? '🇫🇷' : '🇪🇺'}
                       </span>
                     </div>
@@ -79,11 +91,13 @@ export default function MigrationPath() {
                 })}
               </div>
 
-              <div className="border-t border-gray-200 dark:border-gray-700 pt-4">
+              <div className="border-t-2 border-dashed border-[var(--ink-border)]/35 pt-4 mt-auto">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm font-medium text-gray-900 dark:text-white">Score de Souveraineté</p>
-                    <p className="text-2xl font-bold text-green-600 dark:text-green-400">
+                    <p className="text-xs font-extrabold uppercase tracking-wider text-[var(--ink-muted)]">
+                      Score de Souveraineté
+                    </p>
+                    <p className="font-editorial text-2xl font-extrabold italic text-[var(--violet)]">
                       {(() => {
                         const pathSolutions = path.solutions.map(id => getSolutionById(id)).filter(Boolean);
                         const avgScore = pathSolutions.reduce((sum, s) => {
@@ -96,10 +110,12 @@ export default function MigrationPath() {
                       })()}/10
                     </p>
                   </div>
-                  <div>
-                    <p className="text-sm font-medium text-gray-900 dark:text-white">CLOUD Act</p>
-                    <div className="inline-flex items-center gap-1 bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 px-2 py-1 rounded-full text-xs font-medium">
-                      <CheckCircleIcon className="h-3 w-3" />
+                  <div className="text-right">
+                    <p className="text-xs font-extrabold uppercase tracking-wider text-[var(--ink-muted)] mb-1">
+                      CLOUD Act
+                    </p>
+                    <div className="stamp-badge bg-[var(--emerald-pastel)] text-[var(--ink)]">
+                      <CheckCircleIcon className="h-3.5 w-3.5 text-[var(--emerald)] stroke-[2.5]" />
                       Risque minimum
                     </div>
                   </div>
@@ -107,87 +123,6 @@ export default function MigrationPath() {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* IA Souveraine Section */}
-        <div className="mt-12 glass-strong rounded-2xl p-4 sm:p-8 relative overflow-hidden">
-          {/* Halo décoratif */}
-          <div aria-hidden="true" className="absolute -top-24 -right-24 w-72 h-72 rounded-full blur-[80px] pointer-events-none"
-            style={{ background: 'radial-gradient(circle, rgba(139,92,246,0.25) 0%, transparent 70%)' }}
-          />
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300 rounded-full text-xs sm:text-sm font-medium mb-4">
-                <span className="text-base sm:text-lg">🤖</span>
-                <span className="hidden sm:inline">Nouveauté 2026</span>
-                <span className="sm:hidden">2026</span>
-              </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4">
-                Zoom sur l'IA Souveraine
-              </h3>
-              <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-3 sm:mb-4">
-                C'est le point le plus critique. Vous pouvez désormais utiliser des modèles comme Mistral (via leur plateforme Le Chat) ou LightOn (pour les entreprises qui veulent du "On-Premise", donc chez elles) sans que les données ne servent à entraîner des modèles américains.
-              </p>
-              <div className="space-y-2 sm:space-y-3">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-6 w-6 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/50 flex-shrink-0">
-                    <CheckCircleIcon className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-green-600 dark:text-green-400" />
-                  </div>
-                  <p className="font-medium text-gray-900 dark:text-white">Données 100% en Europe</p>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="flex h-6 w-6 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/50 flex-shrink-0">
-                    <CheckCircleIcon className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-green-600 dark:text-green-400" />
-                  </div>
-                  <p className="font-medium text-gray-900 dark:text-white text-sm sm:text-base">Pas d'entraînement pour modèles US</p>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="flex h-6 w-6 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/50 flex-shrink-0">
-                    <CheckCircleIcon className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-green-600 dark:text-green-400" />
-                  </div>
-                  <p className="font-medium text-gray-900 dark:text-white">Conformité RGPD garantie</p>
-                </div>
-              </div>
-            </div>
-            
-              <div className="grid grid-cols-2 gap-3 sm:gap-4">
-                <div className="glass-card rounded-xl p-3 sm:p-4">
-                  <div className="text-base sm:text-lg font-bold text-purple-600 dark:text-purple-400 mb-1 sm:mb-2">Mistral AI</div>
-                <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mb-2 sm:mb-3 hidden sm:block">Leader français de l'IA générative</p>
-                <div className="flex items-center gap-2">
-                  <span className="px-2 py-1 bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-400 rounded-full text-xs font-medium">🇫🇷 FR</span>
-                  <span className="px-2 py-1 bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded-full text-xs font-medium">9/10 S</span>
-                </div>
-              </div>
-              
-              <div className="glass-card rounded-xl p-3 sm:p-4">
-                <div className="text-base sm:text-lg font-bold text-blue-600 dark:text-blue-400 mb-1 sm:mb-2">Aleph Alpha</div>
-                <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mb-2 sm:mb-3 hidden sm:block">IA souveraine allemande</p>
-                <div className="flex items-center gap-2">
-                  <span className="px-2 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded-full text-xs font-medium">🇪🇺 EU</span>
-                  <span className="px-2 py-1 bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded-full text-xs font-medium">9/10 S</span>
-                </div>
-              </div>
-              
-              <div className="glass-card rounded-xl p-3 sm:p-4">
-                <div className="text-base sm:text-lg font-bold text-green-600 dark:text-green-400 mb-1 sm:mb-2">LightOn</div>
-                <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mb-2 sm:mb-3 hidden sm:block">IA on-premise</p>
-                <div className="flex items-center gap-2">
-                  <span className="px-2 py-1 bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-400 rounded-full text-xs font-medium">🇫🇷 FR</span>
-                  <span className="px-2 py-1 bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded-full text-xs font-medium">9/10 S</span>
-                </div>
-              </div>
-              
-              <div className="glass-card rounded-xl p-3 sm:p-4">
-                <div className="text-base sm:text-lg font-bold text-orange-600 dark:text-orange-400 mb-1 sm:mb-2">Le Chat</div>
-                <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mb-2 sm:mb-3 hidden sm:block">Plateforme Mistral</p>
-                <div className="flex items-center gap-2">
-                  <span className="px-2 py-1 bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-400 rounded-full text-xs font-medium">🇫🇷 FR</span>
-                  <span className="px-2 py-1 bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded-full text-xs font-medium">10/10 S</span>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

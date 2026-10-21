@@ -14,8 +14,8 @@ interface MagneticButtonProps {
 }
 
 /**
- * Bouton "magnétique" : attire légèrement le curseur, le fond s'illumine
- * au survol et un feedback de pression est appliqué au clic.
+ * Bouton Papier & Encre Violette SOVelio : dégradé inspiré du logo,
+ * bordure d'encre franche, ombre portée découpée et enfoncement physique au clic.
  */
 export default function MagneticButton({
   children,
@@ -29,16 +29,15 @@ export default function MagneticButton({
   const ref = useRef<HTMLElement | null>(null);
   const [isHovered, setIsHovered] = useState(false);
 
-  const x = useSpring(0, { stiffness: 200, damping: 18 });
-  const y = useSpring(0, { stiffness: 200, damping: 18 });
+  const x = useSpring(0, { stiffness: 220, damping: 18 });
+  const y = useSpring(0, { stiffness: 220, damping: 18 });
 
   const handleMouseMove = (e: MouseEvent) => {
     const el = ref.current;
     if (!el) return;
     const rect = el.getBoundingClientRect();
-    // Décalage magnétique max ~4px vers le curseur
-    const relX = ((e.clientX - rect.left) / rect.width - 0.5) * 8;
-    const relY = ((e.clientY - rect.top) / rect.height - 0.5) * 6;
+    const relX = ((e.clientX - rect.left) / rect.width - 0.5) * 6;
+    const relY = ((e.clientY - rect.top) / rect.height - 0.5) * 4;
     x.set(relX);
     y.set(relY);
   };
@@ -50,20 +49,20 @@ export default function MagneticButton({
   };
 
   const baseClasses =
-    'relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-xl font-medium text-white ' +
-    'bg-gradient-to-r from-[#2563EB] via-[#4F46E5] to-[#7C3AED] ' +
-    'shadow-[0_4px_20px_rgba(37,99,235,0.35)] hover:shadow-[0_8px_32px_rgba(79,70,229,0.5)] ' +
-    'active:scale-95 transition-shadow duration-300 cursor-pointer';
+    'relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-xl font-bold text-white ' +
+    'bg-[image:var(--logo-gradient)] border-2 border-[var(--ink-border)] ' +
+    'shadow-[4px_4px_0_var(--shadow-ink-color)] hover:shadow-[6px_6px_0_var(--shadow-ink-color)] ' +
+    'hover:-rotate-1 active:rotate-0 active:translate-x-0.5 active:translate-y-0.5 active:shadow-[1px_1px_0_var(--shadow-ink-color)] ' +
+    'transition-all duration-200 cursor-pointer';
 
   const inner = (
     <>
-      {/* Illumination du fond au survol */}
       <span
         aria-hidden="true"
-        className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-500"
+        className="absolute inset-0 transition-opacity duration-300"
         style={{
           background:
-            'radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,255,255,0.35), transparent 60%)',
+            'radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,255,255,0.28), transparent 60%)',
           opacity: isHovered ? 1 : 0,
         }}
         onMouseMove={(e) => {
@@ -80,7 +79,7 @@ export default function MagneticButton({
 
   const motionProps = {
     style: { x, y },
-    whileTap: { scale: 0.95 },
+    whileTap: { scale: 0.97 },
     onMouseMove: handleMouseMove,
     onMouseEnter: () => setIsHovered(true),
     onMouseLeave: handleMouseLeave,

@@ -11,8 +11,8 @@ interface SpotlightCardProps {
 }
 
 /**
- * Carte avec effet "spotlight" : un halo lumineux suit le curseur,
- * la carte se soulève légèrement au survol et réagit à la pression.
+ * Fiche Papier Canson : grain tactile, contour d'encre franc, ombre découpée
+ * et légère inclinaison vivante au survol.
  */
 export default function SpotlightCard({ children, className = '', onClick, id }: SpotlightCardProps) {
   const ref = useRef<HTMLDivElement>(null);
@@ -30,11 +30,11 @@ export default function SpotlightCard({ children, className = '', onClick, id }:
       ref={ref}
       id={id}
       onMouseMove={handleMouseMove}
-      whileHover={{ y: -4 }}
-      whileTap={{ scale: 0.985 }}
-      transition={{ type: 'spring', stiffness: 300, damping: 24 }}
+      whileHover={{ y: -4, rotate: -0.4 }}
+      whileTap={{ scale: 0.99 }}
+      transition={{ type: 'spring', stiffness: 320, damping: 22 }}
       onClick={onClick}
-      className={`spotlight-card gradient-border-glow glass-card rounded-2xl ${className}`}
+      className={`canson-sheet spotlight-card rounded-2xl ${className}`}
     >
       {children}
     </motion.div>

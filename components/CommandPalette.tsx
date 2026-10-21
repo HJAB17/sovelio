@@ -20,7 +20,7 @@ interface CommandPaletteProps {
 const categoryLabel = (id: Category) =>
   categories.find((c) => c.id === id)?.name ?? id;
 
-/** Met en surbrillance les occurrences de la requête dans un texte */
+/** Met en surbrillance les occurrences de la requête façon stabilo violet */
 function Highlight({ text, query }: { text: string; query: string }) {
   if (!query.trim()) return <>{text}</>;
   const escaped = query.trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -31,7 +31,7 @@ function Highlight({ text, query }: { text: string; query: string }) {
         part.toLowerCase() === query.trim().toLowerCase() ? (
           <mark
             key={i}
-            className="bg-[color-mix(in_srgb,var(--cobalt)_22%,transparent)] text-[var(--cobalt)] rounded px-0.5"
+            className="bg-[var(--violet-pastel)] text-[var(--ink)] font-bold rounded px-1 border border-[var(--ink-border)]/40"
           >
             {part}
           </mark>
@@ -129,8 +129,8 @@ export default function CommandPalette({ open, onClose, onSelectSolution }: Comm
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.2 }}
-          className="fixed inset-0 z-[100] flex items-start justify-center pt-[12vh] px-4 bg-black/40 backdrop-blur-sm"
+          transition={{ duration: 0.18 }}
+          className="fixed inset-0 z-[100] flex items-start justify-center pt-[12vh] px-4 bg-[#1E1432]/55 backdrop-blur-xs"
           onClick={onClose}
           role="dialog"
           aria-modal="true"
@@ -141,13 +141,13 @@ export default function CommandPalette({ open, onClose, onSelectSolution }: Comm
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.97, y: -10 }}
             transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-            className="glass-strong w-full max-w-2xl rounded-2xl overflow-hidden"
+            className="w-full max-w-2xl rounded-2xl overflow-hidden bg-[var(--paper-card)] border-2 border-[var(--ink-border)] shadow-[8px_8px_0_var(--shadow-ink-color)]"
             onClick={(e) => e.stopPropagation()}
             onKeyDown={handleKeyDown}
           >
             {/* Champ de recherche */}
-            <div className="flex items-center gap-3 px-5 py-4 border-b border-white/20 dark:border-white/10">
-              <MagnifyingGlassIcon className="h-5 w-5 text-[var(--cobalt)] flex-shrink-0" />
+            <div className="flex items-center gap-3 px-5 py-4 border-b-2 border-[var(--ink-border)] bg-[image:var(--logo-gradient-soft)]">
+              <MagnifyingGlassIcon className="h-5 w-5 text-[var(--violet)] stroke-[2.4] flex-shrink-0" />
               <input
                 ref={inputRef}
                 value={query}
@@ -156,23 +156,23 @@ export default function CommandPalette({ open, onClose, onSelectSolution }: Comm
                   setSelectedIndex(0);
                 }}
                 placeholder="Rechercher une solution, un label, une certification…"
-                className="flex-1 bg-transparent outline-none text-base text-[var(--foreground)] placeholder:text-gray-400 dark:placeholder:text-gray-500"
+                className="flex-1 bg-transparent outline-none text-base font-semibold text-[var(--ink)] placeholder:text-[var(--ink-muted)]"
               />
               <button
                 onClick={onClose}
-                className="p-1.5 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors cursor-pointer"
+                className="p-1.5 rounded-lg bg-[var(--paper-card)] border border-[var(--ink-border)] hover:bg-[var(--violet-pastel)] transition-colors cursor-pointer"
                 aria-label="Fermer la recherche"
               >
-                <XMarkIcon className="h-4 w-4 text-gray-400" />
+                <XMarkIcon className="h-4 w-4 text-[var(--ink)] stroke-[2.2]" />
               </button>
             </div>
 
-            {/* Résultats */}
-            <div ref={listRef} className="max-h-[50vh] overflow-y-auto p-2">
+            {/* Résultats sur papier réglé */}
+            <div ref={listRef} className="max-h-[50vh] overflow-y-auto p-2.5 bristol-lines">
               {results.length === 0 ? (
                 <div className="py-10 text-center">
-                  <CommandLineIcon className="h-8 w-8 mx-auto text-gray-300 dark:text-gray-600 mb-3" />
-                  <p className="text-sm text-gray-500 dark:text-gray-400">
+                  <CommandLineIcon className="h-8 w-8 mx-auto text-[var(--ink-muted)] mb-3" />
+                  <p className="text-sm font-medium text-[var(--ink-muted)]">
                     Aucune solution ne correspond à « {query} »
                   </p>
                 </div>
@@ -186,41 +186,56 @@ export default function CommandPalette({ open, onClose, onSelectSolution }: Comm
                       onClose();
                     }}
                     onMouseEnter={() => setSelectedIndex(index)}
-                    className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left transition-colors duration-150 cursor-pointer ${
+                    className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left transition-all duration-150 cursor-pointer border ${
                       selectedIndex === index
-                        ? 'bg-[color-mix(in_srgb,var(--cobalt)_14%,transparent)]'
-                        : ''
+                        ? 'bg-[var(--paper-lavender)] border-[var(--ink-border)] shadow-[2px_2px_0_var(--shadow-ink-color)] -translate-y-0.5'
+                        : 'border-transparent'
                     }`}
                   >
-                    {/* Avatar initiale */}
-                    <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-[#2563EB]/15 to-[#8B5CF6]/15 text-sm font-bold text-[var(--cobalt)]">
+                    {/* Timbre initiale */}
+                    <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-[image:var(--logo-gradient)] border border-[var(--ink-border)] text-sm font-extrabold text-white -rotate-2">
                       {solution.name.charAt(0)}
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2">
-                        <span className="font-semibold text-sm text-[var(--foreground)] truncate">
+                        <span className="font-bold text-sm text-[var(--ink)] truncate">
                           <Highlight text={solution.name} query={query} />
                         </span>
                         <span className="text-xs">{solution.country === 'FR' ? '🇫🇷' : '🇪🇺'}</span>
                       </div>
-                      <p className="text-xs text-gray-500 dark:text-gray-400 truncate">
+                      <p className="text-xs text-[var(--ink-muted)] font-medium truncate">
                         {categoryLabel(solution.category)} ·{' '}
                         <Highlight text={solution.description} query={query} />
                       </p>
                     </div>
-                    <ArrowTopRightOnSquareIcon className="h-4 w-4 text-gray-300 dark:text-gray-600 flex-shrink-0" />
+                    <ArrowTopRightOnSquareIcon className="h-4 w-4 text-[var(--violet)] flex-shrink-0" />
                   </button>
                 ))
               )}
             </div>
 
             {/* Pied : raccourcis */}
-            <div className="flex items-center justify-between px-5 py-2.5 border-t border-white/20 dark:border-white/10 text-[11px] text-gray-400 dark:text-gray-500">
+            <div className="flex items-center justify-between px-5 py-2.5 border-t-2 border-[var(--ink-border)] bg-[var(--paper-warm)] text-[11px] font-bold text-[var(--ink-muted)]">
               <div className="flex items-center gap-3">
-                <span><kbd className="px-1.5 py-0.5 rounded bg-black/5 dark:bg-white/10 font-sans">↑↓</kbd> naviguer</span>
-                <span><kbd className="px-1.5 py-0.5 rounded bg-black/5 dark:bg-white/10 font-sans">↵</kbd> ouvrir</span>
+                <span>
+                  <kbd className="px-1.5 py-0.5 rounded bg-[var(--paper-card)] border border-[var(--ink-border)] text-[var(--ink)] font-sans">
+                    ↑↓
+                  </kbd>{' '}
+                  naviguer
+                </span>
+                <span>
+                  <kbd className="px-1.5 py-0.5 rounded bg-[var(--paper-card)] border border-[var(--ink-border)] text-[var(--ink)] font-sans">
+                    ↵
+                  </kbd>{' '}
+                  ouvrir
+                </span>
               </div>
-              <span><kbd className="px-1.5 py-0.5 rounded bg-black/5 dark:bg-white/10 font-sans">esc</kbd> fermer</span>
+              <span>
+                <kbd className="px-1.5 py-0.5 rounded bg-[var(--paper-card)] border border-[var(--ink-border)] text-[var(--ink)] font-sans">
+                  esc
+                </kbd>{' '}
+                fermer
+              </span>
             </div>
           </motion.div>
         </motion.div>

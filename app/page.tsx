@@ -198,24 +198,27 @@ export default function Home() {
           <div className="container mx-auto px-4">
             <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
               <div>
-                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-2">
-                  L'Écosystème <span className="gradient-text">Souverain</span>
+                <h2 className="font-editorial text-2xl sm:text-3xl font-extrabold text-[var(--ink)] mb-1.5">
+                  L'Écosystème <span className="canson-highlight gradient-text">Souverain</span>
                 </h2>
-                <p className="text-gray-600 dark:text-gray-400 text-sm">
-                  <AnimatedCount value={filteredSolutions.length} /> solution
-                  {filteredSolutions.length > 1 ? 's' : ''} trouvée
-                  {filteredSolutions.length > 1 ? 's' : ''}
+                <p className="text-[var(--ink-muted)] font-semibold text-sm flex flex-wrap items-center gap-1.5">
+                  <span className="inline-flex items-center px-2 py-0.5 rounded bg-[var(--paper-card)] border border-[var(--ink-border)] text-[var(--ink)] font-extrabold shadow-[2px_2px_0_var(--shadow-ink-color)] -rotate-1">
+                    <AnimatedCount value={filteredSolutions.length} />
+                  </span>
+                  <span>
+                    solution{filteredSolutions.length > 1 ? 's' : ''} trouvée{filteredSolutions.length > 1 ? 's' : ''}
+                  </span>
                   {!isCategoryFiltered && filteredSolutions.length > displayedSolutions.length && (
-                    <span className="text-gray-500 dark:text-gray-400 font-medium">
-                      {' '}· {displayedSolutions.length} affichée{displayedSolutions.length > 1 ? 's' : ''}
+                    <span className="text-[var(--ink-muted)] font-medium">
+                      · {displayedSolutions.length} affichée{displayedSolutions.length > 1 ? 's' : ''}
                     </span>
                   )}
                   {hasActiveFilters && (
                     <button
                       onClick={resetFilters}
-                      className="ml-3 inline-flex items-center gap-1 px-2 py-0.5 rounded-full neon-badge neon-badge-violet cursor-pointer"
+                      className="ml-2 inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md neon-badge neon-badge-violet cursor-pointer"
                     >
-                      <ArrowPathIcon className="h-3 w-3" />
+                      <ArrowPathIcon className="h-3 w-3 stroke-[2.5]" />
                       Réinitialiser
                     </button>
                   )}
@@ -227,13 +230,13 @@ export default function Home() {
               <motion.div
                 initial={{ opacity: 0, scale: 0.97 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="text-center py-16 glass-card rounded-2xl"
+                className="text-center py-16 canson-sheet rounded-2xl"
               >
                 <div className="text-4xl mb-4">🔍</div>
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                <h3 className="font-editorial text-xl font-extrabold text-[var(--ink)] mb-2">
                   Aucune solution trouvée
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-6">
+                <p className="text-[var(--ink-muted)] font-medium mb-6">
                   Essayez de modifier vos filtres pour voir plus de solutions.
                 </p>
                 <MagneticButton onClick={resetFilters} className="px-6 py-3 text-sm">
@@ -248,9 +251,9 @@ export default function Home() {
                     <motion.div
                       key={solution.id}
                       layout
-                      initial={{ opacity: 0, scale: 0.92, y: 24 }}
+                      initial={{ opacity: 0, scale: 0.94, y: 20 }}
                       animate={{ opacity: 1, scale: 1, y: 0 }}
-                      exit={{ opacity: 0, scale: 0.92, y: -16 }}
+                      exit={{ opacity: 0, scale: 0.94, y: -14 }}
                       transition={{ type: 'spring', stiffness: 260, damping: 26 }}
                     >
                       <SolutionCard solution={solution} />
@@ -260,25 +263,27 @@ export default function Home() {
               </motion.div>
             )}
 
-            {/* Barre de pagination / chargement progressif */}
+            {/* Barre de pagination / chargement progressif façon réglette graduée */}
             {!isCategoryFiltered && filteredSolutions.length > INITIAL_BATCH_SIZE && (
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="mt-12 flex flex-col items-center justify-center gap-4 text-center"
               >
-                {/* Barre et indicateur de progression */}
+                {/* Réglette et indicateur de progression */}
                 <div className="w-full max-w-md">
-                  <div className="flex justify-between items-center text-xs text-gray-500 dark:text-gray-400 mb-2 font-medium">
+                  <div className="flex justify-between items-center text-xs text-[var(--ink-muted)] mb-2 font-bold">
                     <span>
-                      Affichage de <strong className="text-gray-900 dark:text-white font-semibold">{displayedSolutions.length}</strong> sur{' '}
-                      <strong className="text-gray-900 dark:text-white font-semibold">{filteredSolutions.length}</strong> solutions
+                      Affichage de <strong className="text-[var(--ink)] font-extrabold">{displayedSolutions.length}</strong> sur{' '}
+                      <strong className="text-[var(--ink)] font-extrabold">{filteredSolutions.length}</strong> solutions
                     </span>
-                    <span>{Math.round((displayedSolutions.length / filteredSolutions.length) * 100)}%</span>
+                    <span className="px-1.5 py-0.5 rounded bg-[var(--violet-pastel)] border border-[var(--ink-border)] text-[var(--ink)] font-extrabold">
+                      {Math.round((displayedSolutions.length / filteredSolutions.length) * 100)}%
+                    </span>
                   </div>
-                  <div className="h-2 w-full rounded-full bg-black/5 dark:bg-white/10 overflow-hidden p-0.5">
+                  <div className="h-3.5 w-full rounded-md canson-ruler overflow-hidden">
                     <motion.div
-                      className="h-full bg-gradient-to-r from-[var(--cobalt)] via-[var(--violet)] to-[var(--emerald)] rounded-full"
+                      className="h-full canson-ruler-bar"
                       initial={{ width: 0 }}
                       animate={{
                         width: `${(displayedSolutions.length / filteredSolutions.length) * 100}%`,
@@ -288,7 +293,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* Boutons d'action */}
+                {/* Boutons d'action papier */}
                 <div className="flex flex-wrap items-center justify-center gap-3 pt-1">
                   {displayedSolutions.length < filteredSolutions.length ? (
                     <>
@@ -296,15 +301,15 @@ export default function Home() {
                         onClick={() =>
                           setVisibleCount((prev) => Math.min(prev + INITIAL_BATCH_SIZE, filteredSolutions.length))
                         }
-                        className="px-6 py-2.5 text-sm font-semibold inline-flex items-center gap-2 shadow-md hover:shadow-lg cursor-pointer"
+                        className="px-6 py-2.5 text-sm"
                       >
-                        <ChevronDownIcon className="h-4 w-4" />
+                        <ChevronDownIcon className="h-4 w-4 stroke-[2.5]" />
                         Afficher plus (+{Math.min(INITIAL_BATCH_SIZE, filteredSolutions.length - displayedSolutions.length)})
                       </MagneticButton>
 
                       <button
                         onClick={() => setVisibleCount(filteredSolutions.length)}
-                        className="px-4 py-2.5 rounded-xl glass-card text-xs font-semibold text-gray-700 dark:text-gray-300 hover:text-[var(--cobalt)] border border-white/40 dark:border-white/10 hover:border-[color-mix(in_srgb,var(--cobalt)_40%,transparent)] transition-all duration-200 cursor-pointer active:scale-95"
+                        className="px-4 py-2.5 rounded-xl bg-[var(--paper-card)] text-xs font-extrabold uppercase tracking-wide text-[var(--ink)] border-2 border-[var(--ink-border)] shadow-[3px_3px_0_var(--shadow-ink-color)] hover:bg-[var(--paper-lavender)] hover:-translate-y-0.5 hover:rotate-1 active:translate-y-0.5 active:shadow-[1px_1px_0_var(--shadow-ink-color)] transition-all duration-200 cursor-pointer"
                       >
                         Tout afficher ({filteredSolutions.length})
                       </button>
@@ -318,9 +323,9 @@ export default function Home() {
                           el.scrollIntoView({ behavior: 'smooth', block: 'start' });
                         }
                       }}
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl glass-card text-xs font-semibold text-gray-700 dark:text-gray-300 hover:text-[var(--cobalt)] border border-white/40 dark:border-white/10 transition-all duration-200 cursor-pointer active:scale-95"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[var(--paper-card)] text-xs font-extrabold uppercase tracking-wide text-[var(--ink)] border-2 border-[var(--ink-border)] shadow-[3px_3px_0_var(--shadow-ink-color)] hover:bg-[var(--paper-lavender)] hover:-translate-y-0.5 hover:-rotate-1 active:translate-y-0.5 active:shadow-[1px_1px_0_var(--shadow-ink-color)] transition-all duration-200 cursor-pointer"
                     >
-                      <ChevronUpIcon className="h-4 w-4" />
+                      <ChevronUpIcon className="h-4 w-4 stroke-[2.5]" />
                       Réduire à l'échantillon initial ({INITIAL_BATCH_SIZE})
                     </button>
                   )}

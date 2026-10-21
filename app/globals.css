@@ -1,68 +1,122 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,600;0,700;0,800;1,700;1,800&display=swap');
 
 @import "tailwindcss";
 
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* ===== Palette "Souveraineté & Confiance" — Mode clair ===== */
-  --background: #F7F9FC;
-  --foreground: #0F172A;
-  --cobalt: #2563EB;
-  --cobalt-deep: #1E3A8A;
-  --emerald: #10B981;
-  --emerald-deep: #047857;
-  --violet: #8B5CF6;
-  --violet-soft: #A78BFA;
-  --blue-light: #E0EAFF;
-  --gray-light: #EEF2F7;
-  --green-valid: #10B981;
-  --red-alert: #EF4444;
+  /* ===== Palette "Papier Canson & Encre Violette SOVelio" — Mode clair ===== */
+  --background: #F3EDE2;          /* Papier Canson à dessin grainé (Ivoire/Sable doux) */
+  --foreground: #1E1432;          /* Encre de Chine violette très sombre */
 
-  /* Glassmorphism */
-  --glass-bg: rgba(255, 255, 255, 0.55);
-  --glass-bg-strong: rgba(255, 255, 255, 0.75);
-  --glass-border: rgba(255, 255, 255, 0.65);
-  --glass-shadow: 0 8px 32px rgba(30, 58, 138, 0.10);
-  --glass-shadow-hover: 0 20px 48px rgba(37, 99, 235, 0.18);
+  --paper-card: #FBF8F3;          /* Fiche Canson Blanc Naturel 224g */
+  --paper-warm: #EAE1D3;          /* Papier Canson Mi-Teintes Grège (zones secondaires) */
+  --paper-lavender: #EFEAFF;      /* Papier Canson Lavande pâle (survol & encarts) */
 
-  --card-bg: var(--glass-bg);
-  --card-border: var(--glass-border);
-  --header-bg: rgba(247, 249, 252, 0.72);
-  --header-border: rgba(255, 255, 255, 0.6);
+  --ink: #1E1432;                 /* Encre principale */
+  --ink-muted: #554869;           /* Encre secondaire (gris-prune feutré) */
+  --ink-border: #281A42;          /* Filet d'encre des contours (2px) */
+  --trame-dot: rgba(40, 26, 66, 0.085);
 
-  --border-radius-lg: 20px;
-  --border-radius-md: 14px;
-  --border-radius-sm: 10px;
-  --shadow-subtle: 0 4px 20px rgba(30, 58, 138, 0.06);
-  --shadow-card: 0 12px 40px rgba(37, 99, 235, 0.14);
+  /* Couleurs inspirées directement du logo SOVelio (Indigo -> Violet) */
+  --cobalt: #4F39E8;              /* Indigo-violet du logo (remplace l'ancien bleu) */
+  --cobalt-deep: #3725B5;         /* Indigo profond du logo */
+  --violet: #6D28D9;              /* Violet maître SOVelio */
+  --violet-soft: #8B5CF6;         /* Violet lumineux */
+  --violet-pastel: #DDD2FF;       /* Lavis violet sur papier */
+  --emerald: #0D9468;             /* Encre émeraude souveraineté */
+  --emerald-deep: #066949;
+  --emerald-pastel: #CCF5E5;      /* Tampon menthe douce */
+  --amber-stamp: #F5C84C;         /* Surligneur ocre/or doux (étoiles UE) */
+  --blue-light: #E8E2FF;
+  --gray-light: #EAE1D3;
+  --green-valid: #0D9468;
+  --red-alert: #D9385A;           /* Encre carmin (CLOUD Act) */
+  --red-pastel: #FFE0E6;
+
+  /* Dégradés signature du logo SOVelio */
+  --logo-gradient: linear-gradient(135deg, #2E5BFF 0%, #5839EC 50%, #7C3AED 100%);
+  --logo-gradient-soft: linear-gradient(135deg, #E5E9FF 0%, #EDE4FF 55%, #F6EEFF 100%);
+  --logo-gradient-banner: linear-gradient(135deg, #DEDFF9 0%, #E7DCFC 50%, #F1E8FE 100%);
+
+  /* Ombres franches "Papeterie / Carton" */
+  --shadow-ink-color: #281A42;
+  --shadow-accent-color: #5839EC;
+  --glass-bg: var(--paper-card);
+  --glass-bg-strong: #FFFDF9;
+  --glass-border: var(--ink-border);
+  --glass-shadow: 5px 5px 0px var(--shadow-ink-color);
+  --glass-shadow-hover: 7px 7px 0px var(--shadow-accent-color);
+
+  --card-bg: var(--paper-card);
+  --card-border: var(--ink-border);
+  --header-bg: rgba(243, 237, 226, 0.94);
+  --header-border: var(--ink-border);
+
+  --border-radius-lg: 16px;
+  --border-radius-md: 12px;
+  --border-radius-sm: 8px;
+  --shadow-subtle: 3px 3px 0px var(--shadow-ink-color);
+  --shadow-card: 6px 6px 0px var(--shadow-ink-color);
+
+  --lignes-bristol: repeating-linear-gradient(
+    0deg,
+    transparent 0 27px,
+    rgba(109, 40, 217, 0.11) 27px 28px
+  );
 }
 
 .dark {
-  /* ===== Palette — Mode sombre (Indigo nuit) ===== */
-  --background: #0B1120;
-  --foreground: #E6EDF7;
-  --cobalt: #60A5FA;
-  --cobalt-deep: #3B82F6;
-  --emerald: #34D399;
-  --emerald-deep: #10B981;
+  /* ===== Palette "Canson Mi-Teintes Noir & Craie Violette" — Mode sombre ===== */
+  --background: #140F21;          /* Papier Canson Noir-Raisin grainé */
+  --foreground: #F4EFFF;          /* Craie blanche légèrement lavande */
+
+  --paper-card: #1E1730;          /* Fiche Canson Raisin foncé */
+  --paper-warm: #271E3E;          /* Carton prune sombre */
+  --paper-lavender: #2E224B;      /* Lavis violet nuit */
+
+  --ink: #F4EFFF;
+  --ink-muted: #B6A7D1;
+  --ink-border: #5E468F;          /* Filet craie-violette */
+  --trame-dot: rgba(196, 181, 253, 0.08);
+
+  --cobalt: #947BFF;
+  --cobalt-deep: #7C5DFA;
   --violet: #A78BFA;
   --violet-soft: #C4B5FD;
-  --blue-light: #16233D;
-  --gray-light: #131C31;
+  --violet-pastel: #352559;
+  --emerald: #34D399;
+  --emerald-deep: #10B981;
+  --emerald-pastel: #143D33;
+  --amber-stamp: #FBBF24;
+  --blue-light: #281E42;
+  --gray-light: #231B38;
   --green-valid: #34D399;
-  --red-alert: #F87171;
+  --red-alert: #FB7185;
+  --red-pastel: #471A28;
 
-  --glass-bg: rgba(19, 28, 49, 0.55);
-  --glass-bg-strong: rgba(23, 34, 58, 0.75);
-  --glass-border: rgba(148, 178, 255, 0.14);
-  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
-  --glass-shadow-hover: 0 20px 56px rgba(59, 130, 246, 0.22);
+  --logo-gradient: linear-gradient(135deg, #3B66FF 0%, #6842FF 50%, #9353FF 100%);
+  --logo-gradient-soft: linear-gradient(135deg, #251F42 0%, #312254 55%, #3B2666 100%);
+  --logo-gradient-banner: linear-gradient(135deg, #1E1836 0%, #291D47 50%, #332257 100%);
 
-  --card-bg: var(--glass-bg);
-  --card-border: var(--glass-border);
-  --header-bg: rgba(11, 17, 32, 0.72);
-  --header-border: rgba(148, 178, 255, 0.12);
+  --shadow-ink-color: #090610;
+  --shadow-accent-color: #7C3AED;
+  --glass-bg: var(--paper-card);
+  --glass-bg-strong: #251C3B;
+  --glass-border: var(--ink-border);
+  --glass-shadow: 5px 5px 0px var(--shadow-ink-color);
+  --glass-shadow-hover: 7px 7px 0px var(--shadow-accent-color);
+
+  --card-bg: var(--paper-card);
+  --card-border: var(--ink-border);
+  --header-bg: rgba(20, 15, 33, 0.94);
+  --header-border: var(--ink-border);
+
+  --lignes-bristol: repeating-linear-gradient(
+    0deg,
+    transparent 0 27px,
+    rgba(167, 139, 250, 0.10) 27px 28px
+  );
 }
 
 @theme inline {
@@ -76,7 +130,8 @@
   --color-primary-light: var(--blue-light);
   --color-success: var(--green-valid);
   --color-danger: var(--red-alert);
-  --font-sans: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Plus Jakarta Sans', 'Inter', sans-serif;
   --font-mono: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
   --radius-lg: var(--border-radius-lg);
   --radius-md: var(--border-radius-md);
@@ -86,206 +141,313 @@
 }
 
 * {
-  transition-property: background-color, border-color, color, box-shadow, fill, stroke;
-  transition-duration: 0.3s;
-  transition-timing-function: ease;
+  transition-property: background-color, border-color, color, box-shadow, transform, rotate, translate;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
+  background-image: radial-gradient(var(--trame-dot) 1.2px, transparent 1.4px);
+  background-size: 10px 10px;
   color: var(--foreground);
   font-family: var(--font-sans);
+  font-variant-numeric: tabular-nums;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
-/* ===== Mesh Gradient animé ===== */
-.mesh-gradient {
+/* ===== Texture physique Papier Canson (superposition grain fibreux) ===== */
+.canson-texture-overlay {
   position: fixed;
   inset: 0;
-  z-index: 0;
+  z-index: 1;
   pointer-events: none;
-  overflow: hidden;
+  opacity: 0.38;
+  mix-blend-mode: multiply;
 }
 
-.mesh-blob {
-  position: absolute;
-  border-radius: 9999px;
-  filter: blur(90px);
-  will-change: transform;
-  animation: mesh-drift 26s ease-in-out infinite alternate;
+.dark .canson-texture-overlay {
+  opacity: 0.22;
+  mix-blend-mode: soft-light;
 }
 
-@keyframes mesh-drift {
-  0%   { transform: translate(0, 0) scale(1); }
-  50%  { transform: translate(4%, -3%) scale(1.08); }
-  100% { transform: translate(-3%, 4%) scale(0.96); }
-}
-
-/* ===== Glassmorphism ===== */
+/* ===== Fiches Papier Canson & Cartes Bristol ===== */
 .glass-card {
-  background: var(--glass-bg);
-  backdrop-filter: blur(16px) saturate(160%);
-  -webkit-backdrop-filter: blur(16px) saturate(160%);
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--glass-shadow);
+  background-color: var(--paper-card);
+  border: 2px solid var(--ink-border);
+  box-shadow: var(--glass-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.65);
+}
+
+.dark .glass-card {
+  box-shadow: var(--glass-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 .glass-strong {
-  background: var(--glass-bg-strong);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--glass-shadow);
+  background-color: var(--glass-bg-strong);
+  border: 2.5px solid var(--ink-border);
+  box-shadow: 7px 7px 0px var(--shadow-ink-color), inset 0 1px 0 rgba(255, 255, 255, 0.75);
 }
 
-/* Bordure en dégradé lumineux au survol */
-.gradient-border-glow {
+.dark .glass-strong {
+  box-shadow: 7px 7px 0px var(--shadow-ink-color), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Effet Fiche Canson interactive avec légère rotation au survol */
+.canson-sheet {
   position: relative;
-}
-.gradient-border-glow::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(135deg, var(--cobalt), var(--violet), var(--emerald));
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.35s ease;
-  pointer-events: none;
-}
-.gradient-border-glow:hover::before {
-  opacity: 1;
+  background-color: var(--paper-card);
+  border: 2px solid var(--ink-border);
+  box-shadow: 5px 5px 0px var(--shadow-ink-color), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transition: transform 0.24s cubic-bezier(0.3, 1.3, 0.5, 1),
+              box-shadow 0.2s ease,
+              border-color 0.2s ease;
 }
 
-/* Spotlight suivant le curseur */
+.canson-sheet:hover {
+  transform: translate(-2px, -3px) rotate(-0.45deg);
+  box-shadow: 8px 8px 0px var(--shadow-accent-color), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* Lavis aquarelle violette au survol (remplace le spotlight numérique) */
 .spotlight-card {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
+
 .spotlight-card::after {
   content: '';
   position: absolute;
   inset: 0;
   border-radius: inherit;
   background: radial-gradient(
-    480px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(96, 165, 250, 0.13),
-    transparent 45%
+    420px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(109, 40, 217, 0.07),
+    transparent 55%
   );
   opacity: 0;
-  transition: opacity 0.35s ease;
+  transition: opacity 0.3s ease;
   pointer-events: none;
 }
+
 .spotlight-card:hover::after {
   opacity: 1;
 }
 
-/* ===== Typographie dégradée animée ===== */
+/* Réglures Fiche Bristol */
+.bristol-lines {
+  background-image: var(--lignes-bristol);
+}
+
+/* Bandeau lavande Canson tramé */
+.canson-violet-banner {
+  background: var(--logo-gradient-banner);
+  position: relative;
+}
+
+.canson-violet-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(var(--trame-dot) 1.3px, transparent 1.5px);
+  background-size: 8px 8px;
+  pointer-events: none;
+}
+
+/* ===== Typographie Éditoriale & Dégradé Violet SOVelio ===== */
+.font-editorial {
+  font-family: var(--font-display);
+  letter-spacing: -0.025em;
+}
+
 .gradient-text {
-  background: linear-gradient(120deg, var(--cobalt), var(--violet), var(--emerald), var(--cobalt));
-  background-size: 300% 300%;
+  background: var(--logo-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: gradient-shift 8s ease infinite;
+  position: relative;
 }
 
-@keyframes gradient-shift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+/* Soulignement coup de pinceau / stabilo violet sous les mots-clés */
+.canson-highlight {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
 }
 
-/* ===== Badges néon discrets ===== */
+.canson-highlight::after {
+  content: '';
+  position: absolute;
+  left: -4px;
+  right: -4px;
+  bottom: 2px;
+  height: 34%;
+  background: linear-gradient(90deg, rgba(124, 58, 237, 0.24), rgba(46, 91, 255, 0.20));
+  z-index: -1;
+  transform: rotate(-0.8deg) skewX(-6deg);
+  border-radius: 3px;
+}
+
+/* ===== Étiquettes Papier & Tampons d'Encre (remplace .neon-badge) ===== */
 .neon-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.25rem;
-  padding: 0.25rem 0.6rem;
-  border-radius: 9999px;
+  gap: 0.3rem;
+  padding: 0.22rem 0.65rem;
+  border-radius: 6px;
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.01em;
-  border: 1px solid transparent;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.neon-badge:hover {
-  transform: translateY(-1px);
-}
-.neon-badge-cobalt {
-  color: var(--cobalt);
-  background: color-mix(in srgb, var(--cobalt) 10%, transparent);
-  border-color: color-mix(in srgb, var(--cobalt) 30%, transparent);
-  box-shadow: 0 0 12px color-mix(in srgb, var(--cobalt) 18%, transparent);
-}
-.neon-badge-emerald {
-  color: var(--emerald);
-  background: color-mix(in srgb, var(--emerald) 10%, transparent);
-  border-color: color-mix(in srgb, var(--emerald) 30%, transparent);
-  box-shadow: 0 0 12px color-mix(in srgb, var(--emerald) 18%, transparent);
-}
-.neon-badge-violet {
-  color: var(--violet);
-  background: color-mix(in srgb, var(--violet) 10%, transparent);
-  border-color: color-mix(in srgb, var(--violet) 30%, transparent);
-  box-shadow: 0 0 12px color-mix(in srgb, var(--violet) 18%, transparent);
+  border: 1.5px solid var(--ink-border);
+  box-shadow: 2px 2px 0px var(--shadow-ink-color);
+  transition: transform 0.2s cubic-bezier(0.3, 1.3, 0.5, 1),
+              box-shadow 0.15s ease,
+              background-color 0.15s ease;
 }
 
-/* ===== Chips de filtre ===== */
+.neon-badge:hover {
+  transform: translate(-1px, -2px) rotate(-1.5deg);
+  box-shadow: 3px 3px 0px var(--shadow-accent-color);
+}
+
+.neon-badge-cobalt {
+  color: var(--ink);
+  background: var(--logo-gradient-soft);
+  border-color: var(--ink-border);
+}
+
+.neon-badge-emerald {
+  color: var(--ink);
+  background-color: var(--emerald-pastel);
+  border-color: var(--ink-border);
+}
+
+.neon-badge-violet {
+  color: var(--ink);
+  background-color: var(--violet-pastel);
+  border-color: var(--ink-border);
+}
+
+/* Tampon d'origine FR / EU incliné qui pivote au survol */
+.stamp-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.18rem 0.55rem;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border: 2px solid var(--ink-border);
+  box-shadow: 2px 2px 0px var(--shadow-ink-color);
+  transform: rotate(-2deg);
+  transition: transform 0.22s cubic-bezier(0.3, 1.3, 0.5, 1), box-shadow 0.15s ease;
+}
+
+.stamp-badge:hover,
+.canson-sheet:hover .stamp-badge {
+  transform: rotate(1.5deg) translateY(-1px);
+}
+
+/* ===== Onglets & Étiquettes de filtre (.filter-chip) ===== */
 .filter-chip {
   cursor: pointer;
   user-select: none;
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid var(--ink-border);
+  box-shadow: 3px 3px 0px var(--shadow-ink-color);
+  transition: transform 0.2s cubic-bezier(0.3, 1.3, 0.5, 1),
+              box-shadow 0.15s ease,
+              background 0.2s ease;
 }
+
+.filter-chip:hover {
+  transform: translate(-1.5px, -2.5px) rotate(-1deg);
+  box-shadow: 5px 5px 0px var(--shadow-accent-color);
+}
+
 .filter-chip:active {
-  transform: scale(0.94);
+  transform: translate(2px, 2px) rotate(0deg);
+  box-shadow: 1px 1px 0px var(--shadow-ink-color);
 }
+
 .filter-chip-active {
-  box-shadow: 0 0 0 1px color-mix(in srgb, var(--cobalt) 40%, transparent),
-              0 0 18px color-mix(in srgb, var(--cobalt) 25%, transparent);
+  background: var(--logo-gradient) !important;
+  color: #FFFFFF !important;
+  border-color: var(--ink-border) !important;
+  box-shadow: 4px 4px 0px var(--shadow-ink-color) !important;
+  transform: rotate(-0.8deg);
+}
+
+.filter-chip-active:hover {
+  transform: translate(-1px, -2px) rotate(0deg);
+  box-shadow: 6px 6px 0px var(--shadow-ink-color) !important;
+}
+
+/* Intercalaire supérieur de fiche (façon dossier cartonné) */
+.canson-folder-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.85rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: var(--logo-gradient-soft);
+  color: var(--ink);
+  border: 2px solid var(--ink-border);
+  border-bottom: 0;
+  border-radius: 8px 8px 0 0;
+  transition: transform 0.2s cubic-bezier(0.3, 1.3, 0.5, 1), padding-bottom 0.2s ease;
+}
+
+/* ===== Réglette de progression hachurée ===== */
+.canson-ruler {
+  border: 2px solid var(--ink-border);
+  background-color: var(--paper-card);
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(40, 26, 66, 0.2) 0 1px,
+    transparent 1px 12.5%
+  );
+  box-shadow: 2px 2px 0px var(--shadow-ink-color);
+}
+
+.canson-ruler-bar {
+  background: repeating-linear-gradient(
+    -45deg,
+    #5839EC 0 6px,
+    #7C3AED 6px 12px
+  );
+  border-right: 2px solid var(--ink-border);
 }
 
 /* ===== Skeleton shimmer ===== */
 .skeleton {
   position: relative;
   overflow: hidden;
-  background: var(--gray-light);
+  background: var(--paper-warm);
   border-radius: var(--border-radius-sm);
-}
-.skeleton::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    color-mix(in srgb, var(--cobalt) 8%, transparent),
-    transparent
-  );
-  animation: shimmer 1.6s infinite;
-}
-@keyframes shimmer {
-  100% { transform: translateX(100%); }
+  border: 1.5px dashed var(--ink-border);
 }
 
 /* ===== Scrollbar ===== */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: var(--paper-warm);
+  border-left: 2px solid var(--ink-border);
 }
 ::-webkit-scrollbar-thumb {
-  background: color-mix(in srgb, var(--cobalt) 55%, transparent);
+  background: var(--violet);
+  border: 2px solid var(--ink-border);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--cobalt);
+  background: var(--cobalt-deep);
 }
 
 .scrollbar-hide {
@@ -298,23 +460,23 @@ body {
 
 /* ===== Sélection & focus ===== */
 ::selection {
-  background-color: color-mix(in srgb, var(--cobalt) 22%, transparent);
-  color: var(--foreground);
+  background-color: #DDD2FF;
+  color: #1E1432;
+}
+
+.dark ::selection {
+  background-color: #6D28D9;
+  color: #FFFFFF;
 }
 
 *:focus-visible {
-  outline: 2px solid var(--cobalt);
-  outline-offset: 2px;
+  outline: 2.5px dashed var(--cobalt);
+  outline-offset: 3px;
   border-radius: var(--border-radius-sm);
 }
 
 /* ===== Accessibilité : réduire les animations ===== */
 @media (prefers-reduced-motion: reduce) {
-  .mesh-blob,
-  .gradient-text,
-  .skeleton::after {
-    animation: none !important;
-  }
   *,
   *::before,
   *::after {
