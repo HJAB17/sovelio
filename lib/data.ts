@@ -28,7 +28,7 @@ export const categories: { id: Category; name: string; icon: string }[] = [
   { id: 'os', name: "Système d'exploitation", icon: 'ComputerDesktopIcon' },
   { id: 'visioconference', name: 'Visioconférence & Communication', icon: 'VideoCameraIcon' },
   { id: 'moteurs-recherche', name: 'Moteurs de recherche', icon: 'MagnifyingGlassIcon' },
-  { id: 'vpn', name: 'VPN & Réseau privé', icon: 'LockClosedIcon' },
+  { id: 'vpn', name: 'VPN, DNS & Réseau', icon: 'LockClosedIcon' },
   { id: 'gestion-projet', name: 'Gestion de projet & DevOps', icon: 'ClipboardDocumentListIcon' },
   { id: 'identite', name: 'Identité & Authentification', icon: 'FingerPrintIcon' },
   { id: 'analytique', name: 'Analytique web', icon: 'ChartBarIcon' },
@@ -347,6 +347,22 @@ export const solutions: Solution[] = [
     },
     websiteUrl: 'https://baserow.io'
   },
+  {
+    id: 'collabora',
+    name: 'Collabora Online',
+    category: 'bureautique',
+    country: 'EU',
+    logoUrl: '/logos/collabora.svg',
+    description: 'Suite bureautique collaborative open source basée sur LibreOffice, auto-hébergeable et pilier d\'openDesk',
+    labels: ['Open Source', 'LibreOffice', 'On-Premise', 'openDesk'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'On-premise ou hébergeurs souverains UE',
+      jurisdiction: 'Royaume-Uni / UE',
+      certifications: ['Open Source MPL 2.0', 'RGPD']
+    },
+    websiteUrl: 'https://www.collaboraonline.com'
+  },
 
   // ============================================
   // IA - Intelligence Artificielle
@@ -463,6 +479,86 @@ export const solutions: Solution[] = [
     },
     websiteUrl: 'https://albert.etalab.gouv.fr'
   },
+  {
+    id: 'deepl',
+    name: 'DeepL',
+    category: 'ia',
+    country: 'EU',
+    logoUrl: '/logos/deepl.svg',
+    description: 'Référence européenne de la traduction neuronale et rédaction IA en entreprise, serveurs en Europe, zéro conservation en version Pro',
+    labels: ['German AI', 'ISO 27001', 'GDPR Compliant', 'No Cloud Act'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'Union Européenne (Suède, Finlande, Allemagne)',
+      jurisdiction: 'Allemagne (UE)',
+      certifications: ['ISO 27001', 'RGPD', 'SOC 2 Type II']
+    },
+    websiteUrl: 'https://www.deepl.com'
+  },
+  {
+    id: 'noxtua',
+    name: 'Noxtua',
+    category: 'ia',
+    country: 'EU',
+    logoUrl: '/logos/noxtua.svg',
+    description: 'IA juridique européenne souveraine (développée par Xayn avec CMS), conçue pour le secret professionnel et la conformité stricte',
+    labels: ['Legal AI', 'German AI', 'Sovereign Cloud', 'GDPR Compliant'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'Allemagne / UE (Clouds souverains européens)',
+      jurisdiction: 'Allemagne (UE)',
+      certifications: ['RGPD', 'ISO 27001', 'BSI C5 (infra)']
+    },
+    websiteUrl: 'https://www.noxtua.com'
+  },
+  {
+    id: 'tilde',
+    name: 'Tilde',
+    category: 'ia',
+    country: 'EU',
+    logoUrl: '/logos/tilde.svg',
+    description: 'Modèles de fondation open source (TildeOpen LLM) et technologies linguistiques pour les langues européennes et baltes',
+    labels: ['Open Source', 'European LLM', 'Multilingual AI', 'GDPR Compliant'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'Lettonie et Union Européenne',
+      jurisdiction: 'Lettonie (UE)',
+      certifications: ['RGPD', 'ISO 27001', 'Open Source']
+    },
+    websiteUrl: 'https://tilde.ai'
+  },
+  {
+    id: 'berget-ai',
+    name: 'Berget AI',
+    category: 'ia',
+    country: 'EU',
+    logoUrl: '/logos/berget-ai.svg',
+    description: 'Infrastructure d\'inférence et services d\'IA souverains suédois, modèles open source sans transfert hors UE',
+    labels: ['Swedish AI', 'Open Source Models', 'No Cloud Act', 'Green Energy'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: '100% Suède (UE)',
+      jurisdiction: 'Suède (UE)',
+      certifications: ['RGPD', 'Zero Data Retention']
+    },
+    websiteUrl: 'https://berget.ai'
+  },
+  {
+    id: 'etranslation',
+    name: 'eTranslation (Commission UE)',
+    category: 'ia',
+    country: 'EU',
+    logoUrl: '/logos/etranslation.svg',
+    description: 'Service officiel de traduction neuronale de la Commission européenne pour les administrations publiques et PME européennes',
+    labels: ['Institution UE', 'Secteur public', '24+ Langues officielles', 'No Cloud Act'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'Datacenters de la Commission européenne (UE)',
+      jurisdiction: 'Union Européenne',
+      certifications: ['RGPD', 'Sécurité Institutionnelle UE']
+    },
+    websiteUrl: 'https://commission.europa.eu/resources-partners/etranslation_fr'
+  },
 
   // ============================================
   // DRIVE - Cloud Storage
@@ -546,6 +642,38 @@ export const solutions: Solution[] = [
       certifications: ['ISO 27001', 'GDPR', 'Swiss Privacy']
     },
     websiteUrl: 'https://tresorit.com'
+  },
+  {
+    id: 'filen',
+    name: 'Filen',
+    category: 'drive',
+    country: 'EU',
+    logoUrl: '/logos/filen.svg',
+    description: 'Stockage cloud allemand chiffré de bout en bout (Zero-Knowledge), clients open source sous licence AGPL, serveurs en propre',
+    labels: ['Zero Knowledge', 'End-to-End Encryption', 'Open Source', 'German Privacy'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: '100% Allemagne (infrastructure propre)',
+      jurisdiction: 'Allemagne (UE)',
+      certifications: ['RGPD', 'Open Source AGPL']
+    },
+    websiteUrl: 'https://filen.io'
+  },
+  {
+    id: 'internxt',
+    name: 'Internxt',
+    category: 'drive',
+    country: 'EU',
+    logoUrl: '/logos/internxt.svg',
+    description: 'Suite de stockage cloud espagnole à chiffrement Zero-Knowledge et post-quantique, code open source audité',
+    labels: ['Zero Knowledge', 'End-to-End Encryption', 'Open Source', 'Post-Quantum'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'Union Européenne (Espagne, Allemagne, France)',
+      jurisdiction: 'Espagne (UE)',
+      certifications: ['RGPD', 'Audit Securitum', 'ISO 27001']
+    },
+    websiteUrl: 'https://internxt.com'
   },
 
   // ============================================
@@ -759,6 +887,38 @@ export const solutions: Solution[] = [
     },
     websiteUrl: 'https://scalingo.com'
   },
+  {
+    id: 'stackit',
+    name: 'STACKIT',
+    category: 'cloud',
+    country: 'EU',
+    logoUrl: '/logos/stackit.svg',
+    description: 'Cloud souverain du groupe Schwarz (IaaS, PaaS, Kubernetes), opéré depuis l\'Allemagne et l\'Autriche, retenu par la Commission européenne',
+    labels: ['Schwarz Group', 'Sovereign Cloud', 'BSI C5', 'ISO 27001'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: '100% Allemagne et Autriche',
+      jurisdiction: 'Allemagne (UE)',
+      certifications: ['BSI C5', 'ISO 27001', 'RGPD']
+    },
+    websiteUrl: 'https://www.stackit.de'
+  },
+  {
+    id: 'evroc',
+    name: 'Evroc',
+    category: 'cloud',
+    country: 'EU',
+    logoUrl: '/logos/evroc.svg',
+    description: 'Cloud hyperscale et IA souverain européen fondé en Suède, datacenters durables en Europe (Suède, France), 100% hors CLOUD Act',
+    labels: ['European Hyperscaler', 'Sovereign AI Cloud', 'No Cloud Act', 'Green Cloud'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'Suède et France (UE)',
+      jurisdiction: 'Suède (UE)',
+      certifications: ['RGPD', 'Zero US Jurisdiction']
+    },
+    websiteUrl: 'https://evroc.com'
+  },
 
   // ============================================
   // SECURITE - Cybersécurité
@@ -842,6 +1002,38 @@ export const solutions: Solution[] = [
       certifications: ['CSPN ANSSI', 'France Cybersecurity', 'RGPD']
     },
     websiteUrl: 'https://www.wallix.com'
+  },
+  {
+    id: 'securevisio',
+    name: 'SecureVisio',
+    category: 'securite',
+    country: 'EU',
+    logoUrl: '/logos/securevisio.svg',
+    description: 'Plateforme européenne SecOps, SIEM/SOAR et gestion des risques cyber en temps réel, référencée au catalogue européen TechSov',
+    labels: ['SIEM / SOAR', 'SecOps Européen', 'On-Premise', 'NIS2 Ready'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'Pologne (UE) ou on-premise',
+      jurisdiction: 'Pologne (UE)',
+      certifications: ['RGPD', 'ISO 27001', 'TechSov Catalogue']
+    },
+    websiteUrl: 'https://securevisio.com'
+  },
+  {
+    id: 'cracy',
+    name: 'CRACY (LSEC)',
+    category: 'securite',
+    country: 'EU',
+    logoUrl: '/logos/cracy.svg',
+    description: 'Suite européenne de gouvernance, gestion des risques et conformité cyber (NIS2, DORA, RGPD, CRA, ISO 27001)',
+    labels: ['Conformité NIS2 / DORA', 'GRC Européen', 'Cyber Resilience Act', 'No Cloud Act'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'Belgique (UE) ou on-premise',
+      jurisdiction: 'Belgique (UE)',
+      certifications: ['RGPD', 'TechSov Catalogue']
+    },
+    websiteUrl: 'https://cracy.eu'
   },
 
   // ============================================
@@ -1238,6 +1430,38 @@ export const solutions: Solution[] = [
     },
     websiteUrl: 'https://www.infomaniak.com/kmeet'
   },
+  {
+    id: 'linkello',
+    name: 'Linkello',
+    category: 'visioconference',
+    country: 'FR',
+    logoUrl: '/logos/linkello.svg',
+    description: 'Visioconférence française sans installation (WebRTC), chiffrée, serveurs dédiés 100% en France, déclinaison HDS disponible',
+    labels: ['French Tech', 'No Install', 'HDS', 'Zero Cloud Act'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: '100% France',
+      jurisdiction: 'France (UE)',
+      certifications: ['RGPD', 'HDS (offre médicale)']
+    },
+    websiteUrl: 'https://linkello.com'
+  },
+  {
+    id: 'infobip',
+    name: 'Infobip',
+    category: 'visioconference',
+    country: 'EU',
+    logoUrl: '/logos/infobip.svg',
+    description: 'Plateforme CPaaS européenne (alternative souveraine à Twilio) pour SMS, voix, messagerie omnicanale et API de communication',
+    labels: ['CPaaS Européen', 'Twilio Alternative', 'ISO 27001', 'GDPR Compliant'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'Datacenters en Union Européenne (Croatie, Allemagne)',
+      jurisdiction: 'Croatie (UE)',
+      certifications: ['ISO 27001', 'ISO 27701', 'RGPD']
+    },
+    websiteUrl: 'https://www.infobip.com'
+  },
 
   // ============================================
   // SECURITE - Gestion des mots de passe
@@ -1410,6 +1634,22 @@ export const solutions: Solution[] = [
     },
     websiteUrl: 'https://www.ivpn.net'
   },
+  {
+    id: 'dns4eu',
+    name: 'DNS4EU',
+    category: 'vpn',
+    country: 'EU',
+    logoUrl: '/logos/dns4eu.svg',
+    description: 'Résolveur DNS public européen orienté vie privée et bouclier cyber, soutenu par l\'UE pour remplacer Google 8.8.8.8 et Cloudflare 1.1.1.1',
+    labels: ['DNS Souverain UE', 'No Tracking', 'Cyber Shield', 'GDPR Native'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: '100% Union Européenne (Anycast UE)',
+      jurisdiction: 'Tchéquie / Union Européenne',
+      certifications: ['RGPD', 'Projet cofinancé par l\'UE']
+    },
+    websiteUrl: 'https://www.joindns4.eu'
+  },
 
   // ============================================
   // GESTION-PROJET - Gestion de projet & DevOps
@@ -1509,6 +1749,70 @@ export const solutions: Solution[] = [
       certifications: ['RGPD', 'Open Source MPL 2.0']
     },
     websiteUrl: 'https://penpot.app'
+  },
+  {
+    id: 'singulr',
+    name: 'Singulr',
+    category: 'gestion-projet',
+    country: 'EU',
+    logoUrl: '/logos/singulr.svg',
+    description: 'Forge Git souveraine managée basée sur Forgejo (dépôts, CI/CD, packages), opérée en Belgique sous droit belge en alternative à GitHub',
+    labels: ['Forgejo Managé', 'GitHub Alternative', 'Belgian Privacy', 'No Cloud Act'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'Union Européenne (Belgique / UE)',
+      jurisdiction: 'Belgique (UE)',
+      certifications: ['RGPD', 'Open Source (Forgejo)']
+    },
+    websiteUrl: 'https://singulr.be'
+  },
+  {
+    id: 'framagit',
+    name: 'Framagit',
+    category: 'gestion-projet',
+    country: 'FR',
+    logoUrl: '/logos/framagit.svg',
+    description: 'Forge logicielle publique basée sur GitLab Community Edition, hébergée et opérée en France par l\'association Framasoft',
+    labels: ['Open Source', 'Non-Profit', 'GitLab CE', 'French Hosting'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'France / UE (Framasoft)',
+      jurisdiction: 'France (UE)',
+      certifications: ['RGPD', 'CHATONS']
+    },
+    websiteUrl: 'https://framagit.org'
+  },
+  {
+    id: 'opencode',
+    name: 'openCode (ZenDiS)',
+    category: 'gestion-projet',
+    country: 'EU',
+    logoUrl: '/logos/opencode.svg',
+    description: 'Forge GitLab souveraine officielle du secteur public allemand opérée par le ZenDiS pour mutualiser les logiciels libres d\'État',
+    labels: ['Secteur public', 'Open Source', 'German Governance', 'openDesk'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: '100% Allemagne (Cloud souverain public)',
+      jurisdiction: 'Allemagne (UE)',
+      certifications: ['RGPD', 'BSI Standards']
+    },
+    websiteUrl: 'https://opencode.de'
+  },
+  {
+    id: 'code-overheid',
+    name: 'code.overheid.nl',
+    category: 'gestion-projet',
+    country: 'EU',
+    logoUrl: '/logos/code-overheid.svg',
+    description: 'Forge publique néerlandaise basée sur Forgejo dédiée aux administrations et au partage de code open source gouvernemental',
+    labels: ['Secteur public', 'Open Source', 'Forgejo', 'Dutch Governance'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: '100% Pays-Bas (UE)',
+      jurisdiction: 'Pays-Bas (UE)',
+      certifications: ['RGPD', 'Open Source']
+    },
+    websiteUrl: 'https://code.overheid.nl'
   },
 
   // ============================================
@@ -1661,6 +1965,22 @@ export const solutions: Solution[] = [
       certifications: ['GDPR', 'Open Core']
     },
     websiteUrl: 'https://pirsch.io'
+  },
+  {
+    id: 'wideangle',
+    name: 'Wide Angle Analytics',
+    category: 'analytique',
+    country: 'EU',
+    logoUrl: '/logos/wideangle.svg',
+    description: 'Analytique web RGPD-native sans cookies par défaut, conçue et hébergée exclusivement en Allemagne sans transfert hors UE',
+    labels: ['No Cookies', 'GDPR Native', 'German Hosting', 'No Cloud Act'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: '100% Allemagne (Hetzner)',
+      jurisdiction: 'Allemagne (UE)',
+      certifications: ['RGPD', 'Zero US Transfer']
+    },
+    websiteUrl: 'https://wideangle.co'
   },
 
   // ============================================

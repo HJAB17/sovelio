@@ -37,7 +37,7 @@ const categoryConfig: Record<Category, { icon: React.ElementType; label: string;
   os: { icon: ComputerDesktopIcon, label: "Système d'exploitation", color: 'text-[#B45309] dark:text-[#FCD34D]', bgColor: 'bg-[#FEF3C7]/75 dark:bg-[#3F2E16]/70' },
   visioconference: { icon: VideoCameraIcon, label: 'Visioconférence & Communication', color: 'text-[#9D174D] dark:text-[#F9A8D4]', bgColor: 'bg-[#FCE7F3]/70 dark:bg-[#421931]/70' },
   'moteurs-recherche': { icon: MagnifyingGlassIcon, label: 'Moteurs de recherche', color: 'text-[#047857] dark:text-[#6EE7B7]', bgColor: 'bg-[#D1FAE5]/65 dark:bg-[#143D33]/70' },
-  vpn: { icon: LockClosedIcon, label: 'VPN & Réseau privé', color: 'text-[#5B21B6] dark:text-[#C4B5FD]', bgColor: 'bg-[#EDE9FE]/80 dark:bg-[#312254]/80' },
+  vpn: { icon: LockClosedIcon, label: 'VPN, DNS & Réseau', color: 'text-[#5B21B6] dark:text-[#C4B5FD]', bgColor: 'bg-[#EDE9FE]/80 dark:bg-[#312254]/80' },
   'gestion-projet': { icon: ClipboardDocumentListIcon, label: 'Gestion de projet & DevOps', color: 'text-[#6D28D9] dark:text-[#DDD6FE]', bgColor: 'bg-[#F3E8FF]/75 dark:bg-[#352559]/75' },
   identite: { icon: FingerPrintIcon, label: 'Identité & Authentification', color: 'text-[#0F766E] dark:text-[#5EEAD4]', bgColor: 'bg-[#CCFBF1]/65 dark:bg-[#133B3A]/70' },
   analytique: { icon: ChartBarIcon, label: 'Analytique web', color: 'text-[#4338CA] dark:text-[#A5B4FC]', bgColor: 'bg-[#E0E7FF]/75 dark:bg-[#251F42]/80' },
@@ -67,6 +67,7 @@ const solutionInterestNotes: Record<string, string> = {
   cryptpad: "Suite bureautique Zero-Knowledge où tout est chiffré sur votre appareil avant envoi : même l'hébergeur ne peut lire vos documents.",
   xwiki: "Alternative open source mature à Confluence et Notion pour structurer, versionner et partager la base de connaissances de l'entreprise.",
   baserow: "Alternative européenne open source à Airtable pour créer des bases de données collaboratives et applications métiers sans coder.",
+  collabora: "Suite bureautique en ligne basée sur LibreOffice, auto-hébergeable et intégrée à Nextcloud et openDesk pour remplacer Google Docs et Microsoft 365.",
 
   // IA
   mistral: "Champion européen des modèles de langage : des IA de pointe utilisables via Le Chat, par API souveraine ou sur vos propres serveurs.",
@@ -76,6 +77,11 @@ const solutionInterestNotes: Record<string, string> = {
   lumo: "Assistant IA conversationnel conçu par Proton sur des modèles open source en Europe, avec garantie stricte d'aucune journalisation.",
   iasouveraine: "Portail français donnant accès à plusieurs modèles d'IA open source hébergés exclusivement sur des infrastructures souveraines.",
   albert: "Le modèle et socle d'IA ouvert développé par l'État français (DINUM) pour moderniser les services publics sur cloud SecNumCloud.",
+  deepl: "Référence européenne de la traduction neuronale et de l'aide à la rédaction : précision linguistique supérieure et garantie zéro conservation des textes en Pro.",
+  noxtua: "Première IA juridique souveraine européenne conçue avec des cabinets d'avocats pour analyser et rédiger des actes dans le strict respect du secret professionnel.",
+  tilde: "Pionnier letton des technologies du langage et créateur de modèles LLM open source optimisés pour les langues européennes et baltes.",
+  'berget-ai': "Plateforme d'inférence IA suédoise 100 % souveraine hébergeant des modèles open source sans aucune conservation ni transfert de données hors d'Europe.",
+  etranslation: "Outil officiel de traduction automatique de la Commission européenne, gratuit et sécurisé pour les administrations publiques et PME de l'UE.",
 
   // Drive & Stockage
   oodrive: "Pionnier français du partage de fichiers ultra-sécurisé, des Data Rooms et de la signature qualifiée eIDAS pour les secteurs régaliens.",
@@ -84,6 +90,8 @@ const solutionInterestNotes: Record<string, string> = {
   kdrive: "Alternative suisse complète à Dropbox et Google Drive avec suite bureautique intégrée, propulsée à 100 % par de l'énergie renouvelable.",
   swisstransfer: "Remplaçant idéal de WeTransfer : envoyez gratuitement jusqu'à 50 Go de fichiers lourds sans publicité, protégés par mot de passe en Suisse.",
   tresorit: "Coffre-fort cloud chiffré de bout en bout (Zero-Knowledge) pour échanger des dossiers confidentiels avec contrôle granulaire des accès.",
+  filen: "Drive allemand Zero-Knowledge aux clients 100 % open source (AGPL) et serveurs en propre : vos fichiers sont chiffrés avant même de quitter votre appareil.",
+  internxt: "Stockage cloud espagnol open source doté d'un chiffrement de bout en bout à résistance post-quantique pour remplacer Google Drive et Dropbox.",
 
   // Cloud IaaS / PaaS
   ovhcloud: "Leader européen du cloud (serveurs dédiés, VPS, Kubernetes, IA, SecNumCloud) au rapport performance/prix imbattable face à AWS et Azure.",
@@ -99,6 +107,8 @@ const solutionInterestNotes: Record<string, string> = {
   clevercloud: "PaaS français qui automatise le déploiement, la mise à l'échelle et la maintenance de vos applications web en quelques secondes.",
   scaleway: "Écosystème cloud natif du groupe Iliad (Kubernetes, Serverless, GPU IA) hébergé dans des datacenters européens sobres en énergie.",
   scalingo: "Alternative française à Heroku : déployez vos applications et bases de données d'un simple git push avec certifications HDS et SecNumCloud.",
+  stackit: "Cloud souverain du groupe Schwarz (Lidl/Kaufland) opéré en Allemagne et en Autriche, retenu par la Commission européenne face aux hyperscalers US.",
+  evroc: "Initiative suédoise bâtissant un véritable hyperscaler européen et des datacenters IA durables en Suède et en France, 100 % hors CLOUD Act.",
 
   // Cybersécurité & Mots de passe
   tehtris: "Pionnier français du XDR qui détecte et neutralise automatiquement en temps réel les cyberattaques, rançongiciels et espionnages.",
@@ -106,6 +116,8 @@ const solutionInterestNotes: Record<string, string> = {
   harfanglab: "Premier EDR qualifié par l'ANSSI : assure une détection chirurgicale et une réponse souveraine aux menaces sur postes et serveurs.",
   crowdsec: "Bouclier cyber open source et collaboratif qui bloque les comportements malveillants et partage les IP d'attaquants en temps réel.",
   wallix: "Leader européen certifié ANSSI de la gestion des accès à privilèges (PAM) pour sécuriser et tracer les connexions aux systèmes critiques.",
+  securevisio: "Plateforme polonaise de SecOps, SIEM/SOAR et pilotage des risques cyber en temps réel, référencée au catalogue européen TechSov.",
+  cracy: "Suite belge de gouvernance et conformité cyber (GRC) pour piloter vos obligations européennes NIS2, DORA, RGPD et Cyber Resilience Act.",
   passbolt: "Gestionnaire de mots de passe open source pensé pour les équipes : partage d'accès chiffré GPG de bout en bout en cloud UE ou on-premise.",
   padloc: "Gestionnaire de mots de passe open source à l'interface moderne et épurée pour synchroniser coffres personnels et d'équipe en sécurité.",
   keepassxc: "Coffre-fort de mots de passe 100 % local et hors-ligne : vos identifiants restent dans un fichier chiffré sur votre machine, sans cloud.",
@@ -139,6 +151,8 @@ const solutionInterestNotes: Record<string, string> = {
   element: "Client de référence du protocole ouvert Matrix, remplaçant Slack et Teams par une messagerie fédérée et chiffrée adoptée par plusieurs États.",
   tixeo: "Seule visioconférence qualifiée par l'ANSSI garantissant un vrai chiffrement de bout en bout des flux audio/vidéo en réunion multipoint.",
   kmeet: "Visioconférence suisse gratuite et sans inscription, chiffrée et propulsée par les datacenters écologiques d'Infomaniak.",
+  linkello: "Visioconférence française fluide sans installation, hébergée à 100 % en France avec déclinaison certifiée HDS pour la téléconsultation et les échanges sensibles.",
+  infobip: "Leader européen du CPaaS remplaçant Twilio : API d'envoi de SMS, voix, WhatsApp et authentification multicanale depuis des datacenters UE.",
 
   // Moteurs de recherche
   qwant: "Moteur de recherche français garantissant la neutralité des résultats : zéro cookie de pistage et aucun profilage de votre historique.",
@@ -150,6 +164,7 @@ const solutionInterestNotes: Record<string, string> = {
   'mullvad-vpn': "Étalon-or de l'anonymat VPN : aucun email requis (simple numéro de compte anonyme), tarif fixe et serveurs fonctionnant uniquement sur RAM.",
   protonvpn: "VPN suisse open source à haute vitesse avec double saut Secure Core, bloqueur de traqueurs NetShield et offre gratuite illimitée.",
   ivpn: "VPN européen 100 % open source soumis à des audits de sécurité annuels publics, utilisable sans fournir aucune donnée personnelle.",
+  dns4eu: "Résolveur DNS public européen soutenu par l'UE pour remplacer Cloudflare (1.1.1.1) et Google (8.8.8.8) en gardant vos requêtes DNS sous juridiction UE.",
 
   // Gestion de projet & DevOps
   taiga: "Plateforme agile open source claire et visuelle (Scrum, Kanban) pour piloter vos projets sans l'enfermement propriétaire de Jira.",
@@ -158,6 +173,10 @@ const solutionInterestNotes: Record<string, string> = {
   codeberg: "Hébergement Git public géré par une association allemande à but non lucratif, refuge européen idéal pour vos projets hors de GitHub.",
   openproject: "Solution complète de gestion de projets (Gantt, Agile, budgets) retenue par l'administration allemande pour sa suite souveraine openDesk.",
   penpot: "Première plateforme open source de design UI/UX et prototypage collaboratif basée sur les standards web, alternative directe à Figma.",
+  singulr: "Forge Git souveraine clés en main basée sur Forgejo et opérée sous droit belge, idéale pour quitter GitHub ou GitLab SaaS sans gérer de serveur.",
+  framagit: "Instance GitLab Community Edition hébergée en France par l'association Framasoft pour accueillir et développer des projets logiciels libres.",
+  opencode: "La forge GitLab officielle du secteur public allemand (ZenDiS) mutualisant les logiciels libres des administrations européennes.",
+  'code-overheid': "Forge publique du gouvernement néerlandais basée sur Forgejo pour héberger et partager les développements open source du secteur public.",
 
   // Identité & Authentification
   franceconnect: "Portail d'identification de l'État français donnant accès à plus de 1 400 démarches en ligne sans multiplier les mots de passe.",
@@ -171,6 +190,7 @@ const solutionInterestNotes: Record<string, string> = {
   plausible: "Mesure d'audience web épurée et ultra-légère (< 1 Ko) pour suivre votre trafic en un coup d'œil sans ralentir le site ni tracer les visiteurs.",
   simpleanalytics: "Outil néerlandais d'analyse de trafic éthique, sans cookies et hébergé sur une infrastructure physique 100 % indépendante des clouds US.",
   pirsch: "Solution d'analytique web allemande moderne et rapide, sans cookies, hébergée chez Hetzner et intégrable en quelques minutes.",
+  wideangle: "Solution allemande de mesure d'audience RGPD-native, sans cookies par défaut et hébergée à 100 % chez Hetzner sans transfert hors de l'UE.",
 
   // Matériel souverain
   'tuxedo-computers': "Ordinateurs portables et PC assemblés sur mesure en Allemagne, livrés avec Linux préinstallé et matériel 100 % compatible dès l'allumage.",
@@ -208,6 +228,9 @@ const badgeExplanations: Record<string, string> = {
   'Made in Spain': "Matériel assemblé en Espagne sous réglementation européenne.",
   'De-Googled': "Système entièrement affranchi des services et traceurs Google.",
   'HDS': 'Hébergement de Données de Santé : certifié pour les données médicales sensibles.',
+  'BSI C5': "Catalogue d'exigences de sécurité cloud de l'agence fédérale allemande (BSI), équivalent allemand de référence.",
+  'NIS2': "Directive européenne renforçant le niveau global de cybersécurité des entités critiques et importantes de l'UE.",
+  'Post-Quantum': 'Chiffrement conçu pour résister aux capacités de décryptage des futurs ordinateurs quantiques.',
 };
 
 function getBadgeExplanation(label: string): string | null {
