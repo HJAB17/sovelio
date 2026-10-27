@@ -70,11 +70,21 @@ const solutionInterestNotes: Record<string, string> = {
   collabora: "Suite bureautique en ligne basée sur LibreOffice, auto-hébergeable et intégrée à Nextcloud et openDesk pour remplacer Google Docs et Microsoft 365.",
 
   // IA
-  mistral: "Champion européen des modèles de langage : des IA de pointe utilisables via Le Chat, par API souveraine ou sur vos propres serveurs.",
+  mistral: "Champion européen des modèles de langage : assistant complet Le Chat / Vibe (web, documents, agents) et déploiement souverain ou on-premise.",
+  eustella: "Assistant IA grand public et plateforme d'agents souverains conçue en Europe : simple, orientée confidentialité et propulsée par des modèles ouverts hébergés dans l'UE.",
   lighton: "Plateforme d'IA générative (Paradigm) déployable dans votre propre SI ou sur cloud SecNumCloud : vos données internes ne sortent jamais.",
-  alephalpha: "IA souveraine allemande explicable conçue pour le secteur public et les industries critiques, avec traçabilité des sources.",
+  alephalpha: "Plateforme d'IA souveraine allemande (PhariaAI) conçue pour le secteur public et les industries régulées, déployable on-premise ou sur cloud STACKIT.",
   euria: "Assistant IA gratuit et éco-responsable hébergé en Suisse par Infomaniak : vos échanges ne servent jamais à entraîner des modèles tiers.",
-  lumo: "Assistant IA conversationnel conçu par Proton sur des modèles open source en Europe, avec garantie stricte d'aucune journalisation.",
+  lumo: "Assistant IA grand public de Proton avec chiffrement « zero-access » : aucune conversation n'est lue ni utilisée pour entraîner des modèles.",
+  dentrochat: "Alternative européenne directe à ChatGPT et Claude garantissant une infrastructure 100 % européenne et zéro sous-traitant américain.",
+  gdprchat: "Assistant IA danois propulsé par Mistral et hébergé en Allemagne, doté d'un filtre de données personnelles côté navigateur et de la suppression automatique des chats.",
+  dust: "Plateforme française permettant de créer des assistants et agents IA connectés aux connaissances internes de l'entreprise (Notion, Slack, Drive) avec hébergement UE.",
+  langdock: "Espace de travail IA multi-modèles allemand unifiant chat, agents, workflows et recherche documentaire sur une infrastructure européenne certifiée ISO 27001.",
+  'nele-ai': "Solution IA allemande clés en main pensée pour les PME et ETI : interface unique multi-modèles, filtres de données personnelles et add-ins Word/Excel.",
+  omnifact: "Plateforme IA d'entreprise « privacy-first » allemande intégrant une passerelle d'anonymisation des données sensibles et une option de déploiement on-premise.",
+  employeegpt: "Assistant IA d'entreprise personnalisé hébergé à 100 % en Suisse, conçu pour interroger vos documents et processus internes en toute confidentialité.",
+  privatemode: "Assistant IA allemand ultra-confidentiel basé sur le Confidential Computing : vos données restent chiffrées matériellement jusque dans la mémoire des GPU.",
+  superkind: "Plateforme berlinoise d'agents IA capables d'aller au-delà du chat pour rechercher de l'information et exécuter des actions dans vos outils métiers sous droit européen.",
   iasouveraine: "Portail français donnant accès à plusieurs modèles d'IA open source hébergés exclusivement sur des infrastructures souveraines.",
   albert: "Le modèle et socle d'IA ouvert développé par l'État français (DINUM) pour moderniser les services publics sur cloud SecNumCloud.",
   deepl: "Référence européenne de la traduction neuronale et de l'aide à la rédaction : précision linguistique supérieure et garantie zéro conservation des textes en Pro.",
@@ -231,6 +241,9 @@ const badgeExplanations: Record<string, string> = {
   'BSI C5': "Catalogue d'exigences de sécurité cloud de l'agence fédérale allemande (BSI), équivalent allemand de référence.",
   'NIS2': "Directive européenne renforçant le niveau global de cybersécurité des entités critiques et importantes de l'UE.",
   'Post-Quantum': 'Chiffrement conçu pour résister aux capacités de décryptage des futurs ordinateurs quantiques.',
+  'Confidential Computing': "Chiffrement matériel en cours d'utilisation (enclaves TEE) : même l'hébergeur ne peut pas lire les données traitées.",
+  'Zero-Access': "Chiffrement à divulgation nulle : vos données chiffrées ne sont accessibles par aucun tiers, pas même le fournisseur.",
+  'AI Act': "Conçu en conformité avec le règlement européen sur l'intelligence artificielle (EU AI Act).",
 };
 
 function getBadgeExplanation(label: string): string | null {

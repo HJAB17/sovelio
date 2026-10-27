@@ -369,19 +369,35 @@ export const solutions: Solution[] = [
   // ============================================
   {
     id: 'mistral',
-    name: 'Mistral AI',
+    name: 'Mistral AI (Le Chat / Vibe)',
     category: 'ia',
     country: 'FR',
     logoUrl: '/logos/mistral.svg',
-    description: 'LLM FR/UE, modèles open source, hébergeables sur cloud EU/on-prem',
-    labels: ['LLM Européen', 'Open Source', 'French Tech'],
+    description: 'LLM FR/UE, assistant généraliste Le Chat (web, documents, agents), modèles open source et offres cloud EU/on-prem',
+    labels: ['LLM Européen', 'Open Source', 'French Tech', 'On-Premise'],
     certifiedNonCloudAct: true,
     souveraineteDetails: {
-      hosting: 'France et Europe',
+      hosting: 'France et Europe (ou on-premise)',
       jurisdiction: 'France (UE)',
-      certifications: ['Open Source Models']
+      certifications: ['Open Source Models', 'RGPD']
     },
     websiteUrl: 'https://mistral.ai'
+  },
+  {
+    id: 'eustella',
+    name: 'Eustella',
+    category: 'ia',
+    country: 'EU',
+    logoUrl: '/logos/eustella.svg',
+    description: 'Assistant IA grand public et plateforme d\'agents souverains européenne, modèles open-weight hébergés à 100% dans l\'UE',
+    labels: ['Agentic AI', 'Open Source Models', 'GDPR Compliant', 'No Cloud Act'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: '100% Union Européenne',
+      jurisdiction: 'Autriche (UE)',
+      certifications: ['RGPD', 'EU AI Act Ready']
+    },
+    websiteUrl: 'https://www.eustella.com'
   },
   {
     id: 'lighton',
@@ -401,17 +417,17 @@ export const solutions: Solution[] = [
   },
   {
     id: 'alephalpha',
-    name: 'Aleph Alpha',
+    name: 'Aleph Alpha (PhariaAI)',
     category: 'ia',
     country: 'EU',
     logoUrl: '/logos/alephalpha.svg',
-    description: 'Acteur IA allemand, infra en Allemagne, RGPD',
-    labels: ['German AI', 'GDPR Compliant', 'Sovereign AI'],
+    description: 'Plateforme IA souveraine allemande (PhariaAI) pour secteur public et industries régulées, déploiement on-premise ou cloud souverain (STACKIT)',
+    labels: ['German AI', 'On-Premise', 'GDPR Compliant', 'Sovereign AI'],
     certifiedNonCloudAct: true,
     souveraineteDetails: {
-      hosting: '100% Allemagne',
+      hosting: '100% Allemagne (On-premise ou STACKIT)',
       jurisdiction: 'Allemagne (UE)',
-      certifications: ['GDPR', 'ISO 27001']
+      certifications: ['GDPR', 'ISO 27001', 'BSI C5 (infra)']
     },
     websiteUrl: 'https://aleph-alpha.com'
   },
@@ -437,15 +453,159 @@ export const solutions: Solution[] = [
     category: 'ia',
     country: 'EU',
     logoUrl: '/logos/lumo.svg',
-    description: 'Assistant IA open source, confidentialité forte, infra EU, pas de GAFAM',
-    labels: ['Open Source', 'Privacy First', 'EU Infrastructure'],
+    description: 'Assistant IA grand public, chiffrement zero-access, aucune utilisation des conversations pour l\'entraînement, infra européenne',
+    labels: ['Zero Knowledge', 'Open Source', 'Privacy First', 'Swiss Privacy'],
     certifiedNonCloudAct: true,
     souveraineteDetails: {
       hosting: 'Datacenters Proton en Europe',
       jurisdiction: 'Suisse/UE (hors CLOUD Act)',
-      certifications: ['Open Source', 'Swiss Privacy']
+      certifications: ['Open Source', 'Swiss Privacy', 'Zero-Access Encryption']
     },
     websiteUrl: 'https://lumo.proton.me'
+  },
+  {
+    id: 'dentrochat',
+    name: 'DentroChat',
+    category: 'ia',
+    country: 'EU',
+    logoUrl: '/logos/dentrochat.svg',
+    description: 'Assistant IA conversationnel européen, alternative directe à ChatGPT et Claude avec zéro sous-traitant américain',
+    labels: ['No US Subcontractor', 'GDPR Compliant', 'No Cloud Act', 'EU Infrastructure'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: '100% Union Européenne',
+      jurisdiction: 'Estonie (UE)',
+      certifications: ['RGPD', 'Zero US Sub-processors']
+    },
+    websiteUrl: 'https://dentro.chat'
+  },
+  {
+    id: 'gdprchat',
+    name: 'GDPRchat',
+    category: 'ia',
+    country: 'EU',
+    logoUrl: '/logos/gdprchat.svg',
+    description: 'Assistant IA danois orienté confidentialité, modèles Mistral, filtre de données personnelles côté navigateur et suppression automatique',
+    labels: ['Privacy First', 'Mistral Inside', 'GDPR Compliant', 'No Cloud Act'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: '100% Allemagne (Hetzner)',
+      jurisdiction: 'Danemark (UE)',
+      certifications: ['RGPD', 'Zero Data Training']
+    },
+    websiteUrl: 'https://gdprchat.eu'
+  },
+  {
+    id: 'dust',
+    name: 'Dust',
+    category: 'ia',
+    country: 'FR',
+    logoUrl: '/logos/dust.svg',
+    description: 'Plateforme française d\'assistants et d\'agents IA connectés aux documents et outils internes de l\'entreprise',
+    labels: ['French Tech', 'Enterprise AI Agents', 'GDPR Compliant', 'Open Source'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'Union Européenne (résidence UE dédiée)',
+      jurisdiction: 'France (UE)',
+      certifications: ['RGPD', 'SOC 2 Type II', 'Zero Data Training']
+    },
+    websiteUrl: 'https://dust.tt'
+  },
+  {
+    id: 'langdock',
+    name: 'Langdock',
+    category: 'ia',
+    country: 'EU',
+    logoUrl: '/logos/langdock.svg',
+    description: 'Espace de travail IA multi-modèles pour équipes (chat, agents, workflows, recherche documentaire) sur infrastructure européenne',
+    labels: ['German AI', 'ISO 27001', 'GDPR Compliant', 'Multi-Model Workspace'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'Union Européenne (Allemagne/UE)',
+      jurisdiction: 'Allemagne (UE)',
+      certifications: ['ISO 27001', 'RGPD', 'SOC 2 Type II']
+    },
+    websiteUrl: 'https://www.langdock.com'
+  },
+  {
+    id: 'nele-ai',
+    name: 'nele.ai',
+    category: 'ia',
+    country: 'EU',
+    logoUrl: '/logos/nele-ai.svg',
+    description: 'Plateforme IA allemande pour PME et ETI avec interface multi-modèles, filtres de données personnelles et add-ins Word/Excel',
+    labels: ['German AI', 'PME / ETI', 'GDPR Compliant', 'PII Filter'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'Allemagne et Union Européenne',
+      jurisdiction: 'Allemagne (UE)',
+      certifications: ['RGPD', 'ISO 27001 (infra)']
+    },
+    websiteUrl: 'https://www.nele.ai'
+  },
+  {
+    id: 'omnifact',
+    name: 'Omnifact',
+    category: 'ia',
+    country: 'EU',
+    logoUrl: '/logos/omnifact.svg',
+    description: 'Assistant IA d\'entreprise « privacy-first » avec filtre d\'anonymisation des données sensibles et option de déploiement on-premise',
+    labels: ['On-Premise', 'Privacy First', 'German AI', 'GDPR Compliant'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'Allemagne (UE) ou On-premise',
+      jurisdiction: 'Allemagne (UE)',
+      certifications: ['RGPD', 'Data Masking Gateway']
+    },
+    websiteUrl: 'https://omnifact.ai'
+  },
+  {
+    id: 'employeegpt',
+    name: 'Employee GPT (Connect AI)',
+    category: 'ia',
+    country: 'EU',
+    logoUrl: '/logos/employeegpt.svg',
+    description: 'Assistant IA d\'entreprise personnalisé adapté aux documents et processus internes, données conservées à 100% en Suisse',
+    labels: ['Swiss Privacy', 'No Cloud Act', 'Enterprise RAG', 'GDPR Compliant'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: '100% Suisse',
+      jurisdiction: 'Suisse (hors CLOUD Act)',
+      certifications: ['Swiss Privacy (nLPD)', 'RGPD']
+    },
+    websiteUrl: 'https://www.connectai.ch'
+  },
+  {
+    id: 'privatemode',
+    name: 'Privatemode AI',
+    category: 'ia',
+    country: 'EU',
+    logoUrl: '/logos/privatemode.svg',
+    description: 'Assistant IA ultra-confidentiel basé sur le Confidential Computing : vos prompts restent chiffrés même pendant l\'inférence GPU',
+    labels: ['Confidential Computing', 'End-to-End Encryption', 'Zero Knowledge', 'Open Source'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'Allemagne / UE (Enclaves matérielles TEE)',
+      jurisdiction: 'Allemagne (UE)',
+      certifications: ['RGPD', 'Confidential Computing', 'Open Source']
+    },
+    websiteUrl: 'https://www.privatemode.ai'
+  },
+  {
+    id: 'superkind',
+    name: 'Superkind',
+    category: 'ia',
+    country: 'EU',
+    logoUrl: '/logos/superkind.svg',
+    description: 'Agents IA européens orientés exécution de tâches capables de rechercher et d\'agir directement dans les applications de l\'entreprise',
+    labels: ['Agentic AI', 'German AI', 'GDPR Compliant', 'Workflow Automation'],
+    certifiedNonCloudAct: true,
+    souveraineteDetails: {
+      hosting: 'Union Européenne (Allemagne)',
+      jurisdiction: 'Allemagne (UE)',
+      certifications: ['RGPD', 'Privacy by Design']
+    },
+    websiteUrl: 'https://superkind.ai'
   },
   {
     id: 'iasouveraine',
